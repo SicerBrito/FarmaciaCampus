@@ -4,7 +4,7 @@
 </div>
 <div style="display: flex; justify-content: center;">
 
-## Proyecto Web con Base de datos relacionales en grupo hecha por   
+## Proyecto Web con Base de datos relacionales hecha en grupo por   
 
 </div>
 <div style="display: flex; justify-content: center;">
