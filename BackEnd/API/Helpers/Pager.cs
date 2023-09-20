@@ -7,7 +7,6 @@ public class Pager<T> where T : class{
     public int PageSize { get;  set; }
     public int Total { get;  set; }
     public List<T> Registers { get; private set; }
-
     
     public Pager(List<T> registers, int total, int pageIndex,
         int pageSize, string search)

@@ -5,7 +5,7 @@ namespace Dominio.Entities;
         public string ? Propietario { get; set; }
 
         public int DireccionId { get; set; }
-        public Dirrecion ? Direcciones { get; set; }
+        public Direccion ? Direcciones { get; set; }
 
         public DateTime Inauguracion { get; set; }
      }

@@ -1,14 +1,21 @@
 using System.Reflection;
 using API.Extensions;
 using API.Helpers;
+using API.Helpers.Errors;
 using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Persistencia.Data;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var logger = new LoggerConfiguration()
+                    .ReadFrom.Configuration(builder.Configuration)
+                    .Enrich.FromLogContext()
+                    .CreateLogger();
 
+builder.Logging.AddSerilog(logger);
 /*
  el context accessor nos permite que podamos implementar la autorizacion de roles
 */
@@ -44,13 +51,16 @@ builder.Services.AddDbContext<DbAppContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//app.UseStatusCodePagesWithReExecute("/errors/{0}");
+//app.UseMiddleware<ExceptionMiddleware>();
+
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

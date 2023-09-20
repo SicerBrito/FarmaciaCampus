@@ -82,7 +82,7 @@ namespace API.Extensions;
                     return new BadRequestObjectResult(errorResponse);
                 };
             });
-        }        
+        }
 
         //definimos el limite de peticiones que podemos hacer a un EndPoint
         public static void ConfigureRateLimiting(this IServiceCollection services)

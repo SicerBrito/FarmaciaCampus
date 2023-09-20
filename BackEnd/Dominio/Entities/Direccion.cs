@@ -1,7 +1,7 @@
 namespace Dominio.Entities;
 
      public class Direccion : BaseEntity{
-        public string ? Direccion { get; set; }
+        public string ? NNDireccion { get; set; }
 
         public int TipoId { get; set; }
         public Tipo ? Tipos { get; set; }

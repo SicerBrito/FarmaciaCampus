@@ -5,9 +5,9 @@ namespace Dominio.Entities;
         public Paciente ? Pacientes { get; set; }
 
         public int MedicoId { get; set; }
-        public Medico ? Medicos { get; set; }
+        public Empleado ? Medicos { get; set; }
 
-        public string Diagnostico { get; set; }
-        public string Tratamiento { get; set; }
-        public string Observaciones { get; set; }
+        public string ? Diagnostico { get; set; }
+        public string ? Tratamiento { get; set; }
+        public string ? Observaciones { get; set; }
      }

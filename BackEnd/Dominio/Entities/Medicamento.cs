@@ -3,7 +3,7 @@ namespace Dominio.Entities;
      public class Medicamento : BaseEntity{
         public string ? Nombre { get; set; }
 
-        public int TipoId { get; set: }
+        public int TipoId { get; set; }
         public Tipo ? Tipos { get; set; }
 
         public int CategoriaId { get; set; }

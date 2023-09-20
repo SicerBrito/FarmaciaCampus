@@ -4,7 +4,7 @@ namespace Dominio.Entities;
         public DateTime FechaCompra { get; set; }
 
         public int ProveedorId { get; set; }
-        public proveedor ? Proveedores { get; set; }
+        public Proveedor ? Proveedores { get; set; }
 
         public int MetodoDePagoId { get; set; }
         public MetodoDePago ? MetodosDePagos { get; set; }

@@ -5,7 +5,7 @@ namespace Dominio.Entities;
         public Farmacia ? Farmacias { get; set; }
 
         public int CompraId { get; set; }
-        public Compra ? Compras 
+        public Compra ? Compras { get; set; }
 
         public int VentaId { get; set; }
         public Venta ? Ventas { get; set; }
