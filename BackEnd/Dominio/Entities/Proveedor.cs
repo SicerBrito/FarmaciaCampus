@@ -1,10 +1,10 @@
 namespace Dominio.Entities;
+   public class Proveedor : BaseEntity{
 
-     public class Proveedor : BaseEntity{
-        public string ? Nombre { get; set; }
-        public string ? Apellidos { get; set; }
-        public int  NumeroContacto { get; set; }
+      public string ? Nombres { get; set; }
+      public string ? Apellidos { get; set; }
+      public int NumeroContacto { get; set; }
+      public ICollection<Compra> ? Compras { get; set; }
+      public ICollection<Medicamento> ? Medicamentos { get; set; }
 
-        public int DireccionId { get; set; }
-        public Direccion ? Direcciones { get; set; } 
-     }
+   }

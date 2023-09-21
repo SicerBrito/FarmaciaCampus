@@ -1,21 +1,17 @@
 namespace Dominio.Entities;
+  public class Venta : BaseEntity{
 
-     public class Venta : BaseEntity{
-        public int VentaEmpleadoId { get; set; }
-        public Empleado ? VentasEmpleados { get; set; }
+    public DateTime FechaVenta { get; set; }
+    public int ClienteId { get; set; }
+    public Usuario ? Usuarios { get; set; }
+    public int VentaEmpleadoId { get; set; }
+    public Empleado ? Empleados { get; set; }
+    public int MetodoDePagoId { get; set; }
+    public MetodoDePago ? MetodosDePagos { get; set; }
+    public int NumeroFactura { get; set; }
 
-        public DateTime FechaVenta { get; set; }
-
-        public int ClienteId { get; set; }
-        public Paciente ? Clientes { get; set; }
-
-        public int MedicamentoId { get; set; }
-        public Medicamento ? Medicamentos { get; set; }
-
-        public int ValorTotalVenta { get; set; }
-
-        public int MetodoDePagoId { get; set; }
-        public MetodoDePago ? MetodosDePagos { get; set; }
-
-        public int NumeroFactura { get; set; }
-     }
+    
+    public ICollection<Inventario> ? Inventarios { get; set; }
+    public ICollection<MedicamentosVendidos> ? MedicamentosVendidos { get; set; }
+  
+  }
