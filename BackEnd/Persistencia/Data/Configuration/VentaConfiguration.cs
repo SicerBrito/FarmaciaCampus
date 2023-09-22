@@ -4,31 +4,40 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Data.Configuration;
-public class CompraConfiguration : IEntityTypeConfiguration<Compra>
+public class VentaConfiguration : IEntityTypeConfiguration<Venta>
 {
-    public void Configure(EntityTypeBuilder<Compra> builder)
+    public void Configure(EntityTypeBuilder<Venta> builder)
     {
-        builder.ToTable("Compra");
+        builder.ToTable("Venta");
 
         builder.Property(p => p.Id)
             .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-            .HasColumnName("IdCompra")
+            .HasColumnName("IdVenta")
             .HasColumnType("int")
             .IsRequired();
 
-        builder.Property(p => p.FechaCompra)
-            .HasColumnName("FechaCompra")
+        builder.Property(p => p.FechaVenta)
+            .HasColumnName("FechaVenta")
             .HasColumnType("DateTime")
             .IsRequired();
 
-        builder.Property(p => p.ProveedorId)
-            .HasColumnName("Proveedor_Id")
+        builder.Property(p => p.ClienteId)
+            .HasColumnName("Cliente_Id")
             .HasColumnType("int")
             .IsRequired();
 
-        builder.HasOne(p => p.Proveedores)
-            .WithMany(p => p.Compras)
-            .HasForeignKey(p => p.ProveedorId);
+        builder.HasOne(p => p.Usuarios)
+            .WithMany(p => p.Ventas)
+            .HasForeignKey(p => p.ClienteId);
+
+        builder.Property(p => p.VentaEmpleadoId)
+            .HasColumnName("VentaEmpleado_Id")
+            .HasColumnType("int")
+            .IsRequired();
+
+        builder.HasOne(p => p.Empleados)
+            .WithMany(p => p.Ventas)
+            .HasForeignKey(p => p.VentaEmpleadoId);
 
         builder.Property(p => p.MetodoDePagoId)
             .HasColumnName("MetodoDePago_Id")
@@ -36,13 +45,12 @@ public class CompraConfiguration : IEntityTypeConfiguration<Compra>
             .IsRequired();
 
         builder.HasOne(p => p.MetodosDePagos)
-            .WithMany(p => p.Compras)
+            .WithMany(p => p.Ventas)
             .HasForeignKey(p => p.MetodoDePagoId);
 
         builder.Property(p => p.NumeroFactura)
             .HasColumnName("NumeroFactura")
             .HasColumnType("BIGINT")
             .IsRequired();
-
     }
 }

@@ -8,7 +8,7 @@ namespace Dominio.Entities;
     public int TipoViaId { get; set; }
     public TipoVia ? TipoVias { get; set; }
     public int NumeroDireccion { get; set; }
-    public string ? CiudadId { get; set; }
+    public int CiudadId { get; set; }
     public Ciudad ? Ciudades { get; set; }
     public int CodigoPostal { get; set; }
     public int FarmaciaId { get; set; }

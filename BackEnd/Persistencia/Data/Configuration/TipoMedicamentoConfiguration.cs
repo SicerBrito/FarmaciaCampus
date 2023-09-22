@@ -4,23 +4,22 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistencia.Data.Configuration;
-public class EstadoCitaConfiguration : IEntityTypeConfiguration<EstadoCita>
+public class TipoMedicamentoConfiguration : IEntityTypeConfiguration<TipoMedicamento>
 {
-    public void Configure(EntityTypeBuilder<EstadoCita> builder)
+    public void Configure(EntityTypeBuilder<TipoMedicamento> builder)
     {
-        builder.ToTable("EstadoCita");
+        builder.ToTable("TipoMedicamento");
 
         builder.Property(p => p.Id)
             .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-            .HasColumnName("IdEstadoCita")
+            .HasColumnName("IdTipoMedicamento")
             .HasColumnType("int")
             .IsRequired();
 
         builder.Property(p => p.Nombre)
-            .HasColumnName("NombreEstado")
+            .HasColumnName("NombreTipo")
             .HasColumnType("varchar")
-            .HasMaxLength(25)
+            .HasMaxLength(30)
             .IsRequired();
-            
     }
 }

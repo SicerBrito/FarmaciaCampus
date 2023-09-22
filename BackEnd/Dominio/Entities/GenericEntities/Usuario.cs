@@ -7,5 +7,7 @@ namespace Dominio.Entities;
         public ICollection<Rol> ? Roles { get; set; } = new HashSet<Rol>();
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
         public ICollection<UsuarioRol> ? UsuarioRoles { get; set; }
+        public ICollection<Cita> ? Citas { get; set; }
+        public ICollection<Venta> ? Ventas { get; set; }
 
     }

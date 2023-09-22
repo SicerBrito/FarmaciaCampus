@@ -11,5 +11,6 @@ namespace Dominio.Entities;
       
       public ICollection<Inventario> ? Inventarios { get; set; }
       public ICollection<Direccion> ? Direcciones { get; set; }
+      public ICollection<Empleado> ? Empleados { get; set; }
 
    }
