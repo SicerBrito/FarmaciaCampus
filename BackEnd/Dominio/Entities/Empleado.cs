@@ -8,6 +8,7 @@ public class Empleado : BaseEntity{
     public string ? Apellidos { get; set; }
     public int CargoId { get; set; }
     public CargoEmpleado ? Cargos { get; set; }
+    public int Sueldo { get; set; }
     public DateTime FechaContratacion { get; set; }
 
     

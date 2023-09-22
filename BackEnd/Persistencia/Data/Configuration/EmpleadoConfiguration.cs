@@ -46,6 +46,11 @@ public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
             .WithMany(p => p.Empleados)
             .HasForeignKey(p => p.CargoId);
 
+        builder.Property(p => p.Sueldo)
+            .HasColumnName("Sueldo")
+            .HasColumnType("BIGINT")
+            .IsRequired();
+
         builder.Property(p => p.FechaContratacion)
             .HasColumnName("FechaContratacion")
             .HasColumnType("DateTime")

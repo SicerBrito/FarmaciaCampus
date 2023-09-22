@@ -237,6 +237,7 @@ namespace Persistencia.Data.Migrations
                     Apellidos = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Cargo_Id = table.Column<int>(type: "int", nullable: false),
+                    Sueldo = table.Column<long>(type: "BIGINT", nullable: false),
                     FechaContratacion = table.Column<DateTime>(type: "DateTime", nullable: false)
                 },
                 constraints: table =>
@@ -688,7 +689,7 @@ namespace Persistencia.Data.Migrations
                 {
                     IdDireccion = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Direccion = table.Column<string>(type: "varchar", nullable: false)
+                    Direccion = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     TipoDireccion_Id = table.Column<int>(type: "int", nullable: false),
                     TipoVia_Id = table.Column<int>(type: "int", nullable: false),

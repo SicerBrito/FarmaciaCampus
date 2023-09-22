@@ -204,10 +204,11 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("NombreDireccion")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("varchar")
                         .HasColumnName("Direccion");
 
-                    b.Property<int>("NumeroDireccion")
+                    b.Property<int>("NroDireccion")
                         .HasColumnType("int")
                         .HasColumnName("NroDireccion");
 
@@ -263,6 +264,10 @@ namespace Persistencia.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("varchar")
                         .HasColumnName("Nombres");
+
+                    b.Property<long>("Sueldo")
+                        .HasColumnType("BIGINT")
+                        .HasColumnName("Sueldo");
 
                     b.HasKey("Id");
 

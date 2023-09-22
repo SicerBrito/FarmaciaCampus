@@ -47,13 +47,13 @@ public class UserService : IUserService{
 
             usuario.Password = _passwordHasher.HashPassword(usuario, registerDto.Password!);
 
-            var usuarioExiste = _unitOfWork.Usuarios
+            var usuarioExiste = _unitOfWork.Usuarios!
                                                 .Find(u => u.Username!.ToLower() == registerDto.Username!.ToLower())
                                                 .FirstOrDefault();
 
             if (usuarioExiste == null)
             {
-                var rolPredeterminado = _unitOfWork.Roles
+                var rolPredeterminado = _unitOfWork.Roles!
                                                      .Find(u => u.Nombre == Autorizacion.rol_predeterminado.ToString())
                                                      .First();
                 try
@@ -81,7 +81,7 @@ public class UserService : IUserService{
 
         async Task<string> IUserService.AddRoleAsync(AddRoleDto model)
         {
-            var usuario = await _unitOfWork.Usuarios
+            var usuario = await _unitOfWork.Usuarios!
                                 .GetByUsernameAsync(model.Username!);
 
             if (usuario == null)
@@ -93,7 +93,7 @@ public class UserService : IUserService{
 
             if (resultado == PasswordVerificationResult.Success)
             {
-                var rolExiste = _unitOfWork.Roles
+                var rolExiste = _unitOfWork.Roles!
                                                 .Find(u => u.Nombre!.ToLower() == model.Rol!.ToLower())
                                                 .FirstOrDefault();
 
@@ -120,7 +120,7 @@ public class UserService : IUserService{
         public async Task<DataUserDto> GetTokenAsync(LoginDto model)
         {
             DataUserDto datosUsuarioDto = new DataUserDto();
-            var usuario = await _unitOfWork.Usuarios
+            var usuario = await _unitOfWork.Usuarios!
                             .GetByUsernameAsync(model.Username!);
 
             if (usuario == null)
@@ -225,7 +225,7 @@ public class UserService : IUserService{
     {
         var datosUsuarioDto = new DataUserDto();
 
-        var usuario = await _unitOfWork.Usuarios
+        var usuario = await _unitOfWork.Usuarios!
                         .GetByRefreshTokenAsync(refreshToken);
 
         if (usuario == null)

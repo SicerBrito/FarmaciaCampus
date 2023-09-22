@@ -19,6 +19,7 @@ public class DireccionConfiguration : IEntityTypeConfiguration<Direccion>
         builder.Property(p => p.NombreDireccion)
             .HasColumnName("Direccion")
             .HasColumnType("varchar")
+            .HasMaxLength(100)
             .IsRequired();
 
         builder.Property(p => p.TipoDireccionId)
@@ -39,7 +40,7 @@ public class DireccionConfiguration : IEntityTypeConfiguration<Direccion>
             .WithMany(p => p.Direcciones)
             .HasForeignKey(p => p.TipoViaId);
 
-        builder.Property(p => p.NumeroDireccion)
+        builder.Property(p => p.NroDireccion)
             .HasColumnName("NroDireccion")
             .HasColumnType("int")
             .IsRequired();

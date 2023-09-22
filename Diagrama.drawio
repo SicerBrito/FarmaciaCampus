@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Página-1" id="jpfWLPqKtA525M7urUYz">
-        <mxGraphModel dx="2525" dy="2175" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2165" dy="2016" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -31,7 +31,7 @@
                 <mxCell id="NZvGtXNSFo7niaEzpbH--24" value="Empleados" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
                     <mxGeometry x="-570" y="-651" width="200" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="&lt;b&gt;Id_Empleado&lt;br&gt;&lt;/b&gt;Farmacia_Id&lt;br&gt;Nombres&lt;br&gt;Apellidos&lt;br&gt;&lt;b&gt;Cargo&lt;/b&gt;_Id&lt;br&gt;FechaContratacion" style="whiteSpace=wrap;html=1;" parent="NZvGtXNSFo7niaEzpbH--24" vertex="1">
+                <mxCell id="12" value="&lt;b&gt;Id_Empleado&lt;br&gt;&lt;/b&gt;Farmacia_Id&lt;br&gt;Nombres&lt;br&gt;Apellidos&lt;br&gt;&lt;b&gt;Cargo&lt;/b&gt;_Id&lt;br&gt;Sueldo&lt;br&gt;FechaContratacion" style="whiteSpace=wrap;html=1;" parent="NZvGtXNSFo7niaEzpbH--24" vertex="1">
                     <mxGeometry x="10" y="30" width="180" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="NZvGtXNSFo7niaEzpbH--25" value="FormulaMedica" style="swimlane;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
@@ -250,7 +250,7 @@
                         <mxPoint x="-650" y="-751" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.997;entryY=0.734;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="67" edge="1" target="17">
+                <mxCell id="82" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.997;entryY=0.734;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="67" target="17" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="210" y="-521" as="targetPoint"/>
                         <Array as="points">
@@ -411,7 +411,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="129" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.011;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="17" target="13">
+                <mxCell id="129" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.011;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="17" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="270" y="-581"/>
@@ -421,7 +421,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="130" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="9">
+                <mxCell id="130" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="18" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-40" y="-581"/>
@@ -431,7 +431,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="4">
+                <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="18" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-40" y="-581"/>
