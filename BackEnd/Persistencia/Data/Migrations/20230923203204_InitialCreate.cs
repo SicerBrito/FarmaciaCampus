@@ -160,6 +160,21 @@ namespace Persistencia.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Rol",
+                columns: table => new
+                {
+                    Id_Rol = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NombreRol = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rol", x => x.Id_Rol);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "TipoDireccion",
                 columns: table => new
                 {
@@ -399,6 +414,58 @@ namespace Persistencia.Data.Migrations
                     table.ForeignKey(
                         name: "FK_RefreshToken_Usuario_UserId",
                         column: x => x.UserId,
+                        principalTable: "Usuario",
+                        principalColumn: "Id_Usuario",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "RolUsuario",
+                columns: table => new
+                {
+                    RolesId = table.Column<int>(type: "int", nullable: false),
+                    UsuariosId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RolUsuario", x => new { x.RolesId, x.UsuariosId });
+                    table.ForeignKey(
+                        name: "FK_RolUsuario_Rol_RolesId",
+                        column: x => x.RolesId,
+                        principalTable: "Rol",
+                        principalColumn: "Id_Rol",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RolUsuario_Usuario_UsuariosId",
+                        column: x => x.UsuariosId,
+                        principalTable: "Usuario",
+                        principalColumn: "Id_Usuario",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "UsuarioRol",
+                columns: table => new
+                {
+                    Id_UsuarioRol = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Usuario_Id = table.Column<int>(type: "int", nullable: false),
+                    Rol_Id = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsuarioRol", x => x.Id_UsuarioRol);
+                    table.ForeignKey(
+                        name: "FK_UsuarioRol_Rol_Rol_Id",
+                        column: x => x.Rol_Id,
+                        principalTable: "Rol",
+                        principalColumn: "Id_Rol",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UsuarioRol_Usuario_Usuario_Id",
+                        column: x => x.Usuario_Id,
                         principalTable: "Usuario",
                         principalColumn: "Id_Usuario",
                         onDelete: ReferentialAction.Cascade);
@@ -729,80 +796,6 @@ namespace Persistencia.Data.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "Rol",
-                columns: table => new
-                {
-                    Id_Rol = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    NombreRol = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    DireccionId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rol", x => x.Id_Rol);
-                    table.ForeignKey(
-                        name: "FK_Rol_Direccion_DireccionId",
-                        column: x => x.DireccionId,
-                        principalTable: "Direccion",
-                        principalColumn: "IdDireccion",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "RolUsuario",
-                columns: table => new
-                {
-                    RolesId = table.Column<int>(type: "int", nullable: false),
-                    UsuariosId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RolUsuario", x => new { x.RolesId, x.UsuariosId });
-                    table.ForeignKey(
-                        name: "FK_RolUsuario_Rol_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "Rol",
-                        principalColumn: "Id_Rol",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RolUsuario_Usuario_UsuariosId",
-                        column: x => x.UsuariosId,
-                        principalTable: "Usuario",
-                        principalColumn: "Id_Usuario",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "UsuarioRol",
-                columns: table => new
-                {
-                    Id_UsuarioRol = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Usuario_Id = table.Column<int>(type: "int", nullable: false),
-                    Rol_Id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UsuarioRol", x => x.Id_UsuarioRol);
-                    table.ForeignKey(
-                        name: "FK_UsuarioRol_Rol_Rol_Id",
-                        column: x => x.Rol_Id,
-                        principalTable: "Rol",
-                        principalColumn: "Id_Rol",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UsuarioRol_Usuario_Usuario_Id",
-                        column: x => x.Usuario_Id,
-                        principalTable: "Usuario",
-                        principalColumn: "Id_Usuario",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Cita_EstadoCita_Id",
                 table: "Cita",
@@ -964,11 +957,6 @@ namespace Persistencia.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rol_DireccionId",
-                table: "Rol",
-                column: "DireccionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_RolUsuario_UsuariosId",
                 table: "RolUsuario",
                 column: "UsuariosId");
@@ -1006,6 +994,9 @@ namespace Persistencia.Data.Migrations
                 name: "Cita");
 
             migrationBuilder.DropTable(
+                name: "Direccion");
+
+            migrationBuilder.DropTable(
                 name: "FormulaMedicamentos");
 
             migrationBuilder.DropTable(
@@ -1033,6 +1024,15 @@ namespace Persistencia.Data.Migrations
                 name: "EstadoCita");
 
             migrationBuilder.DropTable(
+                name: "Ciudad");
+
+            migrationBuilder.DropTable(
+                name: "TipoDireccion");
+
+            migrationBuilder.DropTable(
+                name: "TipoVia");
+
+            migrationBuilder.DropTable(
                 name: "FormulaMedica");
 
             migrationBuilder.DropTable(
@@ -1046,6 +1046,9 @@ namespace Persistencia.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Rol");
+
+            migrationBuilder.DropTable(
+                name: "Departamento");
 
             migrationBuilder.DropTable(
                 name: "Paciente");
@@ -1072,7 +1075,7 @@ namespace Persistencia.Data.Migrations
                 name: "Usuario");
 
             migrationBuilder.DropTable(
-                name: "Direccion");
+                name: "Pais");
 
             migrationBuilder.DropTable(
                 name: "Genero");
@@ -1081,22 +1084,7 @@ namespace Persistencia.Data.Migrations
                 name: "CargoEmpleado");
 
             migrationBuilder.DropTable(
-                name: "Ciudad");
-
-            migrationBuilder.DropTable(
                 name: "Farmacia");
-
-            migrationBuilder.DropTable(
-                name: "TipoDireccion");
-
-            migrationBuilder.DropTable(
-                name: "TipoVia");
-
-            migrationBuilder.DropTable(
-                name: "Departamento");
-
-            migrationBuilder.DropTable(
-                name: "Pais");
         }
     }
 }

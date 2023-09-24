@@ -777,9 +777,6 @@ namespace Persistencia.Data.Migrations
                         .HasColumnName("Id_Rol")
                         .HasAnnotation("MySqlValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DireccionId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -787,8 +784,6 @@ namespace Persistencia.Data.Migrations
                         .HasColumnName("NombreRol");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DireccionId");
 
                     b.ToTable("Rol", (string)null);
                 });
@@ -1265,17 +1260,6 @@ namespace Persistencia.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Dominio.Entities.Rol", b =>
-                {
-                    b.HasOne("Dominio.Entities.Direccion", "Direcciones")
-                        .WithMany()
-                        .HasForeignKey("DireccionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Direcciones");
                 });
 
             modelBuilder.Entity("Dominio.Entities.UsuarioRol", b =>
