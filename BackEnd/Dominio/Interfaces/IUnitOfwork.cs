@@ -14,6 +14,7 @@ namespace Dominio.Interfaces;
         IEstadoCita ? EstadoCitas { get; }
         IFarmacia ? Farmacias { get; }
         IFormulaMedica ? FormulasMedicas { get; }
+        IFormulaMedicamentos ? FormulaMedicamentos { get; }
         IGenero ? Generos { get; }
         IHistorialMedico ? HistorialesMedicos { get; }
         IMedicamento ? Medicamentos { get; }

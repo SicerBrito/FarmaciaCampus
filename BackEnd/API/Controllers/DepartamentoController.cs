@@ -1,5 +1,5 @@
 using API.Dtos;
-using API.Dtos.Cita;
+using API.Dtos.Departamento;
 using API.Helpers;
 using AutoMapper;
 using Dominio.Entities;
@@ -10,12 +10,12 @@ namespace API.Controllers;
 
     [ApiVersion("1.0")]
     [ApiVersion("1.1")]
-    public class CitaController : BaseApiController{
+    public class DepartamentoController : BaseApiController{
         
         private readonly IUnitOfWork _UnitOfWork;
         private readonly IMapper _Mapper;
         
-        public CitaController(IUnitOfWork unitOfWork,IMapper mapper){
+        public DepartamentoController(IUnitOfWork unitOfWork,IMapper mapper){
             _UnitOfWork = unitOfWork;
             _Mapper = mapper;
         }
@@ -25,48 +25,48 @@ namespace API.Controllers;
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<IEnumerable<CitaDto>>> Get(){
-            var records = await _UnitOfWork.Citas!.GetAllAsync();
-            return _Mapper.Map<List<CitaDto>>(records);
+        public async Task<ActionResult<IEnumerable<DepartamentoDto>>> Get(){
+            var records = await _UnitOfWork.Departamentos!.GetAllAsync();
+            return _Mapper.Map<List<DepartamentoDto>>(records);
         }
         
         [HttpGet]
         [MapToApiVersion("1.1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Pager<CitaComplementsDto>>> Get11([FromQuery] Params citaParams)
+        public async Task<ActionResult<Pager<DepartamentoComplemetsDto>>> Get11([FromQuery] Params citaParams)
         {
-            var cita = await _UnitOfWork.Citas!.GetAllAsync(citaParams.PageIndex,citaParams.PageSize,citaParams.Search);
-            var lstcitasDto = _Mapper.Map<List<CitaComplementsDto>>(cita.registros);
-            return new Pager<CitaComplementsDto>(lstcitasDto,cita.totalRegistros,citaParams.PageIndex,citaParams.PageSize,citaParams.Search);
+            var cita = await _UnitOfWork.Departamentos!.GetAllAsync(citaParams.PageIndex,citaParams.PageSize,citaParams.Search);
+            var lstcitasDto = _Mapper.Map<List<DepartamentoComplemetsDto>>(cita.registros);
+            return new Pager<DepartamentoComplemetsDto>(lstcitasDto,cita.totalRegistros,citaParams.PageIndex,citaParams.PageSize,citaParams.Search);
         }
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CitaComplementsDto>> Get(string id)
+        public async Task<ActionResult<DepartamentoComplemetsDto>> Get(string id)
         {
-            var record = await _UnitOfWork.Citas!.GetByIdAsync(id);
+            var record = await _UnitOfWork.Departamentos!.GetByIdAsync(id);
             if (record == null){
                 return NotFound();
             }
-            return _Mapper.Map<CitaComplementsDto>(record);
+            return _Mapper.Map<DepartamentoComplemetsDto>(record);
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Cita>> Post(CitaDto citaDto){
-            var record = _Mapper.Map<Cita>(citaDto);
-            _UnitOfWork.Citas!.Add(record);
+        public async Task<ActionResult<Departamento>> Post(DepartamentoDto departamentoDto){
+            var record = _Mapper.Map<Departamento>(departamentoDto);
+            _UnitOfWork.Departamentos!.Add(record);
             await _UnitOfWork.SaveAsync();
             if (record == null)
             {
                 return BadRequest();
             }
-            citaDto.Id = record.Id;
-            return CreatedAtAction(nameof(Post),new {id= citaDto.Id}, citaDto);
+            departamentoDto.Id = record.Id;
+            return CreatedAtAction(nameof(Post),new {id= departamentoDto.Id}, departamentoDto);
         }
 
         
@@ -74,11 +74,11 @@ namespace API.Controllers;
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<CitaDto>> Put(string id, [FromBody]CitaDto recordDto){
+        public async Task<ActionResult<DepartamentoDto>> Put(string id, [FromBody]DepartamentoDto recordDto){
             if(recordDto == null)
                 return NotFound();
-            var records = _Mapper.Map<Cita>(recordDto);
-            _UnitOfWork.Citas!.Update(records);
+            var records = _Mapper.Map<Departamento>(recordDto);
+            _UnitOfWork.Departamentos!.Update(records);
             await _UnitOfWork.SaveAsync();
             return recordDto;
             

@@ -16,16 +16,20 @@ public class CitaRepository : GenericRepository<Cita>, ICita
     {
         return (await _Context.Set<Cita>()
                             .Include(u => u.EstadoCitas)
-                            .FirstOrDefaultAsync(u => u.!.ToLower()==estado.ToLower()))!;
+                            .FirstOrDefaultAsync(u => u.EstadoCitaId.ToString()==estado.ToLower()))!;
     }
 
     public async Task<Cita> GetByMedicoAsync(string medico)
     {
-        throw new NotImplementedException();
+        return (await _Context.Set<Cita>()
+                            .Include(u => u.Empleados)
+                            .FirstOrDefaultAsync(u => u.MedicoId.ToString()==medico.ToLower()))!;
     }
 
     public async Task<Cita> GetByUsuarioAsync(string usuario)
     {
-        throw new NotImplementedException();
+        return (await _Context.Set<Cita>()
+                            .Include(u => u.Usuarios)
+                            .FirstOrDefaultAsync(u => u.UsuarioId.ToString()==usuario.ToLower()))!;
     }
 }

@@ -25,6 +25,7 @@ namespace Aplicacion.UnitOfWork;
         EstadoCitaRepository ? _EstadoCita;
         FarmaciaRepository ? _Farmacia;
         FormulaMedicaRepository ? _FormulaMedica;
+        FormulaMedicamentosRepository ? _FormulaMedicamentos;
         GeneroRepository ? _Genero;
         HistorialMedicoRepository ? _HistorialMedico;
         MedicamentoRepository ? _Medicamento;
@@ -56,6 +57,7 @@ namespace Aplicacion.UnitOfWork;
         public IEstadoCita ? EstadoCitas => _EstadoCita ??= new EstadoCitaRepository(_Context!);
         public IFarmacia ? Farmacias => _Farmacia ??= new FarmaciaRepository(_Context!);
         public IFormulaMedica ? FormulasMedicas => _FormulaMedica ??= new FormulaMedicaRepository(_Context!);
+        public IFormulaMedicamentos? FormulaMedicamentos => _FormulaMedicamentos ??= new FormulaMedicamentosRepository(_Context!);
         public IGenero ? Generos => _Genero ??= new GeneroRepository(_Context!);
         public IHistorialMedico ? HistorialesMedicos => _HistorialMedico ??= new HistorialMedicoRepository(_Context!);
         public IMedicamento ? Medicamentos => _Medicamento ??= new MedicamentoRepository(_Context!);
@@ -71,9 +73,7 @@ namespace Aplicacion.UnitOfWork;
         public ITipoVia ? TipoVias => _TipoVia ??= new TipoViaRepository(_Context!);
         public IVenta ? Ventas => _Venta ??= new VentaRepository(_Context!);
 
-
-
-        public void Dispose(){
+    public void Dispose(){
             _Context!.Dispose();
             GC.SuppressFinalize(this); 
         }

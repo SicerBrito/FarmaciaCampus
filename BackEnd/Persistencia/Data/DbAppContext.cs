@@ -40,11 +40,7 @@ namespace Persistencia.Data;
         public DbSet<Venta> ? Ventas { get; set; } = null!;
 
 
-
-
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder){
+    protected override void OnModelCreating(ModelBuilder modelBuilder){
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
