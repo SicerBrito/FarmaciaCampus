@@ -10,6 +10,7 @@ namespace Dominio.Interfaces;
         ICompra ? Compras { get; }
         IDepartamento ? Departamentos { get; }
         IDireccion ? Direcciones { get; }
+        IInventario ? Inventarios { get; }
         IEmpleado ? Empleados { get; }
         IEstadoCita ? EstadoCitas { get; }
         IFarmacia ? Farmacias { get; }
