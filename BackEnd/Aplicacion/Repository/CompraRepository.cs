@@ -1,5 +1,6 @@
 using Dominio.Entities;
 using Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Persistencia.Data;
 
 namespace Aplicacion.Repository;
@@ -10,4 +11,19 @@ public class CompraRepository : GenericRepository<Compra>, ICompra
     {
         _Context = context;
     }
+
+    public async Task<Compra> GetByProveedorAsync(string proveedor)
+    {
+        return (await _Context.Set<Compra>()
+                            .Include(u => u.Proveedores)
+                            .FirstOrDefaultAsync(u => u.NumeroFactura!.ToString()==proveedor.ToLower()))!;
+    }
+
+    public async Task<Compra> GetByMetodoDePagoAsync(string metododepago)
+    {
+        return (await _Context.Set<Compra>()
+                                .Include(u => u.MetodosDePagos)
+                                .FirstOrDefaultAsync(u => u.NumeroFactura!.ToString()==metododepago.ToLower()))!;
+    }
+
 }
