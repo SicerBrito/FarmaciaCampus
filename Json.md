@@ -1,19 +1,19 @@
 # CargoEmpleado
 [  
   {  
-    "id": "1",  
+    "Id": "1",  
     "Nombre": "Medico"  
   },  
   {  
-    "id": "2",  
+    "Id": "2",  
     "Nombre": "Farmaceutico"  
   },  
   {  
-    "id": "3",  
+    "Id": "3",  
     "Nombre": "Cajero"  
   },  
   {  
-    "id": "4",  
+    "Id": "4",  
     "Nombre": "Repartidor"  
   }  
 ]  
@@ -23,19 +23,19 @@
 # CategoriaMedicamento
 [  
   {    
-    "id": "1",    
+    "Id": "1",    
     "Nombre": "Analgesico"    
   },  
   {  
-    "id": "2",  
+    "Id": "2",  
     "Nombre": "Antiinflamatorio"  
   },
   {  
-    "id": "3",  
-    "Nombre": "Antibiótico"  
+    "Id": "3",  
+    "Nombre": "Antibiotico"  
   },  
   {  
-    "id": "4",  
+    "Id": "4",  
     "Nombre": "Antiulceroso"  
   } 
 ]
@@ -45,35 +45,35 @@
 # EstadoCita
 [
   {  
-    "id": "1",  
+    "Id": "1",  
     "Nombre": "Programada"  
   },  
   {  
-    "id": "2",  
+    "Id": "2",  
     "Nombre": "Confirmada"  
   },  
   {  
-    "id": "3",  
+    "Id": "3",  
     "Nombre": "No confirmada"  
   },  
   {  
-    "id": "4",  
+    "Id": "4",  
     "Nombre": "Cancelada"  
   },  
   {  
-    "id": "5",  
+    "Id": "5",  
     "Nombre": "Atendida"  
   },  
   {  
-    "id": "6",  
+    "Id": "6",  
     "Nombre": "En espera"  
   },  
   {  
-    "id": "8",  
+    "Id": "7",  
     "Nombre": "Reprogramada"  
   },  
   {  
-    "id": "9",  
+    "Id": "8",  
     "Nombre": "Rechazada"  
   }   
 ]
@@ -98,23 +98,23 @@
 
 [  
   {    
-    "id": "1",    
+    "Id": "1",    
     "Nombre": "Masculino"  
   },  
   {  
-    "id": "2",  
+    "Id": "2",  
     "Nombre": "Femenino"  
   },  
   {  
-    "id": "3",  
+    "Id": "3",  
     "Nombre": "Otro"  
   },  
   {  
-    "id": "4",  
+    "Id": "4",  
     "Nombre": "Helicoptero"  
   },  
   {  
-    "id": "5",  
+    "Id": "5",  
     "Nombre": "Prefiero no decirlo"  
   }  
 ]  
@@ -124,7 +124,236 @@
 # MetodoDePago
 
 [
+  {  
+    "Id": "1",  
+    "Nombre": "Tarjeta de credito"  
+  },
+  {  
+    "Id": "2",  
+    "Nombre": "Tarjeta de debito"  
+  },
+  {  
+    "Id": "3",  
+    "Nombre": "Efectivo"  
+  },
+  {  
+    "Id": "4",  
+    "Nombre": "Cheque"  
+  },
+  {  
+    "Id": "5",  
+    "Nombre": "Transferencia bancaria"  
+  }
+]
+
+---
+
+# Pais
+[
+  {  
+    "Id": "1",  
+    "Nombre": "Estados Unidos"  
+  },
+  {  
+    "Id": "2",  
+    "Nombre": "Canada"  
+  },
+  {  
+    "Id": "3",  
+    "Nombre": "Mexico"  
+  },
+  {  
+    "Id": "4",  
+    "Nombre": "Europa"  
+  },
+  {  
+    "Id": "5",  
+    "Nombre": "Asia"  
+  },
+  {  
+    "Id": "6",  
+    "Nombre": "Africa"  
+  },
+  {  
+    "Id": "7",  
+    "Nombre": "Oceania"  
+  },
+  {  
+    "Id": "8",  
+    "Nombre": "Australia"  
+  },
+  {  
+    "Id": "9",  
+    "Nombre": "Brasil"  
+  },
+  {  
+    "Id": "10",  
+    "Nombre": "China"  
+  },
+  {  
+    "Id": "11",  
+    "Nombre": "India"  
+  },
+  {  
+    "Id": "12",  
+    "Nombre": "Indonesia"  
+  },
+  {  
+    "Id": "13",  
+    "Nombre": "Japon"  
+  },
+  {  
+    "Id": "14",  
+    "Nombre": "Marruecos"  
+  },
+  {  
+    "Id": "15",  
+    "Nombre": "Nigeria"  
+  },
+  {  
+    "Id": "16",  
+    "Nombre": "Rusia"  
+  },
+  {  
+    "Id": "17",  
+    "Nombre": "Sudáfrica"  
+  },
+  {  
+    "Id": "18",  
+    "Nombre": "Tailandia"  
+  },
+  {  
+    "Id": "19",  
+    "Nombre": "Argentina"  
+  },
+  {  
+    "Id": "20",  
+    "Nombre": "Austria"  
+  },
+  {  
+    "Id": "21",  
+    "Nombre": "Belgica"  
+  },
+  {  
+    "Id": "22",  
+    "Nombre": "Bulgaria"  
+  },
+  {  
+    "Id": "23",  
+    "Nombre": "Chile"  
+  },
+  {  
+    "Id": "24",  
+    "Nombre": "Colombia"  
+  },
+  {  
+    "Id": "25",  
+    "Nombre": "Costa Rica"  
+  }
+]
+
+---
+
+# Presentacion
+[
+  {  
+    "Id": "1",  
+    "Descripcion": "Caja de 30 tabletas"  
+  },
+  {  
+    "Id": "2",  
+    "Descripcion": "Botella de 100 capsulas"  
+  },
+  {  
+    "Id": "3",  
+    "Descripcion": "Caja de 50 tabletas"  
+  },
+  {  
+    "Id": "4",  
+    "Descripcion": "Botella de 30 capsulas"  
+  },
+  {  
+    "Id": "5",  
+    "Descripcion": "Caja de 60 capsulas"  
+  }
+]
+
+---
+
+# Proveedor
+
+[
+  {  
+    "Id": "1",  
+    "Nombres": "Nombres Proveedor A",  
+    "Apellidos": "Apellido Proveedor A",  
+    "NroContacto": "3208818203"  
+  },
+  {  
+    "Id": "2",  
+    "Nombres": "Nombres Proveedor B",  
+    "Apellidos": "Apellido Proveedor B",  
+    "NroContacto": "3208818203" 
+  },
+  {  
+    "Id": "3",  
+    "Nombres": "Nombres Proveedor C",  
+    "Apellidos": "Apellido Proveedor C",  
+    "NroContacto": "3208818203" 
+  },
+  {  
+    "Id": "4",  
+    "Nombres": "Nombres Proveedor D",  
+    "Apellidos": "Apellido Proveedor D",  
+    "NroContacto": "3208818203" 
+  },
+]
+
+---
+
+# TipoDireccion
+
+[
+  {  
+    "Id": "1",  
+    "Nombre": "Residencial"  
+  },
+  {  
+    "Id": "3",  
+    "Nombre": "Oficina Principal"  
+  },
+  {  
+    "Id": "4",  
+    "Nombre": "Comercial"  
+  }
+]
+
+---
+
+# TipoMedicamento
+
+[
   
 ]
 
 FechaCita"2023-09-24"
+
+
+
+
+
+
+
+
+    //CONSULTA PARA GENERAR LA LISTA DE PROVEEDORES CON SU TELEFONO Y MEDICAMENTOS
+    [HttpGet("LstProveedores")]
+    //[Authorize]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<List<ListaProveedorDto>>> GetListaProveedor()
+    {
+        var lstProveedores = await _unitOfWork.Medicamentos.GetAllProveedorContacto();
+        return this.mapper.Map<List<ListaProveedorDto>>(lstProveedores);
+    }

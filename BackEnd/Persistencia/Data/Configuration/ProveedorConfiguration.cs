@@ -28,7 +28,7 @@ public class ProveedorConfiguration : IEntityTypeConfiguration<Proveedor>
             .HasMaxLength(100)
             .IsRequired();
 
-        builder.Property(p => p.NumeroContacto)
+        builder.Property(p => p.NroContacto)
             .HasColumnName("NroContacto")
             .HasColumnType("varchar")
             .HasMaxLength(50)
