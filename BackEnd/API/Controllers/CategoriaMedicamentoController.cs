@@ -52,8 +52,8 @@ namespace API.Controllers.Generic;
             {
                 return BadRequest();
             }
-            categoriaMedicamentoDto.IdCategoria = record.Id;
-            return CreatedAtAction(nameof(Post),new {id= categoriaMedicamentoDto.IdCategoria}, categoriaMedicamentoDto);
+            categoriaMedicamentoDto.Id = record.Id;
+            return CreatedAtAction(nameof(Post),new {id= categoriaMedicamentoDto.Id}, categoriaMedicamentoDto);
         }
 
         [HttpPut("{id}")]

@@ -30,7 +30,8 @@ public class ProveedorConfiguration : IEntityTypeConfiguration<Proveedor>
 
         builder.Property(p => p.NumeroContacto)
             .HasColumnName("NroContacto")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
     }
 }

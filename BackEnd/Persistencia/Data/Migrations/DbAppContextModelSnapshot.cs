@@ -66,8 +66,7 @@ namespace Persistencia.Data.Migrations
                         .HasColumnName("IdCita")
                         .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EstadoCitaId")
-                        .IsRequired()
+                    b.Property<int>("EstadoCitaId")
                         .HasColumnType("int")
                         .HasColumnName("EstadoCita_Id");
 
@@ -75,8 +74,7 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("DateTime")
                         .HasColumnName("FechaCita");
 
-                    b.Property<int?>("MedicoId")
-                        .IsRequired()
+                    b.Property<int>("MedicoId")
                         .HasColumnType("int")
                         .HasColumnName("Medico_Id");
 
@@ -265,8 +263,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("Nombres");
 
-                    b.Property<long>("Sueldo")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("Sueldo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("Sueldo");
 
                     b.HasKey("Id");
@@ -315,8 +315,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("NombreFarmacia");
 
-                    b.Property<long>("NumeroContacto")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("NumeroContacto")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar")
                         .HasColumnName("NumeroContacto");
 
                     b.Property<string>("Propietario")
@@ -663,8 +665,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("Nombres");
 
-                    b.Property<long>("NumeroContacto")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("NumeroContacto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("NroContacto");
 
                     b.HasKey("Id");
@@ -732,8 +736,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("Nombres");
 
-                    b.Property<long>("NumeroContacto")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("NumeroContacto")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("NroContacto");
 
                     b.HasKey("Id");

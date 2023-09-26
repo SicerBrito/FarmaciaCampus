@@ -48,7 +48,8 @@ public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
 
         builder.Property(p => p.Sueldo)
             .HasColumnName("Sueldo")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(p => p.FechaContratacion)

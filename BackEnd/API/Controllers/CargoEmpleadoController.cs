@@ -52,8 +52,8 @@ namespace API.Controllers;
             {
                 return BadRequest();
             }
-            cargoEmpleadoDto.IdCargo = record.Id;
-            return CreatedAtAction(nameof(Post),new {id= cargoEmpleadoDto.IdCargo}, cargoEmpleadoDto);
+            cargoEmpleadoDto.Id = record.Id;
+            return CreatedAtAction(nameof(Post),new {id= cargoEmpleadoDto.Id}, cargoEmpleadoDto);
         }
 
         [HttpPut("{id}")]

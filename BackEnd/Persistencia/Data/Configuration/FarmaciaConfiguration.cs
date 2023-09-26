@@ -35,7 +35,8 @@ public class FarmaciaConfiguration : IEntityTypeConfiguration<Farmacia>
 
         builder.Property(p => p.NumeroContacto)
             .HasColumnName("NumeroContacto")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(30)
             .IsRequired();
 
         builder.Property(p => p.URLSitioWeb)

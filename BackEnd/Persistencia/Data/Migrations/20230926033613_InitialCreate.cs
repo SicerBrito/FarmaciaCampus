@@ -71,7 +71,8 @@ namespace Persistencia.Data.Migrations
                     Propietario = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FechaInauguracion = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    NumeroContacto = table.Column<long>(type: "BIGINT", nullable: false),
+                    NumeroContacto = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     URLSitioWeb = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -151,7 +152,8 @@ namespace Persistencia.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Apellidos = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NroContacto = table.Column<long>(type: "BIGINT", nullable: false)
+                    NroContacto = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -252,7 +254,8 @@ namespace Persistencia.Data.Migrations
                     Apellidos = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Cargo_Id = table.Column<int>(type: "int", nullable: false),
-                    Sueldo = table.Column<long>(type: "BIGINT", nullable: false),
+                    Sueldo = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     FechaContratacion = table.Column<DateTime>(type: "DateTime", nullable: false)
                 },
                 constraints: table =>
@@ -283,7 +286,8 @@ namespace Persistencia.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Apellidos = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NroContacto = table.Column<long>(type: "BIGINT", nullable: false),
+                    NroContacto = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     FechaNacimiento = table.Column<DateTime>(type: "DateTime", nullable: false),
                     Genero_Id = table.Column<int>(type: "int", nullable: false)
                 },

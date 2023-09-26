@@ -1,5 +1,6 @@
 using Dominio.Entities;
 using Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Persistencia.Data;
 
 namespace Aplicacion.Repository;
@@ -9,5 +10,19 @@ public class MedicamentosVendidosRepository : GenericRepository<MedicamentosVend
     public MedicamentosVendidosRepository(DbAppContext context) : base(context)
     {
         _Context = context;
+    }
+
+    public async Task<MedicamentosVendidos> GetByMedicamentoAsync(string medicamento)
+    {
+        return (await _Context.Set<MedicamentosVendidos>()
+                            .Include(u => u.Medicamentos)
+                            .FirstOrDefaultAsync(u => u.Id!.ToString()==medicamento.ToLower()))!;
+    }
+
+    public async Task<MedicamentosVendidos> GetByVentaAsync(string venta)
+    {
+        return (await _Context.Set<MedicamentosVendidos>()
+                            .Include(u => u.Ventas)
+                            .FirstOrDefaultAsync(u => u.Id!.ToString()==venta.ToLower()))!;
     }
 }

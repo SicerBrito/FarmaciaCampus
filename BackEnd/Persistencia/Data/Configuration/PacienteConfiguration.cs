@@ -30,7 +30,8 @@ public class PacienteConfiguration : IEntityTypeConfiguration<Paciente>
 
         builder.Property(p => p.NumeroContacto)
             .HasColumnName("NroContacto")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(p => p.FechaNacimiento)
