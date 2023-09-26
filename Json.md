@@ -1,3 +1,8 @@
+<details>
+aaa
+<summary>¿QUE SE PUEDE HACER CON SQL? <p style="background-color: #bdfffd; color: #000000; display: flex; justify-content: center;">¿QUE SE PUEDE HACER CON SQL? /</summary>
+</details>
+
 # CargoEmpleado
 [  
   {  
@@ -216,7 +221,7 @@
   },
   {  
     "Id": "17",  
-    "Nombre": "Sudáfrica"  
+    "Nombre": "Sudafrica"  
   },
   {  
     "Id": "18",  
@@ -306,7 +311,7 @@
     "Nombres": "Nombres Proveedor D",  
     "Apellidos": "Apellido Proveedor D",  
     "NroContacto": "3208818203" 
-  },
+  }
 ]
 
 ---
@@ -333,8 +338,89 @@
 # TipoMedicamento
 
 [
-  
+  {  
+    "Id": "1",  
+    "Nombre": "Tableta"  
+  },
+  {  
+    "Id": "2",  
+    "Nombre": "Capsula"  
+  }
 ]
+
+---
+
+
+# TipoVia
+
+[
+  {  
+    "Id": "1",  
+    "Nombre": "Calle",  
+    "Abreviatura": "Cal"
+  },
+  {  
+    "Id": "2",  
+    "Nombre": "Avenida",  
+    "Abreviatura": "Av"
+  },
+  {  
+    "Id": "3",  
+    "Nombre": "Boulevard",  
+    "Abreviatura": "Blvd"
+  },
+  {  
+    "Id": "4",  
+    "Nombre": "Carretera",  
+    "Abreviatura": "Carr"
+  },
+  {  
+    "Id": "5",  
+    "Nombre": "Paseo",  
+    "Abreviatura": "Pso"
+  },
+  {  
+    "Id": "6",  
+    "Nombre": "Camino",  
+    "Abreviatura": "Cam"
+  },
+  {  
+    "Id": "7",  
+    "Nombre": "Plaza",  
+    "Abreviatura": "Plz"
+  },
+  {  
+    "Id": "8",  
+    "Nombre": "Via",  
+    "Abreviatura": "Via"
+  }
+]
+
+---
+
+# Usuario
+
+---
+
+# Rol
+
+---
+
+# Empleado
+
+[
+  {
+    "Id": "1",
+    "Nombres": "Juan David",
+    "Apellidos": "Perez Numa",
+    "Sueldo": "543534534534",
+    "FechaContratacion": "2023-09-24",
+    "FarmaciaId": "1",
+    "CargoId": "1"
+  }
+]
+
+---
 
 FechaCita"2023-09-24"
 

@@ -5,7 +5,7 @@ using Dominio.Entities;
 namespace API.Profiles;
     public class TipoMedicamentoProfile : Profile{
         public TipoMedicamentoProfile(){
-            CreateMap<TipoDireccionDto, TipoDireccion>()
+            CreateMap<TipoMedicamentoDto, TipoMedicamento>()
                 .ReverseMap();
         }
     }
