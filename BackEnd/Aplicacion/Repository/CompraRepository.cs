@@ -12,6 +12,14 @@ public class CompraRepository : GenericRepository<Compra>, ICompra
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Compra>> GetAllAsync()
+    {
+        return await _Context.Set<Compra>()
+                                .Include(p => p.Proveedores)
+                                .Include(p => p.MetodosDePagos)
+                                .ToListAsync();        
+    }
+
     public async Task<Compra> GetByProveedorAsync(string proveedor)
     {
         return (await _Context.Set<Compra>()

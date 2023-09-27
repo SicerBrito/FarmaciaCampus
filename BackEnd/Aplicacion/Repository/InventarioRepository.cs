@@ -12,6 +12,15 @@ public class InventarioRepository : GenericRepository<Inventario>, IInventario
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Inventario>> GetAllAsync()
+    {
+        return await _Context.Set<Inventario>()
+                                .Include(p => p.Farmacias)
+                                .Include(p => p.Compras)
+                                .Include(p => p.Ventas)
+                                .ToListAsync();
+    }
+
     public async Task<Inventario> GetByCompraAsync(string compra)
     {
         return (await _Context.Set<Inventario>()

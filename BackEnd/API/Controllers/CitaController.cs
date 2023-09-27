@@ -57,7 +57,7 @@ namespace API.Controllers;
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Cita>> Post(CitaDto citaDto){
+        public async Task<ActionResult<Cita>> Post(CitaComplementsDto citaDto){
             var record = _Mapper.Map<Cita>(citaDto);
             _UnitOfWork.Citas!.Add(record);
             await _UnitOfWork.SaveAsync();
@@ -66,7 +66,7 @@ namespace API.Controllers;
                 return BadRequest();
             }
             citaDto.Id = record.Id;
-            return CreatedAtAction(nameof(Post),new {id= citaDto.Id}, citaDto);
+            return CreatedAtAction(nameof(Post),new {id=citaDto.Id}, citaDto);
         }
 
         

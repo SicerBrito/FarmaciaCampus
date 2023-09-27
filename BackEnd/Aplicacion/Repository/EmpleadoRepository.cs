@@ -12,6 +12,14 @@ public class EmpleadoRepository : GenericRepository<Empleado>, IEmpleado
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Empleado>> GetAllAsync()
+    {
+        return await _Context.Set<Empleado>()
+                                .Include(p => p.Farmacias)
+                                .Include(p => p.Cargos)
+                                .ToListAsync();
+    }
+
     public async Task<Empleado> GetByCargoAsync(string cargo)
     {
         return (await _Context.Set<Empleado>()

@@ -12,6 +12,13 @@ public class CiudadRepository : GenericRepository<Ciudad>, ICiudad
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Ciudad>> GetAllAsync()
+    {
+        return await _Context.Set<Ciudad>()
+                                .Include(p => p.Departamentos)
+                                .ToListAsync();        
+    }
+
     public async Task<Ciudad> GetByDepartamentoAsync(string departamento)
     {
         return (await _Context.Set<Ciudad>()

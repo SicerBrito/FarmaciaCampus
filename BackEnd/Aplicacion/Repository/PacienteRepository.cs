@@ -12,6 +12,13 @@ public class PacienteRepository : GenericRepository<Paciente>, IPaciente
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Paciente>> GetAllAsync()
+    {
+        return await _Context.Set<Paciente>()
+                                .Include(p => p.Generos)
+                                .ToListAsync();
+    }
+
     public async Task<Paciente> GetByGeneroAsync(string genero)
     {
         return (await _Context.Set<Paciente>()

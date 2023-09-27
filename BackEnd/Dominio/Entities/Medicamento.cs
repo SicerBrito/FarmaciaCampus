@@ -7,7 +7,7 @@ namespace Dominio.Entities;
       public int CategoriaId { get; set; }
       public CategoriaMedicamento ? Categorias { get; set; }
       public int PresentacionId { get; set; }
-      public Presentacion? Presentaciones { get; set; }
+      public Presentacion ? Presentaciones { get; set; }
       public DateTime FechaExpiracion { get; set; }
       public int ValorUnidad { get; set; }
       public int ProveedorId  { get; set; }

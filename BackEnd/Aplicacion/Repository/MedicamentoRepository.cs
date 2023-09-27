@@ -12,6 +12,16 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Medicamento>> GetAllAsync()
+    {
+        return await _Context.Set<Medicamento>()
+                                .Include(p => p.Tipos)
+                                .Include(p => p.Categorias)
+                                .Include(p => p.Presentaciones)
+                                .Include(p => p.Proveedores)
+                                .ToListAsync();
+    }
+
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {
         return (await _Context.Set<Medicamento>()

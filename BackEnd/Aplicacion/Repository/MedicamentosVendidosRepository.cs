@@ -12,6 +12,14 @@ public class MedicamentosVendidosRepository : GenericRepository<MedicamentosVend
         _Context = context;
     }
 
+    public override async Task<IEnumerable<MedicamentosVendidos>> GetAllAsync()
+    {
+        return await _Context.Set<MedicamentosVendidos>()
+                                .Include(p => p.Ventas)
+                                .Include(p => p.Medicamentos)
+                                .ToListAsync();
+    }
+
     public async Task<MedicamentosVendidos> GetByMedicamentoAsync(string medicamento)
     {
         return (await _Context.Set<MedicamentosVendidos>()

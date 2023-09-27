@@ -12,6 +12,15 @@ public class CitaRepository : GenericRepository<Cita>, ICita
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Cita>> GetAllAsync()
+    {
+        return await _Context.Set<Cita>()
+                                .Include(p => p.EstadoCitas)
+                                .Include(p => p.Empleados)
+                                .Include(p => p.Usuarios)
+                                .ToListAsync();        
+    }
+
     public async Task<Cita> GetByCitaAsync(string estado)
     {
         return (await _Context.Set<Cita>()

@@ -57,7 +57,7 @@ namespace API.Controllers;
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<FormulaMedicamentos>> Post(FormulaMedicamentoDto recordDto){
+        public async Task<ActionResult<FormulaMedicamentos>> Post(FormulaMedicamentoComplementsDto recordDto){
             var record = _Mapper.Map<FormulaMedicamentos>(recordDto);
             _UnitOfWork.FormulaMedicamentos!.Add(record);
             await _UnitOfWork.SaveAsync();

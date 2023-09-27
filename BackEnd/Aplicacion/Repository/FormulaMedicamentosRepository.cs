@@ -12,6 +12,14 @@ public class FormulaMedicamentosRepository : GenericRepository<FormulaMedicament
         _Context = context;
     }
 
+    public override async Task<IEnumerable<FormulaMedicamentos>> GetAllAsync()
+    {
+        return await _Context.Set<FormulaMedicamentos>()
+                                .Include(p => p.FormulasMedicas)
+                                .Include(p => p.Medicamentos)
+                                .ToListAsync();
+    }
+
     public async Task<FormulaMedicamentos> GetByFormulaMedicamentoAsync(string formulaMedica)
     {
         return (await _Context.Set<FormulaMedicamentos>()

@@ -12,6 +12,16 @@ public class DireccionRepository : GenericRepository<Direccion>, IDireccion
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Direccion>> GetAllAsync()
+    {
+        return await _Context.Set<Direccion>()
+                                .Include(p => p.TipoDirecciones)
+                                .Include(p => p.TipoVias)
+                                .Include(p => p.Ciudades)
+                                .Include(p => p.Farmacias)
+                                .ToListAsync();
+    }
+
     public async Task<Direccion> GetByFarmaciasAsync(string farmacias)
     {
         return (await _Context.Set<Direccion>()

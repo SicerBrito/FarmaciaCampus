@@ -12,6 +12,13 @@ public class DepartamentoRepository : GenericRepository<Departamento>, IDepartam
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Departamento>> GetAllAsync()
+    {
+        return await _Context.Set<Departamento>()
+                                .Include(p => p.Paises)
+                                .ToListAsync();        
+    }
+
     public async Task<Departamento> GetByPaisAsync(string pais)
     {
         return (await _Context.Set<Departamento>()

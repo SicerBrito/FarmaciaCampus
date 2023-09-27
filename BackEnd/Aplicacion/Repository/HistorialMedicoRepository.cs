@@ -12,6 +12,14 @@ public class HistorialMedicoRepository : GenericRepository<HistorialMedico>, IHi
         _Context = context;
     }
 
+    public override async Task<IEnumerable<HistorialMedico>> GetAllAsync()
+    {
+        return await _Context.Set<HistorialMedico>()
+                                .Include(p => p.Pacientes)
+                                .Include(p => p.Empleados)
+                                .ToListAsync();        
+    }
+
     public async Task<HistorialMedico> GetByMedicoAsync(string medico)
     {
         return (await _Context.Set<HistorialMedico>()

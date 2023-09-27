@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Dtos.Compra;
 using API.Helpers;
 using AutoMapper;
 using Dominio.Entities;
@@ -56,7 +57,7 @@ namespace API.Controllers;
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Compra>> Post(CompraDto compraDto){
+        public async Task<ActionResult<Compra>> Post(CompraComplementsDto compraDto){
             var record = _Mapper.Map<Compra>(compraDto);
             _UnitOfWork.Compras!.Add(record);
             await _UnitOfWork.SaveAsync();

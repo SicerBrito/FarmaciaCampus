@@ -12,6 +12,15 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
         _Context = context;
     }
 
+    public override async Task<IEnumerable<Venta>> GetAllAsync()
+    {
+        return await _Context.Set<Venta>()
+                                .Include(p => p.Usuarios)
+                                .Include(p => p.Empleados)
+                                .Include(p => p.MetodosDePagos)
+                                .ToListAsync();
+    }
+
     public async Task<Venta> GetByClienteAsync(string cliente)
     {
         return (await _Context.Set<Venta>()

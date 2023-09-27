@@ -413,7 +413,7 @@ aaa
     "Id": "1",
     "Nombres": "Juan David",
     "Apellidos": "Perez Numa",
-    "Sueldo": "543534534534",
+    "Sueldo": "5000000",
     "FechaContratacion": "2023-09-24",
     "FarmaciaId": "1",
     "CargoId": "1"
