@@ -68,6 +68,7 @@ namespace API.Controllers;
             return CreatedAtAction(nameof(Post),new {id= ciudadDto.Id}, ciudadDto);
         }
 
+
         
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

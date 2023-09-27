@@ -18,6 +18,10 @@
   {  
     "Id": "4",  
     "Nombre": "Repartidor"  
+  },  
+  {  
+    "Id": "5",  
+    "Nombre": "Contador"  
   }  
 ]  
 
@@ -321,6 +325,10 @@
     "Id": "1",  
     "Nombre": "Residencial"  
   },
+  {
+    "Id": "2",  
+    "Nombre": "Distrital"  
+  },
   {  
     "Id": "3",  
     "Nombre": "Oficina Principal"  
@@ -398,9 +406,27 @@
 
 # Usuario
 
+INSERT INTO `Usuario`(`Id_Usuario`,`Username`,`Email`,`Password`) VALUES(1,'Sicer Brito','britodelgado514@gmail.com','123456');
+
+INSERT INTO `Usuario`(`Id_Usuario`,`Username`,`Email`,`Password`) VALUES(2,'Angelica Morales','angedeveloper@gmail.com','123');
+
 ---
 
 # Rol
+
+INSERT INTO `Rol`(`Id_Rol`,`NombreRol`) VALUES(1,'Administrador');
+
+INSERT INTO `Rol`(`Id_Rol`,`NombreRol`) VALUES(2,'Gerente');
+
+INSERT INTO `Rol`(`Id_Rol`,`NombreRol`) VALUES(3,'Empleado');
+
+---
+
+# UsuarioRol
+
+INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(1,1,1);
+
+INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
 
 ---
 
@@ -409,6 +435,8 @@
 
 <details>
 <summary>Segunda Parte</summary>
+
+
 
 # Empleado
 
@@ -421,6 +449,24 @@
     "FechaContratacion": "2023-09-24",  
     "FarmaciaId": "1",  
     "CargoId": "1"  
+  },  
+  {  
+    "Id": "2",  
+    "Nombres": "Konny Liseth",  
+    "Apellidos": "Alucema Torres",  
+    "Sueldo": "2000000",  
+    "FechaContratacion": "2024-09-11",  
+    "FarmaciaId": "1",  
+    "CargoId": "1"  
+  },  
+  {  
+    "Id": "3",  
+    "Nombres": "Maria Angelica",  
+    "Apellidos": "Morales Silva",  
+    "Sueldo": "2200000",  
+    "FechaContratacion": "2024-03-18",  
+    "FarmaciaId": "1",  
+    "CargoId": "2"  
   }  
 ]  
 
@@ -510,53 +556,261 @@
 [  
   {  
     "Id": "1",  
-    "NroFactura": "213123443",  
-    "FechaCompra": "6",
+    "NumeroFactura": "1112245",  
+    "FechaCompra": "2023-02-04",
     "ProveedorId": "1",
     "MetodoDePagoId": "2"  
   },  
   {  
     "Id": "2",  
-    "NroFactura": "324324234",  
-    "FechaCompra": "2",
+    "NumeroFactura": "324324234",  
+    "FechaCompra": "2023-05-24",
     "ProveedorId": "2",
     "MetodoDePagoId": "3" 
   },  
   {  
     "Id": "3",  
-    "NroFactura": "3245435325",  
-    "FechaCompra": "4",
+    "NumeroFactura": "3245435325",  
+    "FechaCompra": "2023-12-01",
     "ProveedorId": "4",
     "MetodoDePagoId": "4" 
   },  
   {
     "Id": "4",  
-    "NroFactura": "3453245435",  
-    "FechaCompra": "1",
+    "NumeroFactura": "3453245435",  
+    "FechaCompra": "2023-01-30",
     "ProveedorId": "3",
     "MetodoDePagoId": "1" 
   },  
   {  
     "Id": "5",  
-    "NroFactura": "4343255",  
-    "FechaCompra": "2",
+    "NumeroFactura": "4343255",  
+    "FechaCompra": "2023-06-11",
     "ProveedorId": "2",
     "MetodoDePagoId": "2" 
   },  
   {  
     "Id": "6",  
-    "NroFactura": "345325345",  
-    "FechaCompra": "4",
+    "NumeroFactura": "345325345",  
+    "FechaCompra": "2023-10-19",
     "ProveedorId": "1",
     "MetodoDePagoId": "3" 
   },  
   {  
     "Id": "7",  
-    "NroFactura": "34523452345",  
-    "FechaCompra": "6",
+    "NumeroFactura": "34523452345",  
+    "FechaCompra": "2023-08-06",
     "ProveedorId": "2",
     "MetodoDePagoId": "4" 
   }  
+]  
+
+---
+
+# Medicamento
+
+[  
+  {  
+    "Id": "1",  
+    "Nombre": "Aspirina",  
+    "FechaExpiracion": "2024-08-31",
+    "ValorUnidad": "2000",
+    "TipoId": "1",  
+    "CategoriaId": "1",  
+    "PresentacionId": "2",  
+    "ProveedorId": "2"  
+  },  
+  {  
+    "Id": "2",  
+    "Nombre": "Ibuprofeno",  
+    "FechaExpiracion": "2024-10-15",
+    "ValorUnidad": "5000",
+    "TipoId": "2",  
+    "CategoriaId": "2",  
+    "PresentacionId": "2",  
+    "ProveedorId": "2"  
+  },  
+  {  
+    "Id": "3",  
+    "Nombre": "Paracetamol",  
+    "FechaExpiracion": "2023-12-31",
+    "ValorUnidad": "1000",
+    "TipoId": "1",  
+    "CategoriaId": "1",  
+    "PresentacionId": "2",  
+    "ProveedorId": "2"  
+  },  
+  {  
+    "Id": "4",  
+    "Nombre": "Amoxicilina",  
+    "FechaExpiracion": "2024-09-30",
+    "ValorUnidad": "3500",
+    "TipoId": "2",  
+    "CategoriaId": "3",  
+    "PresentacionId": "2",  
+    "ProveedorId": "2"  
+  },   
+  {  
+    "Id": "5",  
+    "Nombre": "Omeprazol",  
+    "FechaExpiracion": "2024-11-30",
+    "ValorUnidad": "2200",
+    "TipoId": "2",  
+    "CategoriaId": "4",  
+    "PresentacionId": "2",  
+    "ProveedorId": "2"  
+  }  
+]   
+
+---
+
+# Paciente
+
+[  
+  {  
+    "Id": "1",  
+    "Nombres": "Owell Andry",  
+    "Apellidos": "Polanco Silva",  
+    "NumeroContacto": "3221243579",  
+    "FechaNacimiento": "2003-03-12",  
+    "GeneroId": "1"  
+  },  
+  {  
+    "Id": "2",  
+    "Nombres": "Sherman Andres",  
+    "Apellidos": "Torres Alvares",  
+    "NumeroContacto": "6355050",  
+    "FechaNacimiento": "2003-08-10",  
+    "GeneroId": "1"  
+  }  
+]  
+
+---
+
+</details>
+
+
+<details>
+<summary>Tercera Parte</summary>
+
+# Cita
+
+[
+  {
+    "Id": "1",
+    "FechaCita": "2023-10-21",
+    "EstadoCitaId": "1",
+    "MedicoId": "1",
+    "UsuarioId": "2"
+  },
+  {
+    "Id": "2",
+    "FechaCita": "2023-10-21",
+    "EstadoCitaId": "6",
+    "MedicoId": "2",
+    "UsuarioId": "1"
+  }
+]
+
+---
+
+# Direccion
+
+[  
+  {  
+    "Id": "1",  
+    "NombreDireccion": "Cristal Alto Casa 1 piso2 Peatonal",  
+    "NroDireccion": "5",  
+    "CodigoPostal": "680001",  
+    "TipoDireccionId": "1",  
+    "TipoViaId": "1",  
+    "CiudadId": "7",  
+    "FarmaciaId": "1"  
+  },  
+  {  
+    "Id": "2",  
+    "NombreDireccion": "Barrio Santa Ana",  
+    "NroDireccion": "249",  
+    "CodigoPostal": "680001",  
+    "TipoDireccionId": "1",  
+    "TipoViaId": "8",  
+    "CiudadId": "7",  
+    "FarmaciaId": "1"  
+  }  
+]  
+
+---
+
+# FormulaMedica
+
+[  
+  {  
+    "Id": "1",  
+    "FechaPrescripcion": "2023-09-02",  
+    "PacienteId": "2",  
+    "MedicoId": "2",  
+    "Posologia": "Aspirina: 1 tableta diaria después de la comida",  
+    "DuracionTratamiento": "30",  
+    "Indicaciones": "Hipertension, Diabetes"  
+  },  
+  {  
+    "Id": "2",  
+    "FechaPrescripcion": "2023-10-25",  
+    "PacienteId": "1",  
+    "MedicoId": "2",  
+    "Posologia": "Ventolin: 2 inhalaciones cuando sea necesario",  
+    "DuracionTratamiento": "90",  
+    "Indicaciones": "Chequeo de rutina"  
+  },  
+]  
+
+---
+
+*********************
+//FALTAN ESTAS DOS
+*********************
+
+# FormulaMedicamentos
+
+[  
+  {  
+    "Id": "1",  
+    "FomulaMedicaId": "1",  
+    "MedicamentoId": "4"  
+  },  
+  {  
+    "Id": "2",  
+    "FomulaMedicaId": "2",  
+    "MedicamentoId": "1"  
+  }, 
+  {  
+    "Id": "3",  
+    "FomulaMedicaId": "2",  
+    "MedicamentoId": "3"  
+  }  
+]  
+
+---
+
+# Venta
+
+[  
+  {  
+    "Id": "1",  
+    "NumeroFactura": "5363634231",  
+    "FechaVenta": "2023-05-24",  
+    "ClienteId": "1",  
+    "VentaEmpleadoId": "2",  
+    "MetodoDePagoId": "1"  
+  },  
+  {  
+    "Id": "2",  
+    "NumeroFactura": "473567356465",  
+    "FechaVenta": "2023-02-04",  
+    "ClienteId": "1",  
+    "VentaEmpleadoId": "2",  
+    "MetodoDePagoId": "1"  
+  },  
 ]  
 
 ---

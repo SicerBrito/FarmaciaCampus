@@ -5,7 +5,6 @@ using AutoMapper;
 using Dominio.Entities;
 using Dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Persistencia.Data.Configuration;
 
 namespace API.Controllers;
 
@@ -34,24 +33,24 @@ namespace API.Controllers;
         [MapToApiVersion("1.1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Pager<CompraConfiguration>>> Get11([FromQuery] Params compraParams)
+        public async Task<ActionResult<Pager<CompraComplementsDto>>> Get11([FromQuery] Params compraParams)
         {
             var compra = await _UnitOfWork.Compras!.GetAllAsync(compraParams.PageIndex,compraParams.PageSize,compraParams.Search);
-            var lstcomprasDto = _Mapper.Map<List<CompraConfiguration>>(compra.registros);
-            return new Pager<CompraConfiguration>(lstcomprasDto,compra.totalRegistros,compraParams.PageIndex,compraParams.PageSize,compraParams.Search);
+            var lstcomprasDto = _Mapper.Map<List<CompraComplementsDto>>(compra.registros);
+            return new Pager<CompraComplementsDto>(lstcomprasDto,compra.totalRegistros,compraParams.PageIndex,compraParams.PageSize,compraParams.Search);
         }
 
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CompraConfiguration>> Get(string id)
+        public async Task<ActionResult<CompraComplementsDto>> Get(string id)
         {
             var record = await _UnitOfWork.Compras!.GetByIdAsync(id);
             if (record == null){
                 return NotFound();
             }
-            return _Mapper.Map<CompraConfiguration>(record);
+            return _Mapper.Map<CompraComplementsDto>(record);
         }
 
         [HttpPost]

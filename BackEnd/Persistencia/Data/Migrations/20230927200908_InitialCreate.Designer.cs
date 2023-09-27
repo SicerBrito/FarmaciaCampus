@@ -12,7 +12,7 @@ using Persistencia.Data;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20230926140838_InitialCreate")]
+    [Migration("20230927200908_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -137,8 +137,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("MetodoDePago_Id");
 
-                    b.Property<long>("NumeroFactura")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("NumeroFactura")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("NumeroFactura");
 
                     b.Property<int>("ProveedorId")
@@ -200,9 +202,6 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Farmacia_Id");
 
-                    b.Property<int>("FarmaciasId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NombreDireccion")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -223,9 +222,9 @@ namespace Persistencia.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FarmaciaId");
+                    b.HasIndex("CiudadId");
 
-                    b.HasIndex("FarmaciasId");
+                    b.HasIndex("FarmaciaId");
 
                     b.HasIndex("TipoDireccionId");
 
@@ -538,8 +537,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("TipoMedicamento_Id");
 
-                    b.Property<long>("ValorUnidad")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("ValorUnidad")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("ValorUnidad");
 
                     b.HasKey("Id");
@@ -575,8 +576,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Medico_Id");
 
-                    b.Property<long>("ValorTotalCompra")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("ValorTotalCompra")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("ValorTotalCompra");
 
                     b.HasKey("Id");
@@ -604,8 +607,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Medicamento_Id");
 
-                    b.Property<long>("ValorTotalVenta")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("ValorTotalVenta")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("ValorTotalVenta");
 
                     b.Property<int>("VentaId")
@@ -739,7 +744,7 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("Nombres");
 
-                    b.Property<string>("NumeroContacto")
+                    b.Property<string>("NroContacto")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar")
@@ -936,8 +941,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("MetodoDePago_Id");
 
-                    b.Property<long>("NumeroFactura")
-                        .HasColumnType("BIGINT")
+                    b.Property<string>("NumeroFactura")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
                         .HasColumnName("NumeroFactura");
 
                     b.Property<int>("VentaEmpleadoId")
@@ -1042,13 +1049,13 @@ namespace Persistencia.Data.Migrations
                 {
                     b.HasOne("Dominio.Entities.Ciudad", "Ciudades")
                         .WithMany("Direcciones")
-                        .HasForeignKey("FarmaciaId")
+                        .HasForeignKey("CiudadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Dominio.Entities.Farmacia", "Farmacias")
                         .WithMany("Direcciones")
-                        .HasForeignKey("FarmaciasId")
+                        .HasForeignKey("FarmaciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

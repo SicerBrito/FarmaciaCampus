@@ -41,7 +41,8 @@ public class MedicamentosVendidosConfiguration : IEntityTypeConfiguration<Medica
 
         builder.Property(p => p.ValorTotalVenta)
             .HasColumnName("ValorTotalVenta")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
     }
 }

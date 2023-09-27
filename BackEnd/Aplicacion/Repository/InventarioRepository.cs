@@ -21,6 +21,7 @@ public class InventarioRepository : GenericRepository<Inventario>, IInventario
                                 .ToListAsync();
     }
 
+
     public async Task<Inventario> GetByCompraAsync(string compra)
     {
         return (await _Context.Set<Inventario>()

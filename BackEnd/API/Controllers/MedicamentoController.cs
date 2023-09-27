@@ -53,6 +53,22 @@ namespace API.Controllers;
             return _Mapper.Map<MedicamentoComplementsDto>(record);
         }
 
+        // [HttpGet("medicamentosMenosde50Unidades")]
+        // public async Task<ActionResult> GetMedicamentosMenos50Unidades()
+        // {
+        //     var medicamentos = _UnitOfWork.Medicamentos!.Find(x =>x.Stock < 50);
+        //     if(medicamentos is null) return NotFound();
+        //     var result = medicamentos.Select(m =>new{
+        //         m.Id,
+        //         m.Nombre,
+        //         m.Precio,
+        //         m.FechaExpiracion,
+        //         m.Stock,
+        //         m.ProveedorId
+        //     });
+        //     return Ok(result);
+        // }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

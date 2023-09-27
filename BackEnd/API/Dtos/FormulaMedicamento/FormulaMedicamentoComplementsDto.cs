@@ -1,5 +1,3 @@
-using API.Dtos.Medicamento;
-
 namespace API.Dtos.FormulaMedicamento;
     public class FormulaMedicamentoComplementsDto{
         public int Id { get; set; }

@@ -41,7 +41,8 @@ public class MedicamentosCompradosConfiguration : IEntityTypeConfiguration<Medic
 
         builder.Property(p => p.ValorTotalCompra)
             .HasColumnName("ValorTotalCompra")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
 
     }

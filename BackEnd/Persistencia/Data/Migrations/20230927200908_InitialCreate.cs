@@ -334,7 +334,8 @@ namespace Persistencia.Data.Migrations
                     FechaCompra = table.Column<DateTime>(type: "DateTime", nullable: false),
                     Proveedor_Id = table.Column<int>(type: "int", nullable: false),
                     MetodoDePago_Id = table.Column<int>(type: "int", nullable: false),
-                    NumeroFactura = table.Column<long>(type: "BIGINT", nullable: false)
+                    NumeroFactura = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -366,7 +367,8 @@ namespace Persistencia.Data.Migrations
                     CategoriaMedicamento_Id = table.Column<int>(type: "int", nullable: false),
                     PresentacionMedicamento_Id = table.Column<int>(type: "int", nullable: false),
                     FechaExpiracion = table.Column<DateTime>(type: "DateTime", nullable: false),
-                    ValorUnidad = table.Column<long>(type: "BIGINT", nullable: false),
+                    ValorUnidad = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Proveedor_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -521,7 +523,8 @@ namespace Persistencia.Data.Migrations
                     Cliente_Id = table.Column<int>(type: "int", nullable: false),
                     VentaEmpleado_Id = table.Column<int>(type: "int", nullable: false),
                     MetodoDePago_Id = table.Column<int>(type: "int", nullable: false),
-                    NumeroFactura = table.Column<long>(type: "BIGINT", nullable: false)
+                    NumeroFactura = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -644,7 +647,8 @@ namespace Persistencia.Data.Migrations
                     Compra_Id = table.Column<int>(type: "int", nullable: false),
                     Medico_Id = table.Column<int>(type: "int", nullable: false),
                     CantidadCompra = table.Column<int>(type: "int", nullable: false),
-                    ValorTotalCompra = table.Column<long>(type: "BIGINT", nullable: false)
+                    ValorTotalCompra = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -707,7 +711,8 @@ namespace Persistencia.Data.Migrations
                     Venta_Id = table.Column<int>(type: "int", nullable: false),
                     Medicamento_Id = table.Column<int>(type: "int", nullable: false),
                     CantidadVendida = table.Column<int>(type: "int", nullable: false),
-                    ValorTotalVenta = table.Column<long>(type: "BIGINT", nullable: false)
+                    ValorTotalVenta = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -767,21 +772,20 @@ namespace Persistencia.Data.Migrations
                     NroDireccion = table.Column<int>(type: "int", nullable: false),
                     Ciudad_Id = table.Column<int>(type: "int", nullable: false),
                     CodigoPostal = table.Column<int>(type: "int", nullable: false),
-                    Farmacia_Id = table.Column<int>(type: "int", nullable: false),
-                    FarmaciasId = table.Column<int>(type: "int", nullable: false)
+                    Farmacia_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Direccion", x => x.IdDireccion);
                     table.ForeignKey(
-                        name: "FK_Direccion_Ciudad_Farmacia_Id",
-                        column: x => x.Farmacia_Id,
+                        name: "FK_Direccion_Ciudad_Ciudad_Id",
+                        column: x => x.Ciudad_Id,
                         principalTable: "Ciudad",
                         principalColumn: "IdCiudad",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Direccion_Farmacia_FarmaciasId",
-                        column: x => x.FarmaciasId,
+                        name: "FK_Direccion_Farmacia_Farmacia_Id",
+                        column: x => x.Farmacia_Id,
                         principalTable: "Farmacia",
                         principalColumn: "IdFarmacia",
                         onDelete: ReferentialAction.Cascade);
@@ -836,14 +840,14 @@ namespace Persistencia.Data.Migrations
                 column: "Pais_Id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Direccion_Ciudad_Id",
+                table: "Direccion",
+                column: "Ciudad_Id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Direccion_Farmacia_Id",
                 table: "Direccion",
                 column: "Farmacia_Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Direccion_FarmaciasId",
-                table: "Direccion",
-                column: "FarmaciasId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Direccion_TipoDireccion_Id",

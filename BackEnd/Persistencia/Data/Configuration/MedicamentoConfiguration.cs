@@ -56,7 +56,8 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
 
         builder.Property(p => p.ValorUnidad)
             .HasColumnName("ValorUnidad")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
 
         builder.Property(p => p.ProveedorId)

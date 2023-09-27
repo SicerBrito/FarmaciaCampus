@@ -41,7 +41,8 @@ public class CompraConfiguration : IEntityTypeConfiguration<Compra>
 
         builder.Property(p => p.NumeroFactura)
             .HasColumnName("NumeroFactura")
-            .HasColumnType("BIGINT")
+            .HasColumnType("varchar")
+            .HasMaxLength(50)
             .IsRequired();
 
     }

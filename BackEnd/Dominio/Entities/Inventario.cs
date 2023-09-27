@@ -7,5 +7,6 @@ namespace Dominio.Entities;
       public Compra ? Compras { get; set; }
       public int VentaId { get; set; }
       public Venta ? Ventas { get; set; }
+      // public int Stock { get; set; }
       
    }

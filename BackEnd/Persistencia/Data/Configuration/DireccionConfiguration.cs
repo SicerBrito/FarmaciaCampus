@@ -64,7 +64,7 @@ public class DireccionConfiguration : IEntityTypeConfiguration<Direccion>
             .HasColumnType("int")
             .IsRequired();
 
-        builder.HasOne(p => p.Ciudades)
+        builder.HasOne(p => p.Farmacias)
             .WithMany(p => p.Direcciones)
             .HasForeignKey(p => p.FarmaciaId);
         
