@@ -9,7 +9,7 @@ namespace Dominio.Entities;
       public int PresentacionId { get; set; }
       public Presentacion ? Presentaciones { get; set; }
       public DateTime FechaExpiracion { get; set; }
-      public int ValorUnidad { get; set; }
+      public string ? ValorUnidad { get; set; }
       public int ProveedorId  { get; set; }
       public Proveedor ? Proveedores { get; set; }
       

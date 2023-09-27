@@ -6,6 +6,6 @@ namespace Dominio.Entities;
         public int MedicamentoId { get; set; }
         public Medicamento ? Medicamentos { get; set; }
         public int CantidadCompra { get; set; }
-        public int ValorTotalCompra { get; set; }
+        public string ? ValorTotalCompra { get; set; }
                 
     }

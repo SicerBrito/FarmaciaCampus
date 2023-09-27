@@ -8,7 +8,7 @@ namespace Dominio.Entities;
     public Empleado ? Empleados { get; set; }
     public int MetodoDePagoId { get; set; }
     public MetodoDePago ? MetodosDePagos { get; set; }
-    public int NumeroFactura { get; set; }
+    public string ? NumeroFactura { get; set; }
 
     
     public ICollection<Inventario> ? Inventarios { get; set; }

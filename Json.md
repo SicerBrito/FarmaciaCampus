@@ -1,7 +1,5 @@
 <details>
-aaa
-<summary>¿QUE SE PUEDE HACER CON SQL? <p style="background-color: #bdfffd; color: #000000; display: flex; justify-content: center;">¿QUE SE PUEDE HACER CON SQL? /</summary>
-</details>
+<summary>Primera Parte</summary>
 
 # CargoEmpleado
 [  
@@ -406,23 +404,165 @@ aaa
 
 ---
 
+</details>
+
+
+<details>
+<summary>Segunda Parte</summary>
+
 # Empleado
 
-[
-  {
-    "Id": "1",
-    "Nombres": "Juan David",
-    "Apellidos": "Perez Numa",
-    "Sueldo": "5000000",
-    "FechaContratacion": "2023-09-24",
-    "FarmaciaId": "1",
-    "CargoId": "1"
-  }
-]
+[  
+  {  
+    "Id": "1",  
+    "Nombres": "Juan David",  
+    "Apellidos": "Perez Numa",  
+    "Sueldo": "5000000",  
+    "FechaContratacion": "2023-09-24",  
+    "FarmaciaId": "1",  
+    "CargoId": "1"  
+  }  
+]  
 
 ---
 
-FechaCita"2023-09-24"
+# Departamento
+
+[  
+  {  
+    "Id": "1",  
+    "Nombre": "Putumayo",  
+    "PaisId": "24" 
+  },  
+  {  
+    "Id": "2",  
+    "Nombre": "Huila",  
+    "PaisId": "24" 
+  },  
+  {  
+    "Id": "3",  
+    "Nombre": "La Guajira",  
+    "PaisId": "24" 
+  },  
+  {  
+    "Id": "4",  
+    "Nombre": "Magdalena",  
+    "PaisId": "24" 
+  },  
+  {  
+    "Id": "5",  
+    "Nombre": "Meta",  
+    "PaisId": "24" 
+  },  
+  {  
+    "Id": "6",  
+    "Nombre": "Santander",  
+    "PaisId": "24" 
+  }  
+]  
+
+---
+
+# Ciudad
+
+[  
+  {  
+    "Id": "1",  
+    "Nombre": "Bogota",  
+    "DepartamentoId": "6" 
+  },  
+  {  
+    "Id": "2",  
+    "Nombre": "Medellin",  
+    "DepartamentoId": "2" 
+  },  
+  {  
+    "Id": "3",  
+    "Nombre": "Cartagena",  
+    "DepartamentoId": "4" 
+  },  
+  {
+    "Id": "4",  
+    "Nombre": "Cali",  
+    "DepartamentoId": "1" 
+  },  
+  {  
+    "Id": "5",  
+    "Nombre": "Barranquilla",  
+    "DepartamentoId": "2" 
+  },  
+  {  
+    "Id": "6",  
+    "Nombre": "Santa Marta",  
+    "DepartamentoId": "4" 
+  },  
+  {  
+    "Id": "7",  
+    "Nombre": "Bucaramanga",  
+    "DepartamentoId": "6" 
+  }  
+]  
+
+---
+
+# Compra
+
+[  
+  {  
+    "Id": "1",  
+    "NroFactura": "213123443",  
+    "FechaCompra": "6",
+    "ProveedorId": "1",
+    "MetodoDePagoId": "2"  
+  },  
+  {  
+    "Id": "2",  
+    "NroFactura": "324324234",  
+    "FechaCompra": "2",
+    "ProveedorId": "2",
+    "MetodoDePagoId": "3" 
+  },  
+  {  
+    "Id": "3",  
+    "NroFactura": "3245435325",  
+    "FechaCompra": "4",
+    "ProveedorId": "4",
+    "MetodoDePagoId": "4" 
+  },  
+  {
+    "Id": "4",  
+    "NroFactura": "3453245435",  
+    "FechaCompra": "1",
+    "ProveedorId": "3",
+    "MetodoDePagoId": "1" 
+  },  
+  {  
+    "Id": "5",  
+    "NroFactura": "4343255",  
+    "FechaCompra": "2",
+    "ProveedorId": "2",
+    "MetodoDePagoId": "2" 
+  },  
+  {  
+    "Id": "6",  
+    "NroFactura": "345325345",  
+    "FechaCompra": "4",
+    "ProveedorId": "1",
+    "MetodoDePagoId": "3" 
+  },  
+  {  
+    "Id": "7",  
+    "NroFactura": "34523452345",  
+    "FechaCompra": "6",
+    "ProveedorId": "2",
+    "MetodoDePagoId": "4" 
+  }  
+]  
+
+---
+
+</details>
+
 
 
 
