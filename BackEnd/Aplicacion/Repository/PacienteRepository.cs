@@ -16,6 +16,8 @@ public class PacienteRepository : GenericRepository<Paciente>, IPaciente
     {
         return await _Context.Set<Paciente>()
                                 .Include(p => p.Generos)
+                                .Include(p => p.HistorialesMedicos)
+                                .Include(p => p.FormulasMedicas)
                                 .ToListAsync();
     }
 

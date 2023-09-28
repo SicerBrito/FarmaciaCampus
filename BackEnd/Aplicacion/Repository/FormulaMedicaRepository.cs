@@ -17,6 +17,7 @@ public class FormulaMedicaRepository : GenericRepository<FormulaMedica>, IFormul
         return await _Context.Set<FormulaMedica>()
                                 .Include(p => p.Pacientes)
                                 .Include(p => p.Empleados)
+                                .Include(p => p.FormulaMedicamentos)
                                 .ToListAsync();
     }
 

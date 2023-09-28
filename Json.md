@@ -818,9 +818,80 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
 </details>
 
 
+# Inventario
 
+[  
+  {  
+    "Id": "1",  
+    "FarmaciaId": "1",  
+    "CompraId": "5",  
+    "VentaId": "2"  
+  },  
+  {  
+    "Id": "2",  
+    "FarmaciaId": "1",  
+    "CompraId": "7",  
+    "VentaId": "1"  
+  }
+]  
 
+---
 
+# MedicamentosComprados
+
+[  
+  {  
+    "Id": "1",  
+    "CantidadCompra": "5",  
+    "ValorTotalCompra": "50000",  
+    "CompraId": "1",  
+    "MedicamentoId": "5"  
+  },  
+  {  
+    "Id": "2",  
+    "CantidadCompra": "2",  
+    "ValorTotalCompra": "60000",  
+    "CompraId": "2",  
+    "MedicamentoId": "1"  
+  },  
+  {  
+    "Id": "3",  
+    "CantidadCompra": "21",  
+    "ValorTotalCompra": "21000",  
+    "CompraId": "1",  
+    "MedicamentoId": "3"  
+  },  
+]  
+
+---
+
+# MedicamentosVendidos
+
+[  
+  {  
+    "Id": "1",  
+    "CantidadVendida": "2",  
+    "ValorTotalVenta": "60000",  
+    "VentaId": "1",  
+    "MedicamentoId": "1"  
+  },  
+  {  
+    "Id": "2",  
+    "CantidadVendida": "21",  
+    "ValorTotalVenta": "21000",  
+    "VentaId": "2",  
+    "MedicamentoId": "3"  
+  },  
+  {  
+    "Id": "3",  
+    "CantidadVendida": "5",  
+    "ValorTotalVenta": "50000",  
+    "VentaId": "1",  
+    "MedicamentoId": "5"  
+  }  
+]  
+
+---
 
 
 

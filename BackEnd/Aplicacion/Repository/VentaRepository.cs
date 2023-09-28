@@ -18,6 +18,8 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
                                 .Include(p => p.Usuarios)
                                 .Include(p => p.Empleados)
                                 .Include(p => p.MetodosDePagos)
+                                .Include(p => p.Inventarios)
+                                .Include(p => p.MedicamentosVendidos)
                                 .ToListAsync();
     }
 

@@ -16,6 +16,7 @@ public class CiudadRepository : GenericRepository<Ciudad>, ICiudad
     {
         return await _Context.Set<Ciudad>()
                                 .Include(p => p.Departamentos)
+                                .Include(p => p.Direcciones)
                                 .ToListAsync();        
     }
 

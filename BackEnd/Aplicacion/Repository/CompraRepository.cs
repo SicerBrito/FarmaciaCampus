@@ -17,6 +17,8 @@ public class CompraRepository : GenericRepository<Compra>, ICompra
         return await _Context.Set<Compra>()
                                 .Include(p => p.Proveedores)
                                 .Include(p => p.MetodosDePagos)
+                                .Include(p => p.Inventarios)
+                                .Include(p => p.MedicamentosComprados)
                                 .ToListAsync();        
     }
 

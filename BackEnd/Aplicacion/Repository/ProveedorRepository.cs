@@ -1,5 +1,6 @@
 using Dominio.Entities;
 using Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Persistencia.Data;
 
 namespace Aplicacion.Repository;
@@ -10,4 +11,13 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
     {
         _Context = context;
     }
+
+    public override async Task<IEnumerable<Proveedor>> GetAllAsync()
+    {
+        return await _Context.Set<Proveedor>()
+                                    .Include(u => u.Compras)
+                                    .Include(u => u.Medicamentos)
+                                    .ToListAsync();
+    }
+
 }

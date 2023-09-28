@@ -19,6 +19,9 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
                                 .Include(p => p.Categorias)
                                 .Include(p => p.Presentaciones)
                                 .Include(p => p.Proveedores)
+                                .Include(p => p.MedicamentosComprados)
+                                .Include(p => p.MedicamentosVendidos)
+                                .Include(p => p.FormulaMedicamentos)
                                 .ToListAsync();
     }
 

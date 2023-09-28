@@ -15,6 +15,8 @@ public class FarmaciaRepository : GenericRepository<Farmacia>, IFarmacia
     public override async Task<IEnumerable<Farmacia>> GetAllAsync()
         {
             return await _Context.Set<Farmacia>()
+                                .Include(p => p.Inventarios)
+                                .Include(p => p.Empleados)
                                 .Include(p => p.Empleados)
                                 .ToListAsync();
         }

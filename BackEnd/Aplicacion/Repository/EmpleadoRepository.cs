@@ -17,6 +17,10 @@ public class EmpleadoRepository : GenericRepository<Empleado>, IEmpleado
         return await _Context.Set<Empleado>()
                                 .Include(p => p.Farmacias)
                                 .Include(p => p.Cargos)
+                                .Include(u => u.Citas)
+                                .Include(u => u.HistorialesMedicos)
+                                .Include(u => u.FormulasMedicas)
+                                .Include(u => u.Ventas)
                                 .ToListAsync();
     }
 

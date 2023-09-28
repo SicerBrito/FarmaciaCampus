@@ -16,6 +16,7 @@ public class DepartamentoRepository : GenericRepository<Departamento>, IDepartam
     {
         return await _Context.Set<Departamento>()
                                 .Include(p => p.Paises)
+                                .Include(p => p.Ciudades)
                                 .ToListAsync();        
     }
 

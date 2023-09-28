@@ -1,5 +1,6 @@
 using Dominio.Entities;
 using Dominio.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Persistencia.Data;
 
 namespace Aplicacion.Repository;
@@ -10,4 +11,12 @@ public class TipoDireccionRepository : GenericRepository<TipoDireccion>, ITipoDi
     {
         _Context = context;
     }
+
+    public override async Task<IEnumerable<TipoDireccion>> GetAllAsync()
+    {
+        return await _Context.Set<TipoDireccion>()
+                                    .Include(u => u.Direcciones)
+                                    .ToListAsync();
+    }
+
 }
