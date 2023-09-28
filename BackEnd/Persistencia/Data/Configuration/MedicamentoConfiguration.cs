@@ -129,7 +129,18 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
                 PresentacionId = 2,  
                 ProveedorId = 2,  
                 Stock = 10  
-            }  
+            },  
+            new { 
+                Id = 6,  
+                Nombre = "Loratadina",  
+                FechaExpiracion = new DateTime (2022,09,04),
+                ValorUnidad = "10000",
+                TipoId = 1,  
+                CategoriaId = 1,  
+                PresentacionId = 3,  
+                ProveedorId = 1,  
+                Stock = 100  
+            }
         );
 
     }

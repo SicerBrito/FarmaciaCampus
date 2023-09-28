@@ -53,6 +53,14 @@ namespace API.Controllers;
             return _Mapper.Map<CompraComplementsDto>(record);
         }
 
+        //! Consulta Nro.16
+        [HttpGet("gananciaTotalPorProveedorEn2023/{proveedorId}")]
+        public async Task<ActionResult<decimal>> ObtenerGananciaTotalPorProveedorEn2023(int proveedorId)
+        {
+            var gananciaTotal = await _UnitOfWork.Compras!.ObtenerGananciaTotalPorProveedorEn2023(proveedorId);
+            return Ok(gananciaTotal);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

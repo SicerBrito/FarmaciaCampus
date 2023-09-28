@@ -52,6 +52,14 @@ namespace API.Controllers;
             return Ok(proveedoresConMedicamentos);
         }
 
+        //! Consulta Nro.13
+        [HttpGet("proveedoresSinVentasUltimoAnio")]
+        public async Task<ActionResult<List<Proveedor>>> ObtenerProveedoresQueNoHanVendidoEnUltimoAnio()
+        {
+            var proveedores = await _UnitOfWork.Proveedores!.ObtenerProveedoresQueNoHanVendidoEnUltimoAnio();
+            return Ok(proveedores);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -82,6 +82,57 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
     //     return medicamentosPorProveedor!;
     // }
 
+
+    // !Consulta Nro.9
+    public async Task<IEnumerable<Medicamento>> ObtenerMedicamentosNoVendidos()
+    {
+        var medicamentosNoVendidos = await _Context.Medicamentos!
+            .Where(medicamento => medicamento.MedicamentosVendidos!.Count == 0)
+            .ToListAsync();
+
+        return medicamentosNoVendidos;
+    }
+
+    //! Consulta Nro.10
+    public async Task<Medicamento> ObtenerMedicamentoMasCaro()
+    {
+        var medicamentoMasCaro = await _Context.Medicamentos!
+            .OrderByDescending(medicamento => medicamento.ValorUnidad)
+            .FirstOrDefaultAsync();
+
+        return medicamentoMasCaro!;
+    }
+
+    //! Consulta Nro.11
+    public async Task<Dictionary<string, int>> ObtenerNumeroMedicamentosPorProveedor()
+    {
+        var medicamentosPorProveedor = await _Context.Medicamentos!
+            .GroupBy(medicamento => medicamento.Proveedores!.Nombres!) // Agrupa por el nombre del proveedor
+            .ToDictionaryAsync(group => group.Key, group => group.Count()); // Convierte el resultado en un diccionario
+
+        return medicamentosPorProveedor!;
+    }
+
+    //! Consulta Nro.19
+    public async Task<List<Medicamento>> ObtenerMedicamentosQueExpiranEn2024()
+    {
+        var medicamentosEn2024 = await _Context.Medicamentos!
+            .Where(m => m.FechaExpiracion.Year == 2024)
+            .ToListAsync();
+
+        return medicamentosEn2024;
+    }
+
+    //! Consulta Nro.21
+    public async Task<List<Medicamento>> ObtenerMedicamentosNuncaVendidos()
+    {
+        var medicamentosNuncaVendidos = await _Context.Medicamentos!
+            .Where(m => m.MedicamentosVendidos!.Count == 0)
+            .ToListAsync();
+
+        return medicamentosNuncaVendidos;
+    }
+
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {
         return (await _Context.Set<Medicamento>()

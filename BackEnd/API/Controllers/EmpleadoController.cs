@@ -54,6 +54,14 @@ namespace API.Controllers;
             return _Mapper.Map<EmpleadoComplementsDto>(record);
         }
 
+        //! Consulta Nro.20
+        [HttpGet("empleadosConMasDe5Ventas")]
+        public async Task<ActionResult<List<Empleado>>> ObtenerEmpleadosConMasDe5Ventas()
+        {
+            var empleadosConMasDe5Ventas = await _UnitOfWork.Empleados!.ObtenerEmpleadosConMasDe5Ventas();
+            return Ok(empleadosConMasDe5Ventas);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

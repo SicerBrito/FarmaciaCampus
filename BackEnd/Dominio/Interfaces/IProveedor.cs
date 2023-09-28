@@ -5,5 +5,7 @@ namespace Dominio.Interfaces;
         
         //! Consulta Nro. 2
         Task<List<Proveedor>> ListarProveedoresConInformacionDeContacto();
-    
+
+        //! Consulta Nro.13
+        Task<List<Proveedor>> ObtenerProveedoresQueNoHanVendidoEnUltimoAnio();
     }

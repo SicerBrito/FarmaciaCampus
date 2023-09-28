@@ -19,7 +19,8 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
                                     .Include(u => u.Medicamentos)
                                     .ToListAsync();
     }
-
+    
+    //! Consulta Nro. 2
     public async Task<List<Proveedor>> ListarProveedoresConInformacionDeContacto()
     {
         return await _Context.Proveedores!
@@ -38,4 +39,17 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
             })
             .ToListAsync();
     }
+
+    //! Consulta Nro.13
+    public async Task<List<Proveedor>> ObtenerProveedoresQueNoHanVendidoEnUltimoAnio()
+    {
+        var fechaHaceUnAnio = DateTime.Now.AddYears(-1);
+
+        var proveedores = await _Context.Proveedores!
+            .Where(proveedor => !proveedor.Compras!.Any(compra => compra.FechaCompra >= fechaHaceUnAnio))
+            .ToListAsync();
+
+        return proveedores;
+    }
+
 }

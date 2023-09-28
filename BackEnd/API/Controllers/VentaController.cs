@@ -62,6 +62,46 @@ namespace API.Controllers;
             return Ok(totalVentas);
         }
 
+        //! Consulta Nro.8
+        [HttpGet("totalDineroRecaudadoPorVentas")]
+        public async Task<ActionResult<decimal>> ObtenerTotalDineroRecaudadoPorVentas()
+        {
+            var totalDineroRecaudado = await _UnitOfWork.Ventas!.ObtenerTotalDineroRecaudadoPorVentas();
+            return Ok(totalDineroRecaudado);
+        }
+
+        //! Consulta Nro.14
+        [HttpGet("totalMedicamentosVendidosEnMarzo2023")]
+        public async Task<ActionResult<int>> ObtenerTotalMedicamentosVendidosEnMarzo2023()
+        {
+            var totalMedicamentosVendidos = await _UnitOfWork.Ventas!.ObtenerTotalMedicamentosVendidosEnMarzo2023();
+            return Ok(totalMedicamentosVendidos);
+        }
+
+        //! Consulta Nro.15
+        [HttpGet("medicamentoMenosVendidoEn2023")]
+        public async Task<ActionResult<Medicamento>> ObtenerMedicamentoMenosVendidoEn2023()
+        {
+            var medicamentoMenosVendido = await _UnitOfWork.Ventas!.ObtenerMedicamentoMenosVendidoEn2023();
+            return Ok(medicamentoMenosVendido);
+        }
+
+        //! Consulta Nro.17
+        [HttpGet("promedioMedicamentosCompradosPorVenta")]
+        public async Task<ActionResult<double>> CalcularPromedioMedicamentosCompradosPorVenta()
+        {
+            var promedio = await _UnitOfWork.Ventas!.CalcularPromedioMedicamentosCompradosPorVenta();
+            return Ok(promedio);
+        }
+
+        //! Consulta Nro.18
+        [HttpGet("cantidadVentasPorEmpleadoEn2023")]
+        public async Task<ActionResult<Dictionary<string, int>>> ObtenerCantidadVentasPorEmpleadoEn2023()
+        {
+            var ventasPorEmpleado = await _UnitOfWork.Ventas!.ObtenerCantidadVentasPorEmpleadoEn2023();
+            return Ok(ventasPorEmpleado);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

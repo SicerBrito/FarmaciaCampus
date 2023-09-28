@@ -97,11 +97,11 @@ namespace API.Controllers;
 
 
         //!Consulta Nro.7
-        [HttpGet("MedicamentosVendidosPorCadaProveedor")]
+        [HttpGet("medicamentosVendidosPorCadaProveedor")]
         public async Task<ActionResult<IEnumerable<Object>>> ObtenerTotalMedicamentosVendidosPorProveedor()
         {
-            var medicamentos = await _UnitOfWork.Medicamentos!.ObtenerTotalMedicamentosVendidosPorProveedor();
-            return Ok(medicamentos);
+            var totalMedicamentosPorProveedor = await _UnitOfWork.Medicamentos!.ObtenerTotalMedicamentosVendidosPorProveedor();
+            return Ok(totalMedicamentosPorProveedor);
         }
 
         [HttpPost]
@@ -119,7 +119,49 @@ namespace API.Controllers;
             return CreatedAtAction(nameof(Post),new {id= recordDto.Id}, recordDto);
         }
 
-        
+
+        // !Consulta Nro.9
+        [HttpGet("medicamentosNoVendidos")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosNoVendidos()
+        {
+            var medicamentos = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosNoVendidos();
+            return Ok(medicamentos);
+        }
+
+        //! Consulta Nro.10
+        [HttpGet("medicamentoMasCaro")]
+        public async Task<ActionResult<Medicamento>> ObtenerMedicamentoMasCaro()
+        {
+            var medicamento = await _UnitOfWork.Medicamentos!.ObtenerMedicamentoMasCaro();
+            return Ok(medicamento);
+        }
+
+
+        //! Consulta Nro.11
+        [HttpGet("medicamentosPorProveedor")]
+        public async Task<ActionResult<Dictionary<string, int>>> ObtenerNumeroMedicamentosPorProveedor()
+        {
+            var medicamentosPorProveedor = await _UnitOfWork.Medicamentos!.ObtenerNumeroMedicamentosPorProveedor();
+            return Ok(medicamentosPorProveedor);
+        }
+
+
+        //! Consulta Nro.19
+        [HttpGet("medicamentosExpiranEn2024")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosQueExpiranEn2024()
+        {
+            var medicamentosEn2024 = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosQueExpiranEn2024();
+            return Ok(medicamentosEn2024);
+        }
+
+        //! Consulta Nro.21
+        [HttpGet("medicamentosNuncaVendidos")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosNuncaVendidos()
+        {
+            var medicamentosNuncaVendidos = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosNuncaVendidos();
+            return Ok(medicamentosNuncaVendidos);
+        }
+
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

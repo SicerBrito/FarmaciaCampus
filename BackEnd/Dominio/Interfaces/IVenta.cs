@@ -8,4 +8,21 @@ namespace Dominio.Interfaces;
 
         //! Consulta Nro.5
         Task<decimal> ObtenerTotalVentasParacetamol();
+
+        //! Consulta Nro.8
+        Task<double> ObtenerTotalDineroRecaudadoPorVentas();
+    
+        //! Consulta Nro.14
+        Task<int> ObtenerTotalMedicamentosVendidosEnMarzo2023();
+
+        //! Consulta Nro.15
+        Task<Medicamento> ObtenerMedicamentoMenosVendidoEn2023();
+
+        //! Consulta Nro.17
+        Task<double> CalcularPromedioMedicamentosCompradosPorVenta();
+
+        //! Consulta Nro.18
+        Task<Dictionary<string, int>> ObtenerCantidadVentasPorEmpleadoEn2023();
+
     }
+

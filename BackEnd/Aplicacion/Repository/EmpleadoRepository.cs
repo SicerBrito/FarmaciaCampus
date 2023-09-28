@@ -24,6 +24,17 @@ public class EmpleadoRepository : GenericRepository<Empleado>, IEmpleado
                                 .ToListAsync();
     }
 
+    //! Consulta Nro.20
+    public async Task<List<Empleado>> ObtenerEmpleadosConMasDe5Ventas()
+    {
+        var empleadosConMasDe5Ventas = await _Context.Empleados!
+            .Where(e => e.Ventas!.Count > 5)
+            .ToListAsync();
+
+        return empleadosConMasDe5Ventas;
+    }
+    
+
     public async Task<Empleado> GetByCargoAsync(string cargo)
     {
         return (await _Context.Set<Empleado>()

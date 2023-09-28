@@ -34,6 +34,70 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
         return totalVentasParacetamol;
     }
 
+    //! Consulta Nro.8
+    public async Task<double> ObtenerTotalDineroRecaudadoPorVentas()
+    {
+        var totalDineroRecaudado = await _Context.Ventas!
+            .SelectMany(venta => venta.MedicamentosVendidos!)
+            .SumAsync(detalle => Convert.ToDouble(detalle.ValorTotalVenta ?? "0"));
+
+        return totalDineroRecaudado;
+    }
+
+    //! Consulta Nro.14
+    public async Task<int> ObtenerTotalMedicamentosVendidosEnMarzo2023()
+    {
+        var fechaInicioMarzo2023 = new DateTime(2023, 3, 1);
+        var fechaFinMarzo2023 = new DateTime(2023, 3, 31);
+
+        var totalMedicamentosVendidos = await _Context.MedicamentosVendidos!
+            .Where(mv => mv.Ventas!.FechaVenta >= fechaInicioMarzo2023 && mv.Ventas.FechaVenta <= fechaFinMarzo2023)
+            .SumAsync(mv => mv.CantidadVendida);
+
+        return totalMedicamentosVendidos;
+    }
+
+    //! Consulta Nro.15
+    public async Task<Medicamento> ObtenerMedicamentoMenosVendidoEn2023()
+    {
+        var fechaInicio2023 = new DateTime(2023, 1, 1);
+        var fechaFin2023 = new DateTime(2023, 12, 31);
+
+        var medicamentoMenosVendido = await _Context.Medicamentos!
+            .Where(m => m.MedicamentosVendidos!
+                .Any(mv => mv.Ventas!.FechaVenta >= fechaInicio2023 && mv.Ventas.FechaVenta <= fechaFin2023))
+            .OrderBy(m => m.MedicamentosVendidos!
+                .Where(mv => mv.Ventas!.FechaVenta >= fechaInicio2023 && mv.Ventas.FechaVenta <= fechaFin2023)
+                .Sum(mv => mv.CantidadVendida))
+            .FirstOrDefaultAsync();
+
+        return medicamentoMenosVendido!;
+    }
+
+    //! Consulta Nro.17
+    public async Task<double> CalcularPromedioMedicamentosCompradosPorVenta()
+    {
+        var promedio = await _Context.Ventas!
+            .Where(v => v.MedicamentosVendidos!.Any())
+            .AverageAsync(v => v.MedicamentosVendidos!.Sum(mv => mv.CantidadVendida));
+
+        return promedio;
+    }
+
+    //! Consulta Nro.18
+    public async Task<Dictionary<string, int>> ObtenerCantidadVentasPorEmpleadoEn2023()
+    {
+        var ventasPorEmpleado = await _Context.Ventas!
+            .Where(v => v.FechaVenta.Year == 2023)
+            .GroupBy(v => v.Empleados!.Nombres + " " + v.Empleados.Apellidos) // Agrupamos por nombre completo del empleado
+            .ToDictionaryAsync(
+                group => group.Key, // Key es el nombre completo del empleado
+                group => group.Count() // Contamos la cantidad de ventas para cada empleado
+            );
+
+        return ventasPorEmpleado;
+    }
+
     public async Task<Venta> GetByClienteAsync(string cliente)
     {
         return (await _Context.Set<Venta>()

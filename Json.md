@@ -670,7 +670,18 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "PresentacionId": "2",  
     "ProveedorId": "2",  
     "Stock": "10"  
-  }  
+  },  
+  {  
+    "Id": "6",  
+    "Nombre": "Loratadina",  
+    "FechaExpiracion": "2022-09-04",
+    "ValorUnidad": "10000",
+    "TipoId": "1",  
+    "CategoriaId": "1",  
+    "PresentacionId": "3",  
+    "ProveedorId": "1",  
+    "Stock": "100"  
+  }
 ]   
 
 ---

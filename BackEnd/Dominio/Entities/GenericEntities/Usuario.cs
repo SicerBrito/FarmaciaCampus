@@ -1,3 +1,4 @@
+
 namespace Dominio.Entities;
     public class Usuario : BaseEntity{
         
@@ -9,5 +10,4 @@ namespace Dominio.Entities;
         public ICollection<UsuarioRol> ? UsuarioRoles { get; set; }
         public ICollection<Cita> ? Citas { get; set; }
         public ICollection<Venta> ? Ventas { get; set; }
-
-    }
+}

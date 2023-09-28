@@ -13,5 +13,5 @@ namespace Dominio.Entities;
     
     public ICollection<Inventario> ? Inventarios { get; set; }
     public ICollection<MedicamentosVendidos> ? MedicamentosVendidos { get; set; }
-  
-  }
+    
+}

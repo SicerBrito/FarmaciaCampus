@@ -22,6 +22,19 @@ public class CompraRepository : GenericRepository<Compra>, ICompra
                                 .ToListAsync();        
     }
 
+    //! Consulta Nro.16
+    public async Task<decimal> ObtenerGananciaTotalPorProveedorEn2023(int proveedorId)
+    {
+        var fechaInicio2023 = new DateTime(2023, 1, 1);
+        var fechaFin2023 = new DateTime(2023, 12, 31);
+
+        var gananciaTotal = await _Context.Compras!
+            .Where(c => c.ProveedorId == proveedorId && c.FechaCompra >= fechaInicio2023 && c.FechaCompra <= fechaFin2023)
+            .SumAsync(c => c.MedicamentosComprados!.Sum(mc => mc.CantidadCompra * Convert.ToDecimal(mc.Medicamentos!.ValorUnidad)));
+
+        return gananciaTotal!;
+    }
+    
     public async Task<Compra> GetByProveedorAsync(string proveedor)
     {
         return (await _Context.Set<Compra>()

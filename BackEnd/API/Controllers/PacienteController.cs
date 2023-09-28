@@ -54,6 +54,7 @@ namespace API.Controllers;
             return _Mapper.Map<PacienteComplementsDto>(record);
         }
 
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -69,6 +70,21 @@ namespace API.Controllers;
             return CreatedAtAction(nameof(Post),new {id= recordDto.Id}, recordDto);
         }
 
+        //! Consulta Nro.12
+        [HttpGet("pacientesQueCompraronParacetamol")]
+        public async Task<ActionResult<List<Paciente>>> ObtenerPacientesQueHanCompradoParacetamol()
+        {
+            var pacientes = await _UnitOfWork.Pacientes!.ObtenerPacientesQueHanCompradoParacetamol();
+            return Ok(pacientes);
+        }
+
+        //! Consulta Nro.22
+        [HttpGet("pacienteMayorGasto2023")]
+        public async Task<ActionResult<Paciente>> ObtenerPacienteMayorGasto2023()
+        {
+            var pacienteMayorGasto2023 = await _UnitOfWork.Pacientes!.ObtenerPacienteMayorGasto2023();
+            return Ok(pacienteMayorGasto2023);
+        }
         
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
