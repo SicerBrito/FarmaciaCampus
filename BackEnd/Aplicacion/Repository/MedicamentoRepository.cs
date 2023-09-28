@@ -34,12 +34,53 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
 
     //! Consulta Nro.2
     public async Task<IEnumerable<Medicamento?>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
+    {
+        return await _Context.MedicamentosComprados!
+            .Where(c => c.Medicamentos!.ProveedorId == proveedorId)
+            .Select(c => c.Medicamentos)
+            .ToListAsync();
+    }
+
+    //! Consulta Nro.6
+    public async Task<List<Medicamento>> ObtenerMedicamentosCaducanAntesDe2024()
+    {
+        var fechaLimite = new DateTime(2024, 1, 1);
+
+        var medicamentosCaducanAntesDe2024 = await _Context.Medicamentos!
+            .Where(medicamento => medicamento.FechaExpiracion < fechaLimite)
+            .ToListAsync();
+
+        return medicamentosCaducanAntesDe2024;
+    }
+
+    //!Consulta Nro.7
+    public async Task<IEnumerable<object>> ObtenerTotalMedicamentosVendidosPorProveedor()
+    {
+        var medicamentosPorProveedor = await _Context.Medicamentos!
+        .GroupBy(medicamento => medicamento.Proveedores!.Nombres)
+        .Select(group => new         
         {
-            return await _Context.MedicamentosComprados!
-                .Where(c => c.Medicamentos!.ProveedorId == proveedorId)
-                .Select(c => c.Medicamentos)
-                .ToListAsync();
-        }
+            group.First().Proveedores,
+            TotalVendidos = group.Sum(medicamento => medicamento.MedicamentosVendidos!.Sum(vendido => vendido.CantidadVendida)) 
+        })
+        .ToListAsync();
+
+        return medicamentosPorProveedor!;
+    }
+
+    // public async Task<Dictionary<string, int>> ObtenerTotalMedicamentosVendidosPorProveedor()
+    // {
+    //     var medicamentosPorProveedor = await _Context.Medicamentos!
+    //         .GroupBy(medicamento => medicamento.Proveedores.Nombres)
+    //         .Select(group => new
+    //         {
+    //             Proveedor = group.Key,
+    //             TotalVendidos = group.Sum(medicamento => medicamento.MedicamentosVendidos.Sum(vendido => vendido.CantidadVendida))
+    //         })
+    //         .ToDictionary(result => result.Proveedor, result => result.TotalVendidos);
+
+    //     return medicamentosPorProveedor!;
+    // }
 
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {
@@ -68,4 +109,6 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
                             .Include(u => u.Tipos)
                             .FirstOrDefaultAsync(u => u.Nombre!.ToLower()==tipoMedicamento.ToLower()))!;
     }
+
+
 }

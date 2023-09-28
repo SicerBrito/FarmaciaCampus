@@ -6,5 +6,6 @@ namespace Dominio.Interfaces;
         Task<Venta> GetByEmpleadoAsync (string empleado);
         Task<Venta> GetByMetodoDePagoAsync (string metodoDePago);
 
+        //! Consulta Nro.5
         Task<decimal> ObtenerTotalVentasParacetamol();
     }

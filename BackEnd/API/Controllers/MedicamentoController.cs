@@ -87,6 +87,23 @@ namespace API.Controllers;
             }
         }
 
+        //! Consulta Nro.6
+        [HttpGet("medicamentosCaducanAntesDe2024")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosCaducanAntesDe2024()
+        {
+            var medicamentos = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosCaducanAntesDe2024();
+            return Ok(medicamentos);
+        }
+
+
+        //!Consulta Nro.7
+        [HttpGet("MedicamentosVendidosPorCadaProveedor")]
+        public async Task<ActionResult<IEnumerable<Object>>> ObtenerTotalMedicamentosVendidosPorProveedor()
+        {
+            var medicamentos = await _UnitOfWork.Medicamentos!.ObtenerTotalMedicamentosVendidosPorProveedor();
+            return Ok(medicamentos);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

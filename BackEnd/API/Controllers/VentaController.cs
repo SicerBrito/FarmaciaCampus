@@ -54,10 +54,11 @@ namespace API.Controllers;
             return _Mapper.Map<VentaComplementsDto>(record);
         }
 
+        //! Consulta Nro.5
         [HttpGet("totalVentasParacetamol")]
         public async Task<ActionResult<decimal>> ObtenerTotalVentasParacetamol()
         {
-            var totalVentas = await _ventaService.ObtenerTotalVentasParacetamol();
+            var totalVentas = await _UnitOfWork.Ventas!.ObtenerTotalVentasParacetamol();
             return Ok(totalVentas);
         }
 
