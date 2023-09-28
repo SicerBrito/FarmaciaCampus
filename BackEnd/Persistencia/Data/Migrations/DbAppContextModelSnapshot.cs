@@ -530,6 +530,10 @@ namespace Persistencia.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Proveedor_Id");
 
+                    b.Property<long>("Stock")
+                        .HasColumnType("BIGINT")
+                        .HasColumnName("Stock");
+
                     b.Property<int>("TipoId")
                         .HasColumnType("int")
                         .HasColumnName("TipoMedicamento_Id");

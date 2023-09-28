@@ -8,4 +8,5 @@ namespace API.Dtos.Medicamento;
         public int CategoriaId { get; set; }
         public int PresentacionId { get; set; }
         public int ProveedorId { get; set; }
+        public int Stock { get; set; }
     }

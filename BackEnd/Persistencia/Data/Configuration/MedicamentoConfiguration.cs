@@ -69,5 +69,10 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
             .WithMany(p => p.Medicamentos)
             .HasForeignKey(p => p.ProveedorId);
 
+        builder.Property(p => p.Stock)
+            .HasColumnName("Stock")
+            .HasColumnType("BIGINT")
+            .IsRequired();
+
     }
 }

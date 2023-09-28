@@ -12,7 +12,7 @@ using Persistencia.Data;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20230927200908_InitialCreate")]
+    [Migration("20230928040830_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -532,6 +532,10 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("ProveedorId")
                         .HasColumnType("int")
                         .HasColumnName("Proveedor_Id");
+
+                    b.Property<long>("Stock")
+                        .HasColumnType("BIGINT")
+                        .HasColumnName("Stock");
 
                     b.Property<int>("TipoId")
                         .HasColumnType("int")

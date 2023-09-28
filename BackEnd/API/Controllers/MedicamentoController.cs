@@ -4,6 +4,7 @@ using AutoMapper;
 using Dominio.Entities;
 using Dominio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
@@ -53,20 +54,38 @@ namespace API.Controllers;
             return _Mapper.Map<MedicamentoComplementsDto>(record);
         }
 
-        // [HttpGet("medicamentosMenosde50Unidades")]
-        // public async Task<ActionResult> GetMedicamentosMenos50Unidades()
+        //! Consulta
+        [HttpGet("stockbajo")]
+        [MapToApiVersion("1.0")]
+        [MapToApiVersion("1.1")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosConStockBajo()
+        {
+            var medicamentosConStockBajo = await _UnitOfWork.Medicamentos!
+                .GetAllMedicamentos()
+                .ToListAsync();
+
+            return medicamentosConStockBajo!;
+        }
+
+        //! Consuta
+        // [HttpGet("proveedor/{proveedorId}")]
+        // [MapToApiVersion("1.1")]
+        // [ProducesResponseType(StatusCodes.Status200OK)]
+        // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        // public async Task<ActionResult<List<MedicamentoDto>>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
         // {
-        //     var medicamentos = _UnitOfWork.Medicamentos!.Find(x =>x.Stock < 50);
-        //     if(medicamentos is null) return NotFound();
-        //     var result = medicamentos.Select(m =>new{
-        //         m.Id,
-        //         m.Nombre,
-        //         m.Precio,
-        //         m.FechaExpiracion,
-        //         m.Stock,
-        //         m.ProveedorId
-        //     });
-        //     return Ok(result);
+        //     try
+        //     {
+        //         var medicamentosProveedor = await _UnitOfWork.ObtenerMedicamentosCompradosPorProveedorId(proveedorId);
+        //         var medicamentosDto = _Mapper.Map<List<MedicamentoDto>>(medicamentosProveedor);
+        //         return Ok(medicamentosDto);
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         return BadRequest($"Error al obtener medicamentos del proveedor: {ex.Message}");
+        //     }
         // }
 
         [HttpPost]

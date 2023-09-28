@@ -25,6 +25,19 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
                                 .ToListAsync();
     }
 
+    public IQueryable<Medicamento> GetAllMedicamentos()
+    {
+        return _Context.Set<Medicamento>().Where(m => m.Stock < 50);
+    }
+
+        // public async Task<List<Medicamento>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
+        // {
+        //     return await _Context.MedicamentosComprados!
+        //         .Where(compra => compra.MedicamentoId.ToString() == proveedorId)
+        //         .Select(compra => compra.MedicamentoId)
+        //         .ToListAsync();
+        // }
+
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {
         return (await _Context.Set<Medicamento>()

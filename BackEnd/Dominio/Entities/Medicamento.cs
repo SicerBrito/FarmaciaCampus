@@ -12,10 +12,10 @@ namespace Dominio.Entities;
       public string ? ValorUnidad { get; set; }
       public int ProveedorId  { get; set; }
       public Proveedor ? Proveedores { get; set; }
+      public int Stock { get; set; }
       
    
       public ICollection<MedicamentosComprados> ? MedicamentosComprados { get; set; }
       public ICollection<MedicamentosVendidos> ? MedicamentosVendidos { get; set; }
       public ICollection<FormulaMedicamentos> ? FormulaMedicamentos { get; set; }
-
-   }
+}

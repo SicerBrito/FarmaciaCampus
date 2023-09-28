@@ -313,6 +313,12 @@
     "Nombres": "Nombres Proveedor D",  
     "Apellidos": "Apellido Proveedor D",  
     "NroContacto": "3208818203" 
+  },
+  {  
+    "Id": "5",  
+    "Nombres": "ProveedorA",  
+    "Apellidos": "ApellidoA",  
+    "NroContacto": "3208818203" 
   }
 ]
 
@@ -618,7 +624,8 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "TipoId": "1",  
     "CategoriaId": "1",  
     "PresentacionId": "2",  
-    "ProveedorId": "2"  
+    "ProveedorId": "2",  
+    "Stock": "80"  
   },  
   {  
     "Id": "2",  
@@ -628,7 +635,8 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "TipoId": "2",  
     "CategoriaId": "2",  
     "PresentacionId": "2",  
-    "ProveedorId": "2"  
+    "ProveedorId": "2",  
+    "Stock": "20"  
   },  
   {  
     "Id": "3",  
@@ -638,7 +646,8 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "TipoId": "1",  
     "CategoriaId": "1",  
     "PresentacionId": "2",  
-    "ProveedorId": "2"  
+    "ProveedorId": "2",  
+    "Stock": "45"  
   },  
   {  
     "Id": "4",  
@@ -648,7 +657,8 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "TipoId": "2",  
     "CategoriaId": "3",  
     "PresentacionId": "2",  
-    "ProveedorId": "2"  
+    "ProveedorId": "2",  
+    "Stock": "70"  
   },   
   {  
     "Id": "5",  
@@ -658,7 +668,8 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "TipoId": "2",  
     "CategoriaId": "4",  
     "PresentacionId": "2",  
-    "ProveedorId": "2"  
+    "ProveedorId": "2",  
+    "Stock": "10"  
   }  
 ]   
 

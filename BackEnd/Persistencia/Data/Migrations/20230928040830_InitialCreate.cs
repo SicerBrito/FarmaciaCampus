@@ -369,7 +369,8 @@ namespace Persistencia.Data.Migrations
                     FechaExpiracion = table.Column<DateTime>(type: "DateTime", nullable: false),
                     ValorUnidad = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Proveedor_Id = table.Column<int>(type: "int", nullable: false)
+                    Proveedor_Id = table.Column<int>(type: "int", nullable: false),
+                    Stock = table.Column<long>(type: "BIGINT", nullable: false)
                 },
                 constraints: table =>
                 {

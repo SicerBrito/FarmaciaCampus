@@ -7,5 +7,3 @@ namespace Dominio.Entities;
         public ICollection<Direccion> ? Direcciones { get; set; }
     
     }
-
-     

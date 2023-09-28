@@ -20,4 +20,22 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
                                     .ToListAsync();
     }
 
+    public async Task<List<Proveedor>> ListarProveedoresConInformacionDeContacto()
+    {
+        return await _Context.Proveedores!
+            .Include(p => p.Medicamentos)
+            .Select(p => new Proveedor
+            {
+                Nombres = p.Nombres + " " + p.Apellidos,
+                Apellidos = p.Apellidos,
+                Compras = p.Compras,
+                Medicamentos = p.Medicamentos!.Select(m => new Medicamento
+                {
+                    Nombre = m.Nombre,
+                    ValorUnidad = m.ValorUnidad,
+                    Stock = m.Stock
+                }).ToList()
+            })
+            .ToListAsync();
+    }
 }

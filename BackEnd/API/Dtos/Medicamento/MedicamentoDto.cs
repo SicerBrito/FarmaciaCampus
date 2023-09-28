@@ -7,6 +7,7 @@ namespace API.Dtos.Medicamento;
         public string ? Nombre { get; set; }
         public DateTime ? FechaExpiracion { get; set; }
         public string ? ValorUnidad { get; set; }
+        public int Stock { get; set; }
 
         public List<FormulaMedicamentoComplementsDto> ? FormulaMedicamentos { get; set; }
         public List<MedicamentosCompradosComplementsDto> ? MedicamentosComprados { get; set; }
