@@ -67,6 +67,29 @@ public class DireccionConfiguration : IEntityTypeConfiguration<Direccion>
         builder.HasOne(p => p.Farmacias)
             .WithMany(p => p.Direcciones)
             .HasForeignKey(p => p.FarmaciaId);
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                NombreDireccion = "Cristal Alto Casa 1 piso2 Peatonal",  
+                NroDireccion = 5, 
+                CodigoPostal = 680001,  
+                TipoDireccionId = 1,  
+                TipoViaId = 1,  
+                CiudadId = 7,  
+                FarmaciaId = 1  
+            },  
+            new {  
+                Id = 2,  
+                NombreDireccion = "Barrio Santa Ana",  
+                NroDireccion = 249,  
+                CodigoPostal = 680001,  
+                TipoDireccionId = 1,  
+                TipoViaId = 8,  
+                CiudadId = 7,  
+                FarmaciaId = 1  
+            }
+        );
         
     }
 }

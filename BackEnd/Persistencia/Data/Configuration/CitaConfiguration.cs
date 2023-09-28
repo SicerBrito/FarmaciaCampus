@@ -48,5 +48,22 @@ public class CitaConfiguration : IEntityTypeConfiguration<Cita>
             .WithMany(p => p.Citas)
             .HasForeignKey(p => p.UsuarioId);
 
+        builder.HasData(
+            new {
+                Id = 1,
+                FechaCita = new DateTime (2023,10,21),
+                EstadoCitaId = 1,
+                MedicoId = 1,
+                UsuarioId = 2
+            },
+            new {
+                Id = 2,
+                FechaCita = new DateTime (2023,10,21),
+                EstadoCitaId = 6,
+                MedicoId = 2,
+                UsuarioId = 1
+            }
+        );
+
     }
 }

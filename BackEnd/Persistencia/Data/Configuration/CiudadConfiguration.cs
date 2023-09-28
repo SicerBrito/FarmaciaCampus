@@ -31,5 +31,43 @@ public class CiudadConfiguration : IEntityTypeConfiguration<Ciudad>
             .WithMany(p => p.Ciudades)
             .HasForeignKey(p => p.DepartamentoId);
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombre = "Bogota",  
+                DepartamentoId = 6 
+            },  
+            new {  
+                Id = 2,  
+                Nombre = "Medellin",  
+                DepartamentoId = 2 
+            },  
+            new {  
+                Id = 3,  
+                Nombre = "Cartagena",  
+                DepartamentoId = 4 
+            },  
+            new {
+                Id = 4,  
+                Nombre = "Cali",  
+                DepartamentoId = 1 
+            },  
+            new {  
+                Id = 5,  
+                Nombre = "Barranquilla",  
+                DepartamentoId = 2 
+            },  
+            new {  
+                Id = 6,  
+                Nombre = "Santa Marta",  
+                DepartamentoId = 4 
+            },  
+            new {  
+                Id = 7,  
+                Nombre = "Bucaramanga",  
+                DepartamentoId = 6 
+            }  
+        );
+
     }
 }

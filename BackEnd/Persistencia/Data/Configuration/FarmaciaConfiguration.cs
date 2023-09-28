@@ -45,5 +45,16 @@ public class FarmaciaConfiguration : IEntityTypeConfiguration<Farmacia>
             .HasMaxLength(255)
             .IsRequired();
 
+        builder.HasData(
+            new   {  
+                Id =  1,   
+                NombreFarmacia =  "FarmacooParte2",  
+                Propietario = "Sicer Andres Brito Gutierrez",  
+                FechaInauguracion = new DateTime (2023,09,25),  
+                NumeroContacto = "3208818203",  
+                URLSitioWeb = "https://github.com/SicerBrito"  
+            }
+        );
+
     }
 }

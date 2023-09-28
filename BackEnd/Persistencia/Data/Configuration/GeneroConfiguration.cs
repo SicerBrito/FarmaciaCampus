@@ -21,6 +21,29 @@ public class GeneroConfiguration : IEntityTypeConfiguration<Genero>
             .HasColumnType("varchar")
             .HasMaxLength(25)
             .IsRequired();
+
+        builder.HasData(
+            new {    
+                Id = 1,    
+                Nombre = "Masculino"  
+            },  
+            new {  
+                Id = 2,  
+                Nombre = "Femenino"  
+            },  
+            new {  
+                Id = 3,  
+                Nombre = "Otro"  
+            },  
+            new {  
+                Id = 4,  
+                Nombre = "Helicoptero"  
+            },  
+            new {  
+                Id = 5,  
+                Nombre = "Prefiero no decirlo"  
+            } 
+        );
             
     }
 }

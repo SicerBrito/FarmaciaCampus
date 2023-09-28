@@ -52,5 +52,32 @@ public class HistorialMedicoConfiguration : IEntityTypeConfiguration<HistorialMe
             .HasMaxLength(255)
             .IsRequired();
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Diagnostico = "Hipertensión, Diabetes",  
+                Tratamiento = "Medicamentos recetados, dieta, ejercicio",  
+                Observaciones = "Paciente en seguimiento regular",  
+                PacienteId = 1,  
+                MedicoId = 1  
+            }, 
+            new {  
+                Id = 2,  
+                Diagnostico = "Asma, Alergias",  
+                Tratamiento = "Inhalador de rescate, evitar alérgenos ",  
+                Observaciones = "Ocasionales episodios asmáticos.",  
+                PacienteId = 1,  
+                MedicoId = 1  
+            },
+            new {  
+                Id = 3,  
+                Diagnostico = "Sin problemas de salud",  
+                Tratamiento = "Medicamento, control de presión ",  
+                Observaciones = "Chequeo de rutina sin novedades",  
+                PacienteId = 1,  
+                MedicoId = 1  
+            }
+        );
+
     }
 }

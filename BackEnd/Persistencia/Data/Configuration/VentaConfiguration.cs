@@ -53,5 +53,24 @@ public class VentaConfiguration : IEntityTypeConfiguration<Venta>
             .HasColumnType("varchar")
             .HasMaxLength(50)
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                NumeroFactura = "5363634231",  
+                FechaVenta = new DateTime (2023,05,24),  
+                ClienteId = 1,  
+                VentaEmpleadoId = 2,  
+                MetodoDePagoId = 1  
+            },  
+            new {  
+                Id = 2,  
+                NumeroFactura = "473567356465",  
+                FechaVenta = new DateTime (2023,02,04),  
+                ClienteId = 1,  
+                VentaEmpleadoId = 2,  
+                MetodoDePagoId = 1  
+            }  
+        );
     }
 }

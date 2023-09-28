@@ -21,6 +21,21 @@ namespace Persistencia.Data.Configuration;
             .HasMaxLength(50)
             .IsRequired();
 
+            builder.HasData(
+                new {
+                    Id = 1,
+                    Nombre = "Administrador"
+                },
+                new {
+                    Id = 2,
+                    Nombre = "Gerente"
+                },
+                new {
+                    Id = 3,
+                    Nombre = "Empleado"
+                }
+            );
+
             
         }
     }

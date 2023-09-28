@@ -34,5 +34,23 @@ public class FormulaMedicamentosConfiguration : IEntityTypeConfiguration<Formula
             .WithMany(p => p.FormulaMedicamentos)
             .HasForeignKey(p => p.MedicamentoId);
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                FomulaMedicaId = 1,  
+                MedicamentoId = 4  
+            },  
+            new {  
+                Id = 2,  
+                FomulaMedicaId = 2,  
+                MedicamentoId = 1  
+            }, 
+            new {  
+                Id = 3,  
+                FomulaMedicaId = 2,  
+                MedicamentoId = 3  
+            }
+        );
+
     }
 }

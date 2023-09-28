@@ -28,5 +28,48 @@ namespace Persistencia.Data.Configuration;
                 .HasMaxLength(5)
                 .IsRequired();
 
+            builder.HasData(
+                new {  
+                    Id = 1,  
+                    Nombre = "Calle",  
+                    Abreviatura = "Cal"
+                },
+                new {  
+                    Id = 2,  
+                    Nombre = "Avenida",  
+                    Abreviatura = "Av"
+                },
+                new {  
+                    Id = 3,  
+                    Nombre = "Boulevard",  
+                    Abreviatura = "Blvd"
+                },
+                new {  
+                    Id = 4,  
+                    Nombre = "Carretera",  
+                    Abreviatura = "Carr"
+                },
+                new {  
+                    Id = 5,  
+                    Nombre = "Paseo",  
+                    Abreviatura = "Pso"
+                },
+                new {  
+                    Id = 6,  
+                    Nombre = "Camino",  
+                    Abreviatura = "Cam"
+                },
+                new {  
+                    Id = 7,  
+                    Nombre = "Plaza",  
+                    Abreviatura = "Plz"
+                },
+                new {  
+                    Id = 8,  
+                    Nombre = "Via",  
+                    Abreviatura = "Via"
+                }
+            );
+
         }
     }

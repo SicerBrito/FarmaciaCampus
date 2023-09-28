@@ -21,5 +21,16 @@ public class TipoMedicamentoConfiguration : IEntityTypeConfiguration<TipoMedicam
             .HasColumnType("varchar")
             .HasMaxLength(30)
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombre = "Tableta"  
+            },
+            new {  
+                Id = 2,  
+                Nombre = "Capsula"  
+            }
+        );
     }
 }

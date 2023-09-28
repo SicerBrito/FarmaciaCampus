@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Persistencia.Data.Migrations
 {
     /// <inheritdoc />
@@ -804,6 +806,349 @@ namespace Persistencia.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "CargoEmpleado",
+                columns: new[] { "IdCargoEmpleado", "NombreCargo" },
+                values: new object[,]
+                {
+                    { 1, "Medico" },
+                    { 2, "Farmaceutico" },
+                    { 3, "Cajero" },
+                    { 4, "Repartidor" },
+                    { 5, "Contador" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CategoriaMedicamento",
+                columns: new[] { "IdCategoriaMedicamento", "NombreMedicamento" },
+                values: new object[,]
+                {
+                    { 1, "Analgesico" },
+                    { 2, "Antiinflamatorio" },
+                    { 3, "Antibiotico" },
+                    { 4, "Antiulceroso" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EstadoCita",
+                columns: new[] { "IdEstadoCita", "NombreEstado" },
+                values: new object[,]
+                {
+                    { 1, "Programada" },
+                    { 2, "Confirmada" },
+                    { 3, "No confirmada" },
+                    { 4, "Cancelada" },
+                    { 5, "Atendida" },
+                    { 6, "En espera" },
+                    { 7, "Reprogramada" },
+                    { 8, "Rechazada" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Farmacia",
+                columns: new[] { "IdFarmacia", "FechaInauguracion", "NombreFarmacia", "NumeroContacto", "Propietario", "URLSitioWeb" },
+                values: new object[] { 1, new DateTime(2023, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "FarmacooParte2", "3208818203", "Sicer Andres Brito Gutierrez", "https://github.com/SicerBrito" });
+
+            migrationBuilder.InsertData(
+                table: "Genero",
+                columns: new[] { "IdGenero", "NombreGenero" },
+                values: new object[,]
+                {
+                    { 1, "Masculino" },
+                    { 2, "Femenino" },
+                    { 3, "Otro" },
+                    { 4, "Helicoptero" },
+                    { 5, "Prefiero no decirlo" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MetodoDePago",
+                columns: new[] { "IdMetodoDePago", "NombreMetodo" },
+                values: new object[,]
+                {
+                    { 1, "Tarjeta de credito" },
+                    { 2, "Tarjeta de debito" },
+                    { 3, "Efectivo" },
+                    { 4, "Cheque" },
+                    { 5, "Transferencia bancaria" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Pais",
+                columns: new[] { "IdPais", "NombrePais" },
+                values: new object[,]
+                {
+                    { 1, "Estados Unidos" },
+                    { 2, "Canada" },
+                    { 3, "Mexico" },
+                    { 4, "Europa" },
+                    { 5, "Asia" },
+                    { 6, "Africa" },
+                    { 7, "Oceania" },
+                    { 8, "Australia" },
+                    { 9, "Brasil" },
+                    { 10, "China" },
+                    { 11, "India" },
+                    { 12, "Indonesia" },
+                    { 13, "Japon" },
+                    { 14, "Marruecos" },
+                    { 15, "Nigeria" },
+                    { 16, "Rusia" },
+                    { 17, "Sudafrica" },
+                    { 18, "Tailandia" },
+                    { 19, "Argentina" },
+                    { 20, "Austria" },
+                    { 21, "Belgica" },
+                    { 22, "Bulgaria" },
+                    { 23, "Chile" },
+                    { 24, "Colombia" },
+                    { 25, "Costa Rica" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Presentacion",
+                columns: new[] { "IdPresentacion", "Descripcion" },
+                values: new object[,]
+                {
+                    { 1, "Caja de 30 tabletas" },
+                    { 2, "Botella de 100 capsulas" },
+                    { 3, "Caja de 50 tabletas" },
+                    { 4, "Botella de 30 capsulas" },
+                    { 5, "Caja de 60 capsulas" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Proveedor",
+                columns: new[] { "IdProveedor", "Apellidos", "Nombres", "NroContacto" },
+                values: new object[,]
+                {
+                    { 1, "Apellido Proveedor A", "Nombres Proveedor A", "3208818203" },
+                    { 2, "Apellido Proveedor B", "Nombres Proveedor B", "3208818203" },
+                    { 3, "Apellido Proveedor C", "Nombres Proveedor C", "3208818203" },
+                    { 4, "Apellido Proveedor D", "Nombres Proveedor D", "3208818203" },
+                    { 5, "ApellidoA", "ProveedorA", "3208818203" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Rol",
+                columns: new[] { "Id_Rol", "NombreRol" },
+                values: new object[,]
+                {
+                    { 1, "Administrador" },
+                    { 2, "Gerente" },
+                    { 3, "Empleado" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TipoDireccion",
+                columns: new[] { "IdTipoDireccion", "NombreDireccion" },
+                values: new object[,]
+                {
+                    { 1, "Residencial" },
+                    { 2, "Distrital" },
+                    { 3, "Oficina Principal" },
+                    { 4, "Comercial" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TipoMedicamento",
+                columns: new[] { "IdTipoMedicamento", "NombreTipo" },
+                values: new object[,]
+                {
+                    { 1, "Tableta" },
+                    { 2, "Capsula" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TipoVia",
+                columns: new[] { "IdTipoVia", "Abreviatura", "NombreTipoVia" },
+                values: new object[,]
+                {
+                    { 1, "Cal", "Calle" },
+                    { 2, "Av", "Avenida" },
+                    { 3, "Blvd", "Boulevard" },
+                    { 4, "Carr", "Carretera" },
+                    { 5, "Pso", "Paseo" },
+                    { 6, "Cam", "Camino" },
+                    { 7, "Plz", "Plaza" },
+                    { 8, "Via", "Via" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Usuario",
+                columns: new[] { "Id_Usuario", "Email", "Password", "Username" },
+                values: new object[,]
+                {
+                    { 1, "britodelgado514@gmail.com", "123456", "Sicer Brito" },
+                    { 2, "angedeveloper@gmail.com", "123", "Angelica Morales" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Compra",
+                columns: new[] { "IdCompra", "FechaCompra", "MetodoDePago_Id", "NumeroFactura", "Proveedor_Id" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "1112245", 1 },
+                    { 2, new DateTime(2023, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "324324234", 2 },
+                    { 3, new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "3245435325", 4 },
+                    { 4, new DateTime(2023, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "3453245435", 3 },
+                    { 5, new DateTime(2023, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "4343255", 2 },
+                    { 6, new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "345325345", 1 },
+                    { 7, new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "34523452345", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Departamento",
+                columns: new[] { "IdDepartamento", "NombreDepartamento", "Pais_Id" },
+                values: new object[,]
+                {
+                    { 1, "Putumayo", 24 },
+                    { 2, "Huila", 24 },
+                    { 3, "La Guajira", 24 },
+                    { 4, "Magdalena", 24 },
+                    { 5, "Meta", 24 },
+                    { 6, "Santander", 24 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Empleado",
+                columns: new[] { "IdEmpleado", "Apellidos", "Cargo_Id", "Farmacia_Id", "FechaContratacion", "Nombres", "Sueldo" },
+                values: new object[,]
+                {
+                    { 1, "Perez Numa", 1, 1, new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), "Juan David", "5000000" },
+                    { 2, "Alucema Torres", 1, 1, new DateTime(2024, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Konny Liseth", "2000000" },
+                    { 3, "Morales Silva", 2, 1, new DateTime(2024, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Maria Angelica", "2200000" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Medicamento",
+                columns: new[] { "IdMedicamento", "CategoriaMedicamento_Id", "FechaExpiracion", "NombreMedicamento", "PresentacionMedicamento_Id", "Proveedor_Id", "Stock", "TipoMedicamento_Id", "ValorUnidad" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2024, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "Aspirina", 2, 2, 80L, 1, "2000" },
+                    { 2, 2, new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ibuprofeno", 2, 2, 20L, 2, "5000" },
+                    { 3, 1, new DateTime(2023, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "Paracetamol", 2, 2, 45L, 1, "1000" },
+                    { 4, 3, new DateTime(2024, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "Amoxicilina", 2, 2, 70L, 2, "3500" },
+                    { 5, 4, new DateTime(2024, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), "Omeprazol", 2, 2, 10L, 2, "2200" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Paciente",
+                columns: new[] { "IdPaciente", "Apellidos", "FechaNacimiento", "Genero_Id", "Nombres", "NroContacto" },
+                values: new object[,]
+                {
+                    { 1, "Polanco Silva", new DateTime(2003, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Owell Andry", "3221243579" },
+                    { 2, "Torres Alvares", new DateTime(2003, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Sherman Andres", "6355050" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "UsuarioRol",
+                columns: new[] { "Id_UsuarioRol", "Rol_Id", "Usuario_Id" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 3, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cita",
+                columns: new[] { "IdCita", "EstadoCita_Id", "FechaCita", "Medico_Id", "Usuario_Id" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2023, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2 },
+                    { 2, 6, new DateTime(2023, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ciudad",
+                columns: new[] { "IdCiudad", "Departamento_Id", "NombreCiudad" },
+                values: new object[,]
+                {
+                    { 1, 6, "Bogota" },
+                    { 2, 2, "Medellin" },
+                    { 3, 4, "Cartagena" },
+                    { 4, 1, "Cali" },
+                    { 5, 2, "Barranquilla" },
+                    { 6, 4, "Santa Marta" },
+                    { 7, 6, "Bucaramanga" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "FormulaMedica",
+                columns: new[] { "IdFormulaMedica", "DuracionTratamiento", "FechaPrescripcion", "Indicaciones", "Medico_Id", "Paciente_Id", "Posologia" },
+                values: new object[,]
+                {
+                    { 1, 30, new DateTime(2023, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hipertension, Diabetes", 2, 2, "Aspirina: 1 tableta diaria después de la comida" },
+                    { 2, 90, new DateTime(2023, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chequeo de rutina", 2, 1, "Ventolin: 2 inhalaciones cuando sea necesario" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "HistorialMedico",
+                columns: new[] { "IdHistorialMedico", "Diagnostico", "Medico_Id", "Observaciones", "Paciente_Id", "Tratamiento" },
+                values: new object[,]
+                {
+                    { 1, "Hipertensión, Diabetes", 1, "Paciente en seguimiento regular", 1, "Medicamentos recetados, dieta, ejercicio" },
+                    { 2, "Asma, Alergias", 1, "Ocasionales episodios asmáticos.", 1, "Inhalador de rescate, evitar alérgenos " },
+                    { 3, "Sin problemas de salud", 1, "Chequeo de rutina sin novedades", 1, "Medicamento, control de presión " }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MedicamentosComprados",
+                columns: new[] { "IdMedicamentosComprados", "CantidadCompra", "Compra_Id", "Medico_Id", "ValorTotalCompra" },
+                values: new object[,]
+                {
+                    { 1, 5, 1, 5, "50000" },
+                    { 2, 2, 2, 1, "60000" },
+                    { 3, 21, 1, 3, "21000" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Venta",
+                columns: new[] { "IdVenta", "Cliente_Id", "FechaVenta", "MetodoDePago_Id", "NumeroFactura", "VentaEmpleado_Id" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2023, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "5363634231", 2 },
+                    { 2, 1, new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "473567356465", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Direccion",
+                columns: new[] { "IdDireccion", "Ciudad_Id", "CodigoPostal", "Farmacia_Id", "Direccion", "NroDireccion", "TipoDireccion_Id", "TipoVia_Id" },
+                values: new object[,]
+                {
+                    { 1, 7, 680001, 1, "Cristal Alto Casa 1 piso2 Peatonal", 5, 1, 1 },
+                    { 2, 7, 680001, 1, "Barrio Santa Ana", 249, 1, 8 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "FormulaMedicamentos",
+                columns: new[] { "IdFormulaMedicamentos", "FomulaMedica_Id", "Medicamento_Id" },
+                values: new object[,]
+                {
+                    { 1, 1, 4 },
+                    { 2, 2, 1 },
+                    { 3, 2, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Inventario",
+                columns: new[] { "IdInventario", "Compra_Id", "Farmacia_Id", "Usuario_Id" },
+                values: new object[,]
+                {
+                    { 1, 5, 1, 2 },
+                    { 2, 7, 1, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "MedicamentosVendidos",
+                columns: new[] { "IdMedicamentosVendidos", "CantidadVendida", "Medicamento_Id", "ValorTotalVenta", "Venta_Id" },
+                values: new object[,]
+                {
+                    { 1, 2, 1, "60000", 1 },
+                    { 2, 21, 3, "21000", 2 },
+                    { 3, 5, 5, "50000", 1 }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cita_EstadoCita_Id",

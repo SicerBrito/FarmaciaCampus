@@ -34,5 +34,18 @@ namespace Persistencia.Data.Configuration;
                 .WithMany(p => p.UsuarioRoles)
                 .HasForeignKey(p => p.RolId);
 
+            builder.HasData(
+                new {
+                    Id = 1,
+                    UsuarioId = 1,
+                    RolId = 1
+                },
+                new {
+                    Id = 2,
+                    UsuarioId = 2,
+                    RolId = 3
+                }
+            );
+
         }
     }

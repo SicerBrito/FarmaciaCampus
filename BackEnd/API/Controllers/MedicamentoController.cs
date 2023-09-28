@@ -70,23 +70,23 @@ namespace API.Controllers;
         }
 
         //! Consuta
-        // [HttpGet("proveedor/{proveedorId}")]
-        // [MapToApiVersion("1.1")]
-        // [ProducesResponseType(StatusCodes.Status200OK)]
-        // [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        // public async Task<ActionResult<List<MedicamentoDto>>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
-        // {
-        //     try
-        //     {
-        //         var medicamentosProveedor = await _UnitOfWork.ObtenerMedicamentosCompradosPorProveedorId(proveedorId);
-        //         var medicamentosDto = _Mapper.Map<List<MedicamentoDto>>(medicamentosProveedor);
-        //         return Ok(medicamentosDto);
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return BadRequest($"Error al obtener medicamentos del proveedor: {ex.Message}");
-        //     }
-        // }
+        [HttpGet("proveedor/{proveedorId}")]
+        [MapToApiVersion("1.1")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<List<MedicamentoDto>>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
+        {
+            try
+            {
+                var medicamentosProveedor = await _UnitOfWork.SaveAsync();
+                var medicamentosDto = _Mapper.Map<List<MedicamentoDto>>(medicamentosProveedor);
+                return Ok(medicamentosDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al obtener medicamentos del proveedor: {ex.Message}");
+            }
+        }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]

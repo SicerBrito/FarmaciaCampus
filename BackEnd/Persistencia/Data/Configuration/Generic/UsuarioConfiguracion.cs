@@ -37,6 +37,21 @@ namespace Persistencia.Data.Configuracion;
             builder.HasMany(p => p.RefreshTokens)
                 .WithOne(p => p.User)
                 .HasForeignKey(p => p.UserId);
+
+            builder.HasData(
+                new {
+                    Id = 1,
+                    Username = "Sicer Brito",
+                    Email = "britodelgado514@gmail.com",
+                    Password = "123456"
+                },
+                new {
+                    Id = 2,
+                    Username = "Angelica Morales",
+                    Email = "angedeveloper@gmail.com",
+                    Password = "123"
+                }
+            );
         
         }
     }

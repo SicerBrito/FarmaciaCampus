@@ -21,5 +21,24 @@ namespace Persistencia.Data.Configuration;
                 .HasColumnType("varchar")
                 .HasMaxLength(30)
                 .IsRequired();
+
+            builder.HasData(
+               new {  
+                    Id = 1,  
+                    Nombre = "Residencial" 
+                },
+                new {  
+                    Id = 2,  
+                    Nombre = "Distrital"
+                },
+                new {  
+                    Id = 3,  
+                    Nombre = "Oficina Principal"
+                },
+                new {  
+                    Id = 4,  
+                    Nombre = "Comercial"  
+                }
+            );
         }
     }

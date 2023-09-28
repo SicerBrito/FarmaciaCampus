@@ -21,5 +21,28 @@ public class CargoEmpleadoConfiguration : IEntityTypeConfiguration<CargoEmpleado
             .HasColumnType("varchar")
             .HasMaxLength(25)
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,
+                Nombre = "Medico" 
+            },  
+            new {  
+                Id = 2,
+                Nombre = "Farmaceutico" 
+            },  
+            new {  
+                Id = 3,
+                Nombre = "Cajero" 
+            },  
+            new {  
+                Id = 4,
+                Nombre = "Repartidor" 
+            },  
+            new {  
+                Id = 5,
+                Nombre = "Contador" 
+            }  
+        );
     }
 }

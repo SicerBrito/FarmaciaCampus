@@ -45,5 +45,29 @@ public class MedicamentosCompradosConfiguration : IEntityTypeConfiguration<Medic
             .HasMaxLength(50)
             .IsRequired();
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                CantidadCompra = 5,  
+                ValorTotalCompra = "50000",  
+                CompraId = 1,  
+                MedicamentoId = 5  
+            },  
+            new {  
+                Id = 2,  
+                CantidadCompra = 2,  
+                ValorTotalCompra = "60000",  
+                CompraId = 2,  
+                MedicamentoId = 1  
+            },  
+            new {  
+                Id = 3,  
+                CantidadCompra = 21,  
+                ValorTotalCompra = "21000",  
+                CompraId = 1,  
+                MedicamentoId = 3  
+            }  
+        );
+
     }
 }

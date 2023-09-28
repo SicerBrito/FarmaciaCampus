@@ -26,6 +26,39 @@ public class DepartamentoConfiguration : IEntityTypeConfiguration<Departamento>
             .HasColumnName("Pais_Id")
             .HasColumnType("int")
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombre = "Putumayo",  
+                PaisId = 24 
+            },  
+            new {  
+                Id = 2,  
+                Nombre = "Huila",  
+                PaisId = 24 
+            },  
+            new {  
+                Id = 3,  
+                Nombre = "La Guajira",  
+                PaisId = 24 
+            },  
+            new {  
+                Id = 4,  
+                Nombre = "Magdalena",  
+                PaisId = 24 
+            },  
+            new {  
+                Id = 5,  
+                Nombre = "Meta",  
+                PaisId = 24 
+            },  
+            new {  
+                Id = 6,  
+                Nombre = "Santander",  
+                PaisId = 24 
+            } 
+        );
             
     }
 }

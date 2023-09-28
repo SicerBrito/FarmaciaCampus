@@ -47,6 +47,25 @@ public class PacienteConfiguration : IEntityTypeConfiguration<Paciente>
         builder.HasOne(p => p.Generos)
             .WithMany(p => p.Pacientes)
             .HasForeignKey(p => p.GeneroId);
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombres = "Owell Andry",  
+                Apellidos = "Polanco Silva",  
+                NumeroContacto = "3221243579",  
+                FechaNacimiento = new DateTime (2003,03,12),  
+                GeneroId = 1  
+            },  
+            new {  
+                Id = 2,  
+                Nombres = "Sherman Andres",  
+                Apellidos = "Torres Alvares",  
+                NumeroContacto = "6355050",  
+                FechaNacimiento = new DateTime (2003,08,10),  
+                GeneroId = 1  
+            }
+        );
             
     }
 }

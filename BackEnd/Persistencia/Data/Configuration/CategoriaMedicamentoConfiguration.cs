@@ -21,5 +21,24 @@ public class CategoriaMedicamentoConfiguration : IEntityTypeConfiguration<Catego
             .HasColumnType("varchar")
             .HasMaxLength(25)
             .IsRequired();
+
+        builder.HasData(
+            new { 
+                Id = 1,    
+                Nombre = "Analgesico"
+            },
+            new {  
+                Id = 2,  
+                Nombre = "Antiinflamatorio"  
+            },
+            new {  
+                Id = 3,  
+                Nombre = "Antibiotico"  
+            },  
+            new {  
+                Id = 4,  
+                Nombre = "Antiulceroso"  
+            } 
+        );
     }
 }

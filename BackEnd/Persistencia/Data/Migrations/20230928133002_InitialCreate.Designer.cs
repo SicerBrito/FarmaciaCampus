@@ -12,7 +12,7 @@ using Persistencia.Data;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    [Migration("20230928040830_InitialCreate")]
+    [Migration("20230928133002_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -40,6 +40,33 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CargoEmpleado", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Medico"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Farmaceutico"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Cajero"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Repartidor"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Contador"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.CategoriaMedicamento", b =>
@@ -59,6 +86,28 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CategoriaMedicamento", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Analgesico"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Antiinflamatorio"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Antibiotico"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Antiulceroso"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Cita", b =>
@@ -94,6 +143,24 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("Cita", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EstadoCitaId = 1,
+                            FechaCita = new DateTime(2023, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MedicoId = 1,
+                            UsuarioId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EstadoCitaId = 6,
+                            FechaCita = new DateTime(2023, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MedicoId = 2,
+                            UsuarioId = 1
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Ciudad", b =>
@@ -119,6 +186,50 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("DepartamentoId");
 
                     b.ToTable("Ciudad", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DepartamentoId = 6,
+                            Nombre = "Bogota"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DepartamentoId = 2,
+                            Nombre = "Medellin"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DepartamentoId = 4,
+                            Nombre = "Cartagena"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DepartamentoId = 1,
+                            Nombre = "Cali"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DepartamentoId = 2,
+                            Nombre = "Barranquilla"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DepartamentoId = 4,
+                            Nombre = "Santa Marta"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DepartamentoId = 6,
+                            Nombre = "Bucaramanga"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Compra", b =>
@@ -154,6 +265,64 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("ProveedorId");
 
                     b.ToTable("Compra", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FechaCompra = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 2,
+                            NumeroFactura = "1112245",
+                            ProveedorId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FechaCompra = new DateTime(2023, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 3,
+                            NumeroFactura = "324324234",
+                            ProveedorId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FechaCompra = new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 4,
+                            NumeroFactura = "3245435325",
+                            ProveedorId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            FechaCompra = new DateTime(2023, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 1,
+                            NumeroFactura = "3453245435",
+                            ProveedorId = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            FechaCompra = new DateTime(2023, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 2,
+                            NumeroFactura = "4343255",
+                            ProveedorId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            FechaCompra = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 3,
+                            NumeroFactura = "345325345",
+                            ProveedorId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            FechaCompra = new DateTime(2023, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 4,
+                            NumeroFactura = "34523452345",
+                            ProveedorId = 2
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Departamento", b =>
@@ -180,6 +349,44 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("PaisId");
 
                     b.ToTable("Departamento", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Putumayo",
+                            PaisId = 24
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Huila",
+                            PaisId = 24
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "La Guajira",
+                            PaisId = 24
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Magdalena",
+                            PaisId = 24
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Meta",
+                            PaisId = 24
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "Santander",
+                            PaisId = 24
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Direccion", b =>
@@ -231,6 +438,30 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("TipoViaId");
 
                     b.ToTable("Direccion", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CiudadId = 7,
+                            CodigoPostal = 680001,
+                            FarmaciaId = 1,
+                            NombreDireccion = "Cristal Alto Casa 1 piso2 Peatonal",
+                            NroDireccion = 5,
+                            TipoDireccionId = 1,
+                            TipoViaId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CiudadId = 7,
+                            CodigoPostal = 680001,
+                            FarmaciaId = 1,
+                            NombreDireccion = "Barrio Santa Ana",
+                            NroDireccion = 249,
+                            TipoDireccionId = 1,
+                            TipoViaId = 8
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Empleado", b =>
@@ -278,6 +509,38 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("FarmaciaId");
 
                     b.ToTable("Empleado", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Apellidos = "Perez Numa",
+                            CargoId = 1,
+                            FarmaciaId = 1,
+                            FechaContratacion = new DateTime(2023, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombres = "Juan David",
+                            Sueldo = "5000000"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Apellidos = "Alucema Torres",
+                            CargoId = 1,
+                            FarmaciaId = 1,
+                            FechaContratacion = new DateTime(2024, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombres = "Konny Liseth",
+                            Sueldo = "2000000"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Apellidos = "Morales Silva",
+                            CargoId = 2,
+                            FarmaciaId = 1,
+                            FechaContratacion = new DateTime(2024, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombres = "Maria Angelica",
+                            Sueldo = "2200000"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.EstadoCita", b =>
@@ -297,6 +560,48 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EstadoCita", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Programada"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Confirmada"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "No confirmada"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Cancelada"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Atendida"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "En espera"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nombre = "Reprogramada"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nombre = "Rechazada"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Farmacia", b =>
@@ -338,6 +643,17 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Farmacia", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FechaInauguracion = new DateTime(2023, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            NombreFarmacia = "FarmacooParte2",
+                            NumeroContacto = "3208818203",
+                            Propietario = "Sicer Andres Brito Gutierrez",
+                            URLSitioWeb = "https://github.com/SicerBrito"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.FormulaMedica", b =>
@@ -383,6 +699,28 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("PacienteId");
 
                     b.ToTable("FormulaMedica", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DuracionTratamiento = 30,
+                            FechaPrescripcion = new DateTime(2023, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Indicaciones = "Hipertension, Diabetes",
+                            MedicoId = 2,
+                            PacienteId = 2,
+                            Posologia = "Aspirina: 1 tableta diaria después de la comida"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DuracionTratamiento = 90,
+                            FechaPrescripcion = new DateTime(2023, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Indicaciones = "Chequeo de rutina",
+                            MedicoId = 2,
+                            PacienteId = 1,
+                            Posologia = "Ventolin: 2 inhalaciones cuando sea necesario"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.FormulaMedicamentos", b =>
@@ -408,6 +746,26 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("MedicamentoId");
 
                     b.ToTable("FormulaMedicamentos", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FomulaMedicaId = 1,
+                            MedicamentoId = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FomulaMedicaId = 2,
+                            MedicamentoId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FomulaMedicaId = 2,
+                            MedicamentoId = 3
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Genero", b =>
@@ -427,6 +785,33 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genero", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Masculino"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Femenino"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Otro"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Helicoptero"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Prefiero no decirlo"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.HistorialMedico", b =>
@@ -470,6 +855,35 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("PacienteId");
 
                     b.ToTable("HistorialMedico", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Diagnostico = "Hipertensión, Diabetes",
+                            MedicoId = 1,
+                            Observaciones = "Paciente en seguimiento regular",
+                            PacienteId = 1,
+                            Tratamiento = "Medicamentos recetados, dieta, ejercicio"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Diagnostico = "Asma, Alergias",
+                            MedicoId = 1,
+                            Observaciones = "Ocasionales episodios asmáticos.",
+                            PacienteId = 1,
+                            Tratamiento = "Inhalador de rescate, evitar alérgenos "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Diagnostico = "Sin problemas de salud",
+                            MedicoId = 1,
+                            Observaciones = "Chequeo de rutina sin novedades",
+                            PacienteId = 1,
+                            Tratamiento = "Medicamento, control de presión "
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Inventario", b =>
@@ -501,6 +915,22 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("VentaId");
 
                     b.ToTable("Inventario", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompraId = 5,
+                            FarmaciaId = 1,
+                            VentaId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompraId = 7,
+                            FarmaciaId = 1,
+                            VentaId = 1
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Medicamento", b =>
@@ -558,6 +988,68 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("TipoId");
 
                     b.ToTable("Medicamento", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoriaId = 1,
+                            FechaExpiracion = new DateTime(2024, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Aspirina",
+                            PresentacionId = 2,
+                            ProveedorId = 2,
+                            Stock = 80L,
+                            TipoId = 1,
+                            ValorUnidad = "2000"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoriaId = 2,
+                            FechaExpiracion = new DateTime(2024, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Ibuprofeno",
+                            PresentacionId = 2,
+                            ProveedorId = 2,
+                            Stock = 20L,
+                            TipoId = 2,
+                            ValorUnidad = "5000"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoriaId = 1,
+                            FechaExpiracion = new DateTime(2023, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Paracetamol",
+                            PresentacionId = 2,
+                            ProveedorId = 2,
+                            Stock = 45L,
+                            TipoId = 1,
+                            ValorUnidad = "1000"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoriaId = 3,
+                            FechaExpiracion = new DateTime(2024, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Amoxicilina",
+                            PresentacionId = 2,
+                            ProveedorId = 2,
+                            Stock = 70L,
+                            TipoId = 2,
+                            ValorUnidad = "3500"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoriaId = 4,
+                            FechaExpiracion = new DateTime(2024, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Omeprazol",
+                            PresentacionId = 2,
+                            ProveedorId = 2,
+                            Stock = 10L,
+                            TipoId = 2,
+                            ValorUnidad = "2200"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.MedicamentosComprados", b =>
@@ -593,6 +1085,32 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("MedicamentoId");
 
                     b.ToTable("MedicamentosComprados", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CantidadCompra = 5,
+                            CompraId = 1,
+                            MedicamentoId = 5,
+                            ValorTotalCompra = "50000"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CantidadCompra = 2,
+                            CompraId = 2,
+                            MedicamentoId = 1,
+                            ValorTotalCompra = "60000"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CantidadCompra = 21,
+                            CompraId = 1,
+                            MedicamentoId = 3,
+                            ValorTotalCompra = "21000"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.MedicamentosVendidos", b =>
@@ -628,6 +1146,32 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("VentaId");
 
                     b.ToTable("MedicamentosVendidos", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CantidadVendida = 2,
+                            MedicamentoId = 1,
+                            ValorTotalVenta = "60000",
+                            VentaId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CantidadVendida = 21,
+                            MedicamentoId = 3,
+                            ValorTotalVenta = "21000",
+                            VentaId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CantidadVendida = 5,
+                            MedicamentoId = 5,
+                            ValorTotalVenta = "50000",
+                            VentaId = 1
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.MetodoDePago", b =>
@@ -647,6 +1191,33 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MetodoDePago", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Tarjeta de credito"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Tarjeta de debito"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Efectivo"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Cheque"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Transferencia bancaria"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Paciente", b =>
@@ -688,6 +1259,26 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("GeneroId");
 
                     b.ToTable("Paciente", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Apellidos = "Polanco Silva",
+                            FechaNacimiento = new DateTime(2003, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GeneroId = 1,
+                            Nombres = "Owell Andry",
+                            NumeroContacto = "3221243579"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Apellidos = "Torres Alvares",
+                            FechaNacimiento = new DateTime(2003, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GeneroId = 1,
+                            Nombres = "Sherman Andres",
+                            NumeroContacto = "6355050"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Pais", b =>
@@ -707,6 +1298,133 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pais", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Estados Unidos"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Canada"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Mexico"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Europa"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Asia"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Nombre = "Africa"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Nombre = "Oceania"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Nombre = "Australia"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Nombre = "Brasil"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Nombre = "China"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Nombre = "India"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Nombre = "Indonesia"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Nombre = "Japon"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Nombre = "Marruecos"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Nombre = "Nigeria"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Nombre = "Rusia"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Nombre = "Sudafrica"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Nombre = "Tailandia"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Nombre = "Argentina"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Nombre = "Austria"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Nombre = "Belgica"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Nombre = "Bulgaria"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Nombre = "Chile"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Nombre = "Colombia"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Nombre = "Costa Rica"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Presentacion", b =>
@@ -726,6 +1444,33 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Presentacion", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descripcion = "Caja de 30 tabletas"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descripcion = "Botella de 100 capsulas"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descripcion = "Caja de 50 tabletas"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Descripcion = "Botella de 30 capsulas"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Descripcion = "Caja de 60 capsulas"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Proveedor", b =>
@@ -757,6 +1502,43 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Proveedor", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Apellidos = "Apellido Proveedor A",
+                            Nombres = "Nombres Proveedor A",
+                            NroContacto = "3208818203"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Apellidos = "Apellido Proveedor B",
+                            Nombres = "Nombres Proveedor B",
+                            NroContacto = "3208818203"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Apellidos = "Apellido Proveedor C",
+                            Nombres = "Nombres Proveedor C",
+                            NroContacto = "3208818203"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Apellidos = "Apellido Proveedor D",
+                            Nombres = "Nombres Proveedor D",
+                            NroContacto = "3208818203"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Apellidos = "ApellidoA",
+                            Nombres = "ProveedorA",
+                            NroContacto = "3208818203"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.RefreshToken", b =>
@@ -804,6 +1586,23 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Rol", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Administrador"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Gerente"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Empleado"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.TipoDireccion", b =>
@@ -823,6 +1622,28 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoDireccion", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Residencial"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Distrital"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Oficina Principal"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "Comercial"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.TipoMedicamento", b =>
@@ -842,6 +1663,18 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoMedicamento", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Nombre = "Tableta"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Nombre = "Capsula"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.TipoVia", b =>
@@ -867,6 +1700,56 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TipoVia", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Abreviatura = "Cal",
+                            Nombre = "Calle"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Abreviatura = "Av",
+                            Nombre = "Avenida"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Abreviatura = "Blvd",
+                            Nombre = "Boulevard"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Abreviatura = "Carr",
+                            Nombre = "Carretera"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Abreviatura = "Pso",
+                            Nombre = "Paseo"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Abreviatura = "Cam",
+                            Nombre = "Camino"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Abreviatura = "Plz",
+                            Nombre = "Plaza"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Abreviatura = "Via",
+                            Nombre = "Via"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Usuario", b =>
@@ -898,6 +1781,22 @@ namespace Persistencia.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuario", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "britodelgado514@gmail.com",
+                            Password = "123456",
+                            Username = "Sicer Brito"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "angedeveloper@gmail.com",
+                            Password = "123",
+                            Username = "Angelica Morales"
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.UsuarioRol", b =>
@@ -923,6 +1822,20 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("UsuarioId");
 
                     b.ToTable("UsuarioRol", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RolId = 1,
+                            UsuarioId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RolId = 3,
+                            UsuarioId = 2
+                        });
                 });
 
             modelBuilder.Entity("Dominio.Entities.Venta", b =>
@@ -964,6 +1877,26 @@ namespace Persistencia.Data.Migrations
                     b.HasIndex("VentaEmpleadoId");
 
                     b.ToTable("Venta", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClienteId = 1,
+                            FechaVenta = new DateTime(2023, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 1,
+                            NumeroFactura = "5363634231",
+                            VentaEmpleadoId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClienteId = 1,
+                            FechaVenta = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MetodoDePagoId = 1,
+                            NumeroFactura = "473567356465",
+                            VentaEmpleadoId = 2
+                        });
                 });
 
             modelBuilder.Entity("RolUsuario", b =>

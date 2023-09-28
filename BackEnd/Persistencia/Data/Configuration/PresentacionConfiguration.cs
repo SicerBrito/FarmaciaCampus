@@ -21,5 +21,28 @@ public class PresentacionConfiguration : IEntityTypeConfiguration<Presentacion>
             .HasColumnType("varchar")
             .HasMaxLength(255)
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Descripcion = "Caja de 30 tabletas"  
+            },
+            new {  
+                Id = 2,  
+                Descripcion = "Botella de 100 capsulas"  
+            },
+            new {  
+                Id = 3,  
+                Descripcion = "Caja de 50 tabletas"  
+            },
+            new {  
+                Id = 4,  
+                Descripcion = "Botella de 30 capsulas"  
+            },
+            new {  
+                Id = 5,  
+                Descripcion = "Caja de 60 capsulas"  
+            }
+        );
     }
 }

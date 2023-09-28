@@ -772,7 +772,7 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "Posologia": "Ventolin: 2 inhalaciones cuando sea necesario",  
     "DuracionTratamiento": "90",  
     "Indicaciones": "Chequeo de rutina"  
-  },  
+  }  
 ]  
 
 ---
@@ -821,7 +821,7 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "ClienteId": "1",  
     "VentaEmpleadoId": "2",  
     "MetodoDePagoId": "1"  
-  },  
+  }  
 ]  
 
 ---
@@ -871,7 +871,7 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
     "ValorTotalCompra": "21000",  
     "CompraId": "1",  
     "MedicamentoId": "3"  
-  },  
+  }  
 ]  
 
 ---
@@ -904,7 +904,36 @@ INSERT INTO `UsuarioRol`(`Id_UsuarioRol`,`Usuario_Id`,`Rol_Id`) VALUES(2,2,3);
 
 ---
 
+# HistorialMedico
 
+[  
+  {  
+    "Id": "1",  
+    "Diagnostico": "Hipertensión, Diabetes",  
+    "Tratamiento": "Medicamentos recetados, dieta, ejercicio",  
+    "Observaciones": "Paciente en seguimiento regular",  
+    "PacienteId": "1",  
+    "MedicoId": "1"  
+  }, 
+  {  
+    "Id": "2",  
+    "Diagnostico": "Asma, Alergias",  
+    "Tratamiento": "Inhalador de rescate, evitar alérgenos ",  
+    "Observaciones": "Ocasionales episodios asmáticos.",  
+    "PacienteId": "1",  
+    "MedicoId": "1"  
+  },
+  {  
+    "Id": "3",  
+    "Diagnostico": "Sin problemas de salud",  
+    "Tratamiento": "Medicamento, control de presión ",  
+    "Observaciones": "Chequeo de rutina sin novedades",  
+    "PacienteId": "1",  
+    "MedicoId": "1"  
+  } 
+]  
+
+---
 
 
     //CONSULTA PARA GENERAR LA LISTA DE PROVEEDORES CON SU TELEFONO Y MEDICAMENTOS

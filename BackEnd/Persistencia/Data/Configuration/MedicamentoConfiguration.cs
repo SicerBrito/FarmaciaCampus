@@ -74,5 +74,63 @@ public class MedicamentoConfiguration : IEntityTypeConfiguration<Medicamento>
             .HasColumnType("BIGINT")
             .IsRequired();
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombre = "Aspirina",  
+                FechaExpiracion = new DateTime (2024,08,31),
+                ValorUnidad = "2000",
+                TipoId = 1,  
+                CategoriaId = 1,  
+                PresentacionId = 2,  
+                ProveedorId = 2,  
+                Stock = 80  
+            },  
+            new {  
+                Id = 2,  
+                Nombre = "Ibuprofeno",  
+                FechaExpiracion = new DateTime (2024,10,15),
+                ValorUnidad = "5000",
+                TipoId = 2,  
+                CategoriaId = 2,  
+                PresentacionId = 2,  
+                ProveedorId = 2,  
+                Stock = 20  
+            },  
+            new {  
+                Id = 3,  
+                Nombre = "Paracetamol",  
+                FechaExpiracion = new DateTime (2023,12,31),
+                ValorUnidad = "1000",
+                TipoId = 1,  
+                CategoriaId = 1,  
+                PresentacionId = 2,  
+                ProveedorId = 2,  
+                Stock = 45  
+            },  
+            new {  
+                Id = 4,  
+                Nombre = "Amoxicilina",  
+                FechaExpiracion = new DateTime (2024,09,30),
+                ValorUnidad = "3500",
+                TipoId = 2,  
+                CategoriaId = 3,  
+                PresentacionId = 2,  
+                ProveedorId = 2,  
+                Stock = 70  
+            },   
+            new {  
+                Id = 5,  
+                Nombre = "Omeprazol",  
+                FechaExpiracion = new DateTime (2024,11,30),
+                ValorUnidad = "2200",
+                TipoId = 2,  
+                CategoriaId = 4,  
+                PresentacionId = 2,  
+                ProveedorId = 2,  
+                Stock = 10  
+            }  
+        );
+
     }
 }

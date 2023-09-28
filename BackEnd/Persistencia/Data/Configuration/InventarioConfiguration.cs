@@ -42,6 +42,21 @@ public class InventarioConfiguration : IEntityTypeConfiguration<Inventario>
         builder.HasOne(p => p.Ventas)
             .WithMany(p => p.Inventarios)
             .HasForeignKey(p => p.VentaId);
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                FarmaciaId = 1,  
+                CompraId = 5,  
+                VentaId = 2  
+            },  
+            new {  
+                Id = 2,  
+                FarmaciaId = 1,  
+                CompraId = 7,  
+                VentaId = 1  
+            }
+        );
             
     }
 }

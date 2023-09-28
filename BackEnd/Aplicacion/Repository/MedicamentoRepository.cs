@@ -30,13 +30,13 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
         return _Context.Set<Medicamento>().Where(m => m.Stock < 50);
     }
 
-        // public async Task<List<Medicamento>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
-        // {
-        //     return await _Context.MedicamentosComprados!
-        //         .Where(compra => compra.MedicamentoId.ToString() == proveedorId)
-        //         .Select(compra => compra.MedicamentoId)
-        //         .ToListAsync();
-        // }
+    public async Task<IEnumerable<Medicamento?>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
+        {
+            return await _Context.MedicamentosComprados!
+                .Where(c => c.Medicamentos!.ProveedorId == proveedorId)
+                .Select(c => c.Medicamentos)
+                .ToListAsync();
+        }
 
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {

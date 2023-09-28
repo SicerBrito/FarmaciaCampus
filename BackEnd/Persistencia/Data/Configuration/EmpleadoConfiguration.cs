@@ -56,6 +56,36 @@ public class EmpleadoConfiguration : IEntityTypeConfiguration<Empleado>
             .HasColumnName("FechaContratacion")
             .HasColumnType("DateTime")
             .IsRequired();
+
+        builder.HasData(
+            new {  
+                Id = 1,  
+                Nombres = "Juan David",  
+                Apellidos = "Perez Numa",  
+                Sueldo = "5000000",  
+                FechaContratacion = new DateTime (2023,09,24),  
+                FarmaciaId = 1,  
+                CargoId = 1  
+            },  
+            new {  
+                Id = 2,  
+                Nombres = "Konny Liseth",  
+                Apellidos = "Alucema Torres",  
+                Sueldo = "2000000",  
+                FechaContratacion = new DateTime (2024,09,11),  
+                FarmaciaId = 1,  
+                CargoId = 1  
+            },  
+            new {  
+                Id = 3,  
+                Nombres = "Maria Angelica",  
+                Apellidos = "Morales Silva",  
+                Sueldo = "2200000",  
+                FechaContratacion = new DateTime (2024,03,18),  
+                FarmaciaId = 1,  
+                CargoId = 2  
+            }
+        );
             
     }
 }

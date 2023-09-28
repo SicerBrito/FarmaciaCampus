@@ -56,6 +56,27 @@ public class FormulaMedicaConfiguration : IEntityTypeConfiguration<FormulaMedica
             .HasMaxLength(255)
             .IsRequired();
 
+        builder.HasData(
+            new {  
+                Id = 1,  
+                FechaPrescripcion = new DateTime (2023,09,02),  
+                PacienteId = 2,  
+                MedicoId = 2,  
+                Posologia = "Aspirina: 1 tableta diaria después de la comida",  
+                DuracionTratamiento = 30,  
+                Indicaciones = "Hipertension, Diabetes"  
+            },  
+            new {  
+                Id = 2,  
+                FechaPrescripcion = new DateTime (2023,10,25),  
+                PacienteId = 1,  
+                MedicoId = 2,  
+                Posologia = "Ventolin: 2 inhalaciones cuando sea necesario",  
+                DuracionTratamiento = 90,  
+                Indicaciones = "Chequeo de rutina"  
+            } 
+        );
+
 
     }
 }
