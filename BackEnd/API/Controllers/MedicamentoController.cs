@@ -54,7 +54,7 @@ namespace API.Controllers;
             return _Mapper.Map<MedicamentoComplementsDto>(record);
         }
 
-        //! Consulta
+        //! Consulta Nro.1
         [HttpGet("stockbajo")]
         [MapToApiVersion("1.0")]
         [MapToApiVersion("1.1")]
@@ -69,16 +69,15 @@ namespace API.Controllers;
             return medicamentosConStockBajo!;
         }
 
-        //! Consuta
+        //! Consulta Nro.3
         [HttpGet("proveedor/{proveedorId}")]
-        [MapToApiVersion("1.1")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<List<MedicamentoDto>>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
         {
             try
             {
-                var medicamentosProveedor = await _UnitOfWork.SaveAsync();
+                var medicamentosProveedor = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosCompradosPorProveedorId(proveedorId);
                 var medicamentosDto = _Mapper.Map<List<MedicamentoDto>>(medicamentosProveedor);
                 return Ok(medicamentosDto);
             }

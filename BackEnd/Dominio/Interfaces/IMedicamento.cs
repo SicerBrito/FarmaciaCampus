@@ -8,5 +8,5 @@ namespace Dominio.Interfaces;
         Task<Medicamento> GetByProveedorAsync (string proveedor);
 
         IQueryable<Medicamento> GetAllMedicamentos(); // Método para obtener todos los medicamentos.
-        // Task<List<Medicamento>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId);
+        Task<IEnumerable<Medicamento?>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId);
     }

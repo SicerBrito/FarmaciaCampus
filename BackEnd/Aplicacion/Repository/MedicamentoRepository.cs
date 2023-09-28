@@ -25,11 +25,14 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
                                 .ToListAsync();
     }
 
+    //! Consulta Nro.1
     public IQueryable<Medicamento> GetAllMedicamentos()
     {
         return _Context.Set<Medicamento>().Where(m => m.Stock < 50);
     }
 
+
+    //! Consulta Nro.2
     public async Task<IEnumerable<Medicamento?>> ObtenerMedicamentosCompradosPorProveedorId(int proveedorId)
         {
             return await _Context.MedicamentosComprados!

@@ -54,6 +54,14 @@ namespace API.Controllers;
             return _Mapper.Map<FormulaMedicaComplementsDto>(record);
         }
 
+        //! Consulta Nro.4
+        [HttpGet("recetasDespuesDe2023")]
+        public async Task<ActionResult<List<FormulaMedica>>> ObtenerRecetasDespuesDe2023()
+        {
+            var recetas = await _UnitOfWork.FormulasMedicas!.ObtenerRecetasMedicasEmitidasDespuesDe2023();
+            return Ok(recetas);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -54,6 +54,13 @@ namespace API.Controllers;
             return _Mapper.Map<VentaComplementsDto>(record);
         }
 
+        [HttpGet("totalVentasParacetamol")]
+        public async Task<ActionResult<decimal>> ObtenerTotalVentasParacetamol()
+        {
+            var totalVentas = await _ventaService.ObtenerTotalVentasParacetamol();
+            return Ok(totalVentas);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

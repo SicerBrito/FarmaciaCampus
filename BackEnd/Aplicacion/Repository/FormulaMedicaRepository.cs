@@ -12,6 +12,17 @@ public class FormulaMedicaRepository : GenericRepository<FormulaMedica>, IFormul
         _Context = context;
     }
 
+    //! Consulta Nro.4
+    public async Task<List<FormulaMedica>> ObtenerRecetasMedicasEmitidasDespuesDe2023()
+    {
+        DateTime fechaLimite = new DateTime(2023, 1, 1);
+
+        var recetasDespuesDe2023 = await _Context.FormulasMedicas!
+            .Where(r => r.FechaPrescripcion > fechaLimite)
+            .ToListAsync();
+
+        return recetasDespuesDe2023;
+    }
     public override async Task<IEnumerable<FormulaMedica>> GetAllAsync()
     {
         return await _Context.Set<FormulaMedica>()
@@ -34,4 +45,5 @@ public class FormulaMedicaRepository : GenericRepository<FormulaMedica>, IFormul
                             .Include(u => u.Pacientes)
                             .FirstOrDefaultAsync(u => u.FechaPrescripcion!.ToString()==paciente.ToLower()))!;
     }
+
 }

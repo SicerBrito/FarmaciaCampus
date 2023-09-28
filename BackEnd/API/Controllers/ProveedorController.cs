@@ -42,8 +42,8 @@ namespace API.Controllers;
             return _Mapper.Map<ProveedorDto>(record);
         }
 
-        //! Consulta 
-        [HttpGet("proveedoresconmedicamentos")]
+        //! Consulta Nro. 2
+        [HttpGet("proveedoresConMedicamentos")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<List<Proveedor>>> GetProveedoresConMedicamentos()

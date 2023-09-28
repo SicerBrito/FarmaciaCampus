@@ -23,6 +23,16 @@ public class VentaRepository : GenericRepository<Venta>, IVenta
                                 .ToListAsync();
     }
 
+    public async Task<decimal> ObtenerTotalVentasParacetamol()
+    {
+        var totalVentasParacetamol = await _context.Medicamentos
+            .Where(medicamento => medicamento.Nombre == "Paracetamol")
+            .SelectMany(medicamento => medicamento.MedicamentosVendidos)
+            .SumAsync(venta => venta.CantidadVendida);
+
+        return totalVentasParacetamol;
+    }
+
     public async Task<Venta> GetByClienteAsync(string cliente)
     {
         return (await _Context.Set<Venta>()
