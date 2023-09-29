@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;/* 
+    height: 100%; */
+    overflow: hidden;
+}
+
+
+/* toda la pantalla */
+
+.contenedor {   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 62rem;
+    background-image: url("../img/tapiz.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 50px;
+}
+
+
+/* parte derecha */
+
+.tabla{
+    /* Establecer una altura máxima para la sección */
+    max-height: 800px; /* Ajusta este valor según tus necesidades */
+    /* Establecer un overflow para habilitar el scroll */
+    overflow-y: auto;
+    height: 800px;
+}
+.dropdown{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: red;
+}

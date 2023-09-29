@@ -62,6 +62,22 @@ namespace API.Controllers;
             return Ok(empleadosConMasDe5Ventas);
         }
 
+        //! Consulta Nro.23
+        [HttpGet("empleadosSinVentasEn2023")]
+        public async Task<ActionResult<List<Empleado>>> ObtenerEmpleadosSinVentasEn2023()
+        {
+            var empleadosSinVentasEn2023 = await _UnitOfWork.Empleados!.ObtenerEmpleadosSinVentasEn2023();
+            return Ok(empleadosSinVentasEn2023);
+        }
+
+        //! Consulta Nro.32
+        [HttpGet("empleadoMayorCantidadMedicamentosVendidosEn2023")]
+        public async Task<ActionResult<Empleado>> ObtenerEmpleadoMayorCantidadMedicamentosVendidosEn2023()
+        {
+            var empleadoConMayorCantidad = await _UnitOfWork.Empleados!.ObtenerEmpleadoMayorCantidadMedicamentosVendidosEn2023();
+            return Ok(empleadoConMayorCantidad);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

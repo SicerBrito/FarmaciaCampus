@@ -34,25 +34,60 @@ public class PacienteRepository : GenericRepository<Paciente>, IPaciente
     }
 
     //! Consulta Nro.22
-    public async Task<Paciente?> ObtenerPacienteMayorGasto2023()
+    public async Task<Paciente> ObtenerPacienteMayorGasto2023()
     {
-        var primerDia2023 = new DateTime(2023, 1, 1);
-        var ultimoDia2023 = new DateTime(2023, 12, 31, 23, 59, 59);
-
-        var pacienteMayorGasto2023 = await _Context.Ventas!
-            .Where(v => v.FechaVenta >= primerDia2023 && v.FechaVenta <= ultimoDia2023)
-            .GroupBy(v => v.Usuarios!.Id)
-            .Select(g => new
-            {
-                Paciente = g.Select(v => v.Usuarios!.Ventas).FirstOrDefault(), // Acceder al paciente asociado al usuario si existe
-                TotalGasto = g.Sum(v => v.Inventarios!.Sum(i => i.Ventas!.MedicamentosVendidos!
-                    .Sum(mv => mv.CantidadVendida * Convert.ToDecimal(mv.Medicamentos!.ValorUnidad))))
-            })
-            .OrderByDescending(x => x.TotalGasto)
-            .Select(x => x.Paciente)
+        var pacienteMayorGasto2023 = await _Context.Pacientes!
+            .Where(p => p.FormulasMedicas!
+                .Any(fm => fm.FechaPrescripcion.Year == 2023))
+            .OrderByDescending(p => p.FormulasMedicas!
+                .Where(fm => fm.FechaPrescripcion.Year == 2023)
+                .Sum(fm => fm.FormulaMedicamentos!
+                    .Sum(fm => fm.Medicamentos!.MedicamentosVendidos!
+                        .Where(mv => mv.Ventas!.FechaVenta.Year == 2023)
+                        .Sum(mv => mv.CantidadVendida * Convert.ToDouble(mv.Medicamentos!.ValorUnidad)))))
             .FirstOrDefaultAsync();
 
-        return pacienteMayorGasto2023;
+        return pacienteMayorGasto2023!;
+    }
+
+    //! Consulta Nro.25
+    public async Task<List<Paciente>> ObtenerPacientesQueCompraronParacetamolEn2023()
+    {
+        var pacientesQueCompraronParacetamolEn2023 = await _Context.Pacientes!
+            .Where(p => p.FormulasMedicas!
+                .Any(fm => fm.FormulaMedicamentos!
+                    .Any(fmd => fmd.Medicamentos!.Nombre == "Paracetamol" && fmd.FormulasMedicas!.FechaPrescripcion.Year == 2023)))
+            .ToListAsync();
+
+        return pacientesQueCompraronParacetamolEn2023;
+    }
+
+    //! Consulta Nro.30
+    public async Task<List<Paciente>> ObtenerPacientesSinComprasEn2023()
+    {
+        var pacientesSinComprasEn2023 = await _Context.Pacientes!
+            .Where(p => !_Context.Ventas!.Any(v => v.ClienteId == p.Id && v.FechaVenta.Year == 2023))
+            .ToListAsync();
+
+        return pacientesSinComprasEn2023;
+    }
+
+    //! Consulta Nro.33
+    public async Task<Dictionary<string, decimal>> ObtenerTotalGastadoPorPacienteEn2023()
+    {
+        var gastosPorPaciente = await _Context.Pacientes!
+            .Include(p => p.FormulasMedicas!)
+            .ThenInclude(fm => fm.FormulaMedicamentos)
+            .Where(p => p.FormulasMedicas!.Any(fm => fm.FechaPrescripcion.Year == 2023))
+            .ToDictionaryAsync(
+                p => $"{p.Nombres} {p.Apellidos}",
+                p => p.FormulasMedicas!
+                    .Where(fm => fm.FechaPrescripcion.Year == 2023)
+                    .SelectMany(fm => fm.FormulaMedicamentos!)
+                    .Sum(fm => (fm.Medicamentos?.MedicamentosVendidos?.Sum(mv => mv.CantidadVendida * decimal.Parse(mv.ValorTotalVenta ?? "0")) ?? 0))
+            );
+
+        return gastosPorPaciente;
     }
 
     public async Task<Paciente> GetByGeneroAsync(string genero)
@@ -61,4 +96,6 @@ public class PacienteRepository : GenericRepository<Paciente>, IPaciente
                             .Include(u => u.Generos)
                             .FirstOrDefaultAsync(u => u.Apellidos!.ToLower()==genero.ToLower()))!;
     }
+
+
 }

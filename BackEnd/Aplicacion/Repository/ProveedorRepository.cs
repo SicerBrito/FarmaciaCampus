@@ -52,4 +52,54 @@ public class ProveedorRepository : GenericRepository<Proveedor>, IProveedor
         return proveedores;
     }
 
+    //! Consulta Nro.24
+    public async Task<Proveedor> ObtenerProveedorConMasSuministrosEn2023()
+    {
+        var proveedorConMasSuministros = await _Context.Proveedores!
+            .Include(p => p.Compras)
+            .Where(p => p.Compras!.Any(c => c.FechaCompra.Year == 2023))
+            .OrderByDescending(p => p.Compras!.Count(c => c.FechaCompra.Year == 2023))
+            .FirstOrDefaultAsync();
+
+        return proveedorConMasSuministros!;
+    }
+
+    //! Consulta Nro.28
+    public async Task<int> ObtenerNumeroProveedoresSuministraronMedicamentosEn2023()
+    {
+        var proveedoresEn2023 = await _Context.Compras!
+            .Where(c => c.FechaCompra.Year == 2023)
+            .Select(c => c.ProveedorId)
+            .Distinct()
+            .CountAsync();
+
+        return proveedoresEn2023;
+    }
+
+    //! Consulta Nro.29
+    public async Task<List<Proveedor>> ObtenerProveedoresDeMedicamentosConStockBajo()
+    {
+        var proveedoresDeMedicamentosConStockBajo = await _Context.Medicamentos!
+            .Where(m => m.Stock < 50)
+            .Select(m => m.Proveedores)
+            .Distinct()
+            .ToListAsync();
+
+        return proveedoresDeMedicamentosConStockBajo!;
+    }
+
+    //! Consulta Nro.35
+    public async Task<List<Proveedor>> ObtenerProveedoresCon5MedicamentosDiferentesEn2023()
+    {
+        var proveedoresCon5Medicamentos = await _Context.Proveedores!
+            .Where(p => p.Compras!
+                .Where(c => c.FechaCompra.Year == 2023)
+                .SelectMany(c => c.MedicamentosComprados!.Select(mc => mc.MedicamentoId))
+                .Distinct()
+                .Count() >= 5)
+            .ToListAsync();
+
+        return proveedoresCon5Medicamentos;
+    }
+
 }

@@ -35,6 +35,13 @@ namespace Dominio.Interfaces;
         //! Consulta Nro.21
         Task<List<Medicamento>> ObtenerMedicamentosNuncaVendidos();
 
+        //! Consulta Nro.31
+        Task<Dictionary<string, List<Medicamento>>> ObtenerMedicamentosVendidosPorMesEn2023();
+    
+        //! Consulta Nro.34
+        Task<List<Medicamento>> ObtenerMedicamentosNoVendidosEn2023();
 
+        //! Consulta Nro.38
+        Task<List<Medicamento>> ObtenerMedicamentosPrecioStock();
 
     }

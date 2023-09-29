@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 62rem;
+    background-image: url("../img/tapiz.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    gap: 50px;
+}
+
+.table-wrapper {
+    height: 80%;
+    overflow-y: auto;
+}
+
+table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    width: 100%;
+}

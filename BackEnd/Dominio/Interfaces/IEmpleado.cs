@@ -7,4 +7,10 @@ namespace Dominio.Interfaces;
 
         //! Consulta Nro.20
         Task<List<Empleado>> ObtenerEmpleadosConMasDe5Ventas();
+
+        //! Consulta Nro.23
+        Task<List<Empleado>> ObtenerEmpleadosSinVentasEn2023();
+
+        //! Consulta Nro.32
+        Task<Empleado> ObtenerEmpleadoMayorCantidadMedicamentosVendidosEn2023();
     }

@@ -85,6 +85,30 @@ namespace API.Controllers;
             var pacienteMayorGasto2023 = await _UnitOfWork.Pacientes!.ObtenerPacienteMayorGasto2023();
             return Ok(pacienteMayorGasto2023);
         }
+
+        //! Consulta Nro.25
+        [HttpGet("pacientesQueCompraronParacetamolEn2023")]
+        public async Task<ActionResult<List<Paciente>>> ObtenerPacientesQueCompraronParacetamolEn2023()
+        {
+            var pacientesQueCompraronParacetamolEn2023 = await _UnitOfWork.Pacientes!.ObtenerPacientesQueCompraronParacetamolEn2023();
+            return Ok(pacientesQueCompraronParacetamolEn2023);
+        }
+
+        //! Consulta Nro.30
+        [HttpGet("pacientesSinComprasEn2023")]
+        public async Task<ActionResult<List<Paciente>>> ObtenerPacientesSinComprasEn2023()
+        {
+            var pacientesSinComprasEn2023 = await _UnitOfWork.Pacientes!.ObtenerPacientesSinComprasEn2023();
+            return Ok(pacientesSinComprasEn2023);
+        }
+
+        //! Consulta Nro.33
+        [HttpGet("totalGastadoPorPacienteEn2023")]
+        public async Task<ActionResult<Dictionary<string, decimal>>> ObtenerTotalGastadoPorPacienteEn2023()
+        {
+            var gastosPorPaciente = await _UnitOfWork.Pacientes!.ObtenerTotalGastadoPorPacienteEn2023();
+            return Ok(gastosPorPaciente);
+        }
         
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

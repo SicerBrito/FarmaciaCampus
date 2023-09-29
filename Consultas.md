@@ -65,50 +65,50 @@
 22. Paciente que ha gastado más dinero en 2023. *** Paciente ***
 
 
-23. Empleados que no han realizado ninguna venta en 2023. ***  ***
+23. Empleados que no han realizado ninguna venta en 2023. *** Empleado ***
 
 
-24. Proveedor que ha suministrado más medicamentos en 2023. ***  ***
+24. Proveedor que ha suministrado más medicamentos en 2023. *** Proveedor ***
 
 
-25. Pacientes que compraron el medicamento “Paracetamol” en 2023. ***  ***
+25. Pacientes que compraron el medicamento “Paracetamol” en 2023. *** Paciente ***
 
 
-26. Total de medicamentos vendidos por mes en 2023. ***  ***
+26. Total de medicamentos vendidos por mes en 2023. *** Venta ***
 
 
-27. Empleados con menos de 5 ventas en 2023. ***  ***
+27. Empleados con menos de 5 ventas en 2023. *** Venta ***
 
 
-28. Número total de proveedores que suministraron medicamentos en 2023. ***  ***
+28. Número total de proveedores que suministraron medicamentos en 2023. *** Proveedor ***
 
 
-29. Proveedores de los medicamentos con menos de 50 unidades en stock. ***  ***
+29. Proveedores de los medicamentos con menos de 50 unidades en stock. *** Proveedor ***
 
 
-30. Pacientes que no han comprado ningún medicamento en 2023. ***  ***
+30. Pacientes que no han comprado ningún medicamento en 2023. *** Paciente ***
 
 
-31. Medicamentos que han sido vendidos cada mes del año 2023. ***  ***
+31. Medicamentos que han sido vendidos cada mes del año 2023. *** Medicamento ***
 
 
-32. Empleado que ha vendido la mayor cantidad de medicamentos distintos en 2023. ***  ***
+32. Empleado que ha vendido la mayor cantidad de medicamentos distintos en 2023. *** Empleado ***
 
 
-33. Total gastado por cada paciente en 2023. ***  ***
+33. Total gastado por cada paciente en 2023. *** Paciente ***
 
 
-34. Medicamentos que no han sido vendidos en 2023. ***  ***
+34. Medicamentos que no han sido vendidos en 2023. *** Medicamento ***
 
 
-35. Proveedores que han suministrado al menos 5 medicamentos diferentes en 2023. ***  ***
+35. Proveedores que han suministrado al menos 5 medicamentos diferentes en 2023. *** Proveedor ***
 
 
-36. Total de medicamentos vendidos en el primer trimestre de 2023. ***  ***
+36. Total de medicamentos vendidos en el primer trimestre de 2023. *** Venta ***
 
 
-37. Empleados que no realizaron ventas en abril de 2023. ***  ***
+37. Empleados que no realizaron ventas en abril de 2023. *** Venta ***
 
 
-38. Medicamentos con un precio mayor a 50 y un stock menor a 100. ***  ***
+38. Medicamentos con un precio mayor a 50 y un stock menor a 100. *** Medicamento ***
 

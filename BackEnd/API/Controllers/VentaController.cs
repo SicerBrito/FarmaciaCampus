@@ -102,6 +102,38 @@ namespace API.Controllers;
             return Ok(ventasPorEmpleado);
         }
 
+        //! Consulta Nro.26
+        [HttpGet("totalMedicamentosVendidosPorMesEn2023")]
+        public async Task<ActionResult<Dictionary<string, int>>> ObtenerTotalMedicamentosVendidosPorMesEn2023()
+        {
+            var totalMedicamentosVendidosPorMesEn2023 = await _UnitOfWork.Ventas!.ObtenerTotalMedicamentosVendidosPorMesEn2023();
+            return Ok(totalMedicamentosVendidosPorMesEn2023);
+        }
+
+        //! Consulta Nro.27
+        [HttpGet("empleadosConMenosDe5VentasEn2023")]
+        public async Task<ActionResult<List<Empleado>>> ObtenerEmpleadosConMenosDe5VentasEn2023()
+        {
+            var empleadosConMenosDe5VentasEn2023 = await _UnitOfWork.Ventas!.ObtenerEmpleadosConMenosDe5VentasEn2023();
+            return Ok(empleadosConMenosDe5VentasEn2023);
+        }
+
+        //! Consulta Nro.36
+        [HttpGet("totalMedicamentosVendidosPrimerTrimestre2023")]
+        public async Task<ActionResult<int>> ObtenerTotalMedicamentosVendidosPrimerTrimestre2023()
+        {
+            var totalMedicamentosVendidos = await _UnitOfWork.Ventas!.ObtenerTotalMedicamentosVendidosPrimerTrimestre2023();
+            return Ok(totalMedicamentosVendidos);
+        }
+
+        //! Consulta Nro.37
+        [HttpGet("empleadosSinVentasAbril2023")]
+        public async Task<ActionResult<List<Empleado>>> ObtenerEmpleadosSinVentasAbril2023()
+        {
+            var empleadosSinVentas = await _UnitOfWork.Ventas!.ObtenerEmpleadosSinVentasAbril2023();
+            return Ok(empleadosSinVentas);
+        }
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

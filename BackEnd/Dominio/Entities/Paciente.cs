@@ -9,5 +9,4 @@ namespace Dominio.Entities;
       public Genero ? Generos { get; set; }
       public ICollection<HistorialMedico> ? HistorialesMedicos { get; set; }
       public ICollection<FormulaMedica> ? FormulasMedicas { get; set; }
-   
-   }
+}

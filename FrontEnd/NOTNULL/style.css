@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&display=swap');
+/*general*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
+/*cuerpo*/
+body{
+    background-color: white;
+    margin: 5px;
+}
+/*encabezado*/
+header{
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10px;
+}
+/*logo*/
+header .logo{
+    cursor: pointer;
+}
+header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+    padding: 10px;
+}
+header .logo img:hover{
+    transform: scale(1.2);
+}
+/*links*/
+.nav-menu{
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+.nav-menu:hover{
+    background-color: #140733;
+    ;
+    border-radius: 15px;
+    color: white;
+}
+.nav-links{
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+ /* align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+
+}
+header .nav-links{
+    list-style:none
+    
+}
+header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+}
+header .nav-links li:hover{
+    transform: scale(1.1);
+
+}
+header .nav-links a{
+    font-size: 700;
+    color: black;
+    text-decoration: none;
+}
+header .nav-links li a:hover{
+    color: rgb(255, 255, 255)
+}
+/*boton navbar*/
+header .ingresar button{
+    background-color: #4F88FF;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+header .ingresar button:hover{
+    background-color: #09A0FE;
+    color: black;
+    transform: scale(1.1);
+}
+/*info principal*/
+p{
+    padding: 5px;
+    background-color: #140733;
+    color: white;
+    
+}
+/*imagen doctora*/
+.container.doctora{
+    display: block;
+}
+.doctora{
+    float: right;
+    align-content: flex-end;
+    height: auto;
+    margin-right: 400px;
+}
+/*texto principal*/
+.text{
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+section .btn{
+    background-color: #4F88FF;
+    border-radius: 150px;
+    padding: 10px 15px;
+    border: none;
+    transition: all 0.3s ease 0s;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+footer.footer{
+    display: inline block;
+    align-content: flex-end;
+    justify-content: center;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+}
+.info-footer li{
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 0 10px;
+}
+.info-footer a{
+    font-size: 700;
+    color: black;
+    text-decoration: none;
+}
+h1{ font-size: 2em; }
+h3{ font-size: 1.25em; }
+h5{ font-size: 1.25em; }
+/*enter your email*/
+footer button{
+    font-size: 1em;
+    color: black;
+    background-color: #4F88FF;
+    padding: 20px;
+    border-radius: 35px;
+    border: 30px;
+    cursor: pointer;
+    justify-content:end;
+}
+
+button:hover{
+    background-color: #09A0FE;
+    color: rgb(255, 255, 255);
+}
+
+.ultimo{
+    background-color: #140733;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    bottom: 0;
+    font-size: small;
+    justify-content: center;
+    color: white;
+}

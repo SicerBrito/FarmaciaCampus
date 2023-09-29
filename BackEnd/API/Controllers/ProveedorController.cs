@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using API.Dtos;
 using API.Helpers;
 using AutoMapper;
@@ -58,6 +60,53 @@ namespace API.Controllers;
         {
             var proveedores = await _UnitOfWork.Proveedores!.ObtenerProveedoresQueNoHanVendidoEnUltimoAnio();
             return Ok(proveedores);
+        }
+
+        //! Consulta Nro.24
+        [HttpGet("proveedorConMasSuministrosEn2023")]
+        public async Task<ActionResult<Proveedor>> ObtenerProveedorConMasSuministrosEn2023()
+        {
+            var proveedorConMasSuministros = await _UnitOfWork.Proveedores!.ObtenerProveedorConMasSuministrosEn2023();
+
+            if (proveedorConMasSuministros != null)
+            {
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve,
+                    // Puedes agregar otras opciones si es necesario
+                };
+
+                var json = JsonSerializer.Serialize(proveedorConMasSuministros, jsonOptions);
+                return Content(json, "application/json");
+            }
+            else
+            {
+                return NotFound(); // Puedes manejar el caso donde no se encuentra ningún proveedor.
+            }
+        }
+
+        //! Consulta Nro.28
+        [HttpGet("numeroProveedoresSuministraronEn2023")]
+        public async Task<ActionResult<int>> ObtenerNumeroProveedoresSuministraronMedicamentosEn2023()
+        {
+            var numeroProveedoresEn2023 = await _UnitOfWork.Proveedores!.ObtenerNumeroProveedoresSuministraronMedicamentosEn2023();
+            return Ok(numeroProveedoresEn2023);
+        }
+
+        //! Consulta Nro.29
+        [HttpGet("proveedoresDeMedicamentosConStockBajo")]
+        public async Task<ActionResult<List<Proveedor>>> ObtenerProveedoresDeMedicamentosConStockBajo()
+        {
+            var proveedoresDeMedicamentosConStockBajo = await _UnitOfWork.Proveedores!.ObtenerProveedoresDeMedicamentosConStockBajo();
+            return Ok(proveedoresDeMedicamentosConStockBajo);
+        }
+
+        //! Consulta Nro.35
+        [HttpGet("proveedoresCon5MedicamentosEn2023")]
+        public async Task<ActionResult<List<Proveedor>>> ObtenerProveedoresCon5MedicamentosEn2023()
+        {
+            var proveedoresCon5Medicamentos = await _UnitOfWork.Proveedores!.ObtenerProveedoresCon5MedicamentosDiferentesEn2023();
+            return Ok(proveedoresCon5Medicamentos);
         }
 
         [HttpPost]

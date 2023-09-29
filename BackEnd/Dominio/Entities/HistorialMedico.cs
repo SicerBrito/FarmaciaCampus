@@ -8,5 +8,5 @@ namespace Dominio.Entities;
       public string ? Diagnostico { get; set; }
       public string ? Tratamiento { get; set; }
       public string ? Observaciones { get; set; }
-   
-   }
+
+}

@@ -33,6 +33,32 @@ public class EmpleadoRepository : GenericRepository<Empleado>, IEmpleado
 
         return empleadosConMasDe5Ventas;
     }
+
+    //! Consulta Nro.23
+    public async Task<List<Empleado>> ObtenerEmpleadosSinVentasEn2023()
+    {
+        var empleadosSinVentasEn2023 = await _Context.Empleados!
+            .Where(e => !e.Ventas!.Any(v => v.FechaVenta.Year == 2023))
+            .ToListAsync();
+
+        return empleadosSinVentasEn2023;
+    }
+
+    //! Consulta Nro.32
+    public async Task<Empleado> ObtenerEmpleadoMayorCantidadMedicamentosVendidosEn2023()
+    {
+        var empleadoConMayorCantidad = await _Context.Empleados!
+            .Where(e => e.Ventas!.Any(v => v.FechaVenta.Year == 2023))
+            .OrderByDescending(e => e.Ventas!
+                .Where(v => v.FechaVenta.Year == 2023)
+                .SelectMany(v => v.MedicamentosVendidos!)
+                .Select(mv => mv.MedicamentoId)
+                .Distinct()
+                .Count())
+            .FirstOrDefaultAsync();
+
+        return empleadoConMayorCantidad!;
+    }
     
 
     public async Task<Empleado> GetByCargoAsync(string cargo)

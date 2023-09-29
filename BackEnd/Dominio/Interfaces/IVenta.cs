@@ -24,5 +24,17 @@ namespace Dominio.Interfaces;
         //! Consulta Nro.18
         Task<Dictionary<string, int>> ObtenerCantidadVentasPorEmpleadoEn2023();
 
+        //! Consulta Nro.26
+        Task<Dictionary<string, int>> ObtenerTotalMedicamentosVendidosPorMesEn2023();
+
+        //! Consulta Nro.27
+        Task<List<Empleado>> ObtenerEmpleadosConMenosDe5VentasEn2023();
+
+        //! Consulta Nro.36
+        Task<int> ObtenerTotalMedicamentosVendidosPrimerTrimestre2023();
+
+        //! Consulta Nro.37
+        Task<List<Empleado>> ObtenerEmpleadosSinVentasAbril2023();
+
     }
 

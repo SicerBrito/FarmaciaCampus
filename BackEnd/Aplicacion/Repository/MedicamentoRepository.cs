@@ -133,6 +133,53 @@ public class MedicamentoRepository : GenericRepository<Medicamento>, IMedicament
         return medicamentosNuncaVendidos;
     }
 
+    //! Consulta Nro.31
+    public async Task<Dictionary<string, List<Medicamento>>> ObtenerMedicamentosVendidosPorMesEn2023()
+    {
+        var medicamentosPorMes = new Dictionary<string, List<Medicamento>>();
+
+        for (int mes = 1; mes <= 12; mes++)
+        {
+            var nombreMes = new DateTime(2023, mes, 1).ToString("MMMM");
+            var medicamentosVendidosEnMes = await _Context.Medicamentos!
+                .Where(m => _Context.MedicamentosVendidos!
+                    .Any(mv => mv.MedicamentoId == m.Id && mv.Ventas!.FechaVenta.Year == 2023 && mv.Ventas.FechaVenta.Month == mes))
+                .ToListAsync();
+
+            medicamentosPorMes[nombreMes] = medicamentosVendidosEnMes;
+        }
+
+        return medicamentosPorMes;
+    }
+
+    //! Consulta Nro.34
+    public async Task<List<Medicamento>> ObtenerMedicamentosNoVendidosEn2023()
+    {
+        var medicamentosNoVendidosEn2023 = await _Context.Medicamentos!
+            .Where(m => !m.MedicamentosVendidos!.Any(v => v.Ventas!.FechaVenta.Year == 2023))
+            .ToListAsync();
+
+        return medicamentosNoVendidosEn2023;
+    }
+
+    //! Consulta Nro.38
+    public async Task<List<Medicamento>> ObtenerMedicamentosPrecioStock()
+    {
+        var medicamentos = await _Context.Medicamentos!
+            .Where(m => 
+                m.ValorUnidad != null)
+            .ToListAsync();
+
+        var medicamentosFiltrados = medicamentos
+            .Where(m => 
+                double.TryParse(m.ValorUnidad, out double valorUnidad) && 
+                valorUnidad > 50 && 
+                m.Stock < 100)
+            .ToList();
+
+        return medicamentosFiltrados;
+    }
+
     public async Task<Medicamento> GetByCategoriaMedicamentoAsync(string categoriaMedicamento)
     {
         return (await _Context.Set<Medicamento>()

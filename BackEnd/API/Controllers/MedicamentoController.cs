@@ -162,6 +162,37 @@ namespace API.Controllers;
             return Ok(medicamentosNuncaVendidos);
         }
 
+        //! Consulta Nro.31
+        [HttpGet("medicamentosVendidosPorMesEn2023")]
+        public async Task<ActionResult<Dictionary<string, List<Medicamento>>>> ObtenerMedicamentosVendidosPorMesEn2023()
+        {
+            var medicamentosPorMes = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosVendidosPorMesEn2023();
+            return Ok(medicamentosPorMes);
+        }
+
+        //! Consulta Nro.34
+        [HttpGet("medicamentosNoVendidosEn2023")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosNoVendidosEn2023()
+        {
+            var medicamentosNoVendidos = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosNoVendidosEn2023();
+            return Ok(medicamentosNoVendidos);
+        }
+
+        //! Consulta Nro.38
+        [HttpGet("MedicamentosPrecioStock")]
+        public async Task<ActionResult<List<Medicamento>>> ObtenerMedicamentosPrecioStock()
+        {
+            var medicamentos = await _UnitOfWork.Medicamentos!.ObtenerMedicamentosPrecioStock();
+            
+            if (medicamentos == null || medicamentos.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(medicamentos);
+        }
+
+
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
