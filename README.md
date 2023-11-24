@@ -22,15 +22,4 @@ dotnet ef migrations add InitialCreate --project ./Persistencia/ --startup-proje
 dotnet ef database update --project ./Persistencia/ --startup-project ./API/
 
 
-# Ejemplo Tabla: Direcciones
-
-| ID   | Nombre         | Apellido       | Tipo de Dirección | Dirección       | Ciudad         | Código Postal | País           | Teléfono        | Correo Electrónico   |
-|------|----------------|----------------|-------------------|-----------------|----------------|---------------|----------------|-----------------|----------------------|
-| 1    | Juan           | Pérez          | Residencial       | Calle 123 #456  | Ciudad A       | 12345         | País A         | +1234567890     | juan@example.com     |
-| 2    | María          | López          | Comercial         | Av. Principal   | Ciudad B       | 54321         | País B         | +9876543210     | maria@example.com    |
-| 3    | Pedro          | Gómez          | Residencial       | Calle 456 #789  | Ciudad C       | 67890         | País C         | +1122334455     | pedro@example.com    |
-| 4    | Pepito         | Suarez         | Oficina Principal | Oficina 101     | Ciudad D       | 98765         | País D         | +5556667777     | info@empresaXYZ.com  |
-| 5    | Juanito        | Gonzales       | Sucursal          | Sucursal 2      | Ciudad E       | 23456         | País E         | +3334445555     | info@empresaABC.com  |
-
-
 ---
