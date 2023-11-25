@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS FarmaciaCampusMysql;
+CREATE DATABASE IF NOT EXISTS FarmaciaCampusMysql;
+USE FarmaciaCampusMysql;
+
 -- Tabla CargoEmpleado
 CREATE TABLE CargoEmpleado (
     Id INT PRIMARY KEY,
